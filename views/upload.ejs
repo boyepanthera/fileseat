@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>
+            Upload page
+        </title>
+    </head>
+    <body>
+        <form method='POST' action='/api/v1/file/upload' enctype='multipart/form-data'>
+            <input name='receipientEmail' placeholder="receiver email">
+            <input name='senderEmail' placeholder="sender email">
+            <textarea name='message'>
+            </textarea>  
+            <input type='file' name='file'>
+            <button type='submit'>
+                Send File
+            </button>
+        </form>
+    </body>
+</html>
