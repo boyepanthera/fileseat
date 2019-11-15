@@ -24,4 +24,3 @@ yarn-error.log*
 drive
 norm-drive
 credentials.json
-.env
