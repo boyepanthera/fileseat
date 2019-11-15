@@ -12,9 +12,6 @@ import {
 } from '@material-ui/core'; 
 
 const SharingForm = ()=> {
-    const [file, setFile] = useState(null);
-    const log =value=> console.log(value)
-
     const handleSubmit = (values)=> {
       console.log(values)
       axios.post('http://localhost:3001/api/v1/file/new', values)
@@ -43,6 +40,7 @@ const SharingForm = ()=> {
                 )=> (
                   <Form className='SharingForm' onSubmit={handleSubmit} >
                     <Typography variat='h4' className='text-center form-header' component='h4'>TRANSFER FILES</Typography>
+                    <hr/>
                     <div className='form-group'>
                       <label htmlFor='receipientEmail'>Send file to this email:</label>
                       <Field type='email' className='form-control' name='receipientEmail' id='receipientEmail'/>
@@ -62,7 +60,7 @@ const SharingForm = ()=> {
                               setFieldValue('file', event.currentTarget.files[0])
                             }}/>
                       {/* </CloudUpload> */}
-                   
+                   <hr />
                     <div className='form-group'>
                       <button type='submit' onClick={handleSubmit} className='btn btn-primary col Transfer-Button'>Transfer</button>
                     </div>
@@ -70,7 +68,6 @@ const SharingForm = ()=> {
                 )
               }
             </Formik>
-        
     )
 }
 

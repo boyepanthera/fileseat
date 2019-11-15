@@ -1,6 +1,7 @@
 
 .SharingForm {
-    width: 333px;
+    min-width: 333px;
+    width: 20%;
     height: 521px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
