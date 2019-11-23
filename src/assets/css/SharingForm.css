@@ -12,6 +12,9 @@
     padding: 1%;
 }
 
+.labels {
+    font: Semilight 25px/33px Segoe UI;
+}
 .form-header { 
     font: Semilight 25px/33px Segoe UI;
     letter-spacing: 0;

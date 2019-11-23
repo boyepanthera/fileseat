@@ -42,7 +42,7 @@ const SharingForm = ()=> {
                     <Typography variat='h4' className='text-center form-header' component='h4'>TRANSFER FILES</Typography>
                     <hr/>
                     <div className='form-group'>
-                      <label htmlFor='receipientEmail'>Send file to this email:</label>
+                      <label htmlFor='receipientEmail'>Send files to this email:</label>
                       <Field type='email' className='form-control' name='receipientEmail' id='receipientEmail'/>
                     </div>
                     <div  className='form-group'>
