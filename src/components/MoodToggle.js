@@ -41,7 +41,7 @@ const MoodToggle = ()=> {
   return (
     <div className="App">
       <div>
-      <FormControl className={classes.formControl}>
+      <FormControl className ={classes.formControl}>
         <InputLabel htmlFor="position">Position</InputLabel>
         <Select
           value={number}

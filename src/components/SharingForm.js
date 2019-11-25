@@ -40,9 +40,8 @@ const SharingForm = ()=> {
                 )=> (
                   <Form className='SharingForm' onSubmit={handleSubmit} >
                     <Typography variat='h4' className='text-center form-header' component='h4'>TRANSFER FILES</Typography>
-                    <hr/>
                     <div className='form-group'>
-                      <label htmlFor='receipientEmail'>Send files to this email:</label>
+                      <label htmlFor='receipientEmail' className='labels'>Send files to this email:</label>
                       <Field type='email' className='form-control' name='receipientEmail' id='receipientEmail'/>
                     </div>
                     <div  className='form-group'>
@@ -51,7 +50,7 @@ const SharingForm = ()=> {
                     </div>
                     <div  className='form-group'>
                       <label htmlFor='message'>Message:</label>
-                      <Field name='message' className='form-control' id='message' component='textarea'/>
+                      <Field name='message' className='form-control Form-Input' id='message' component='textarea'/>
                       
                     </div>
                   
@@ -60,10 +59,7 @@ const SharingForm = ()=> {
                               setFieldValue('file', event.currentTarget.files[0])
                             }}/>
                       {/* </CloudUpload> */}
-                   <hr />
-                    <div className='form-group'>
-                      <button type='submit' onClick={handleSubmit} className='btn btn-primary col Transfer-Button'>Transfer</button>
-                    </div>
+                      <button type='submit' onClick={handleSubmit} className=' Transfer-Button btn btn-primary col' id = ''>Transfer</button>
                   </Form>
                 )
               }

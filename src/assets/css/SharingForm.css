@@ -9,7 +9,11 @@
     opacity: 1;
     margin-left: 88px;
     margin-top: 189px;
-    padding: 1%;
+    padding: 30px;
+}
+
+.Form-Input {
+    height: 48px;
 }
 
 .labels {
@@ -35,7 +39,6 @@
 }
 
 .Transfer-Button { 
-    background-color: #0540FF 0% 0% no-repeat padding-box;
-    border-radius: 23px;
+    border-radius: 50px !important;
     opacity: 1;
 }
