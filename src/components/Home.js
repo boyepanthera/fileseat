@@ -1,10 +1,16 @@
 import React from 'react';
 import SharingForm from '../components/SharingForm';
-
+import Navbar from './Navbar';
+import {Router} from 'react-router-dom';
 
 const Home = ()=> {
     return (
-      <SharingForm/>
+      <>
+      <Router>
+        <Navbar/>
+        <SharingForm/> 
+      </Router>
+      </>
     )
 }
 
