@@ -1,4 +1,10 @@
 .Navbar {
     margin-left: 88px;
     margin-top:50px;
+    
+}
+
+
+.NavLink {
+    font: Bold 35px/47px Segoe UI;
 }
