@@ -1,14 +1,16 @@
 import React from 'react';
 import SharingForm from '../components/SharingForm';
 import Navbar from './Navbar';
-import {Router} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 const Home = ()=> {
     return (
       <>
       <Router>
         <Navbar/>
-        <SharingForm/> 
+        <Switch>
+          <Route exact path ='/' component={SharingForm} />         
+        </Switch>
       </Router>
       </>
     )

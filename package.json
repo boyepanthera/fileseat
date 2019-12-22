@@ -1,7 +1,6 @@
 {
   "name": "fileseat",
   "version": "0.1.0",
-  "proxy": "http://localhost:3001",
   "description": "A Filesharing App",
   "license": "MIT",
   "author": "Olanrewaju A. Olaboye",

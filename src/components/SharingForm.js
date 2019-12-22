@@ -15,7 +15,9 @@ import {
 const SharingForm = ()=> {
     const handleSubmit = (values)=> {
       console.log(values)
-      axios.post('http://localhost:3001/api/v1/file/new', values, {headers: {"Accept": "multipart/form-data"}})
+      axios.post('http://localhost:3001/api/v1/file/new', values, {
+        headers: {"Accept": "multipart/form-data"}
+      })
       .then (response=> console.log(response))
     }  
 
