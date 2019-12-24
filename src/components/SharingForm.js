@@ -22,7 +22,9 @@ const SharingForm = ()=> {
     }  
 
     return ( 
-            <Formik 
+            <div className='row'>
+              <div className='col-12'>
+              <Formik 
             onSubmit={handleSubmit}
             initialValues = {{
               receipientEmail : '', message: '',
@@ -40,7 +42,7 @@ const SharingForm = ()=> {
                   handleSubmit,
                   isSubmitting, setFieldValue
                 }
-                )=> (
+                )=> (              
                   <Form className='SharingForm' onSubmit={handleSubmit} >
                     <Typography variat='h2' className='text-center form-header' component='h2'>TRANSFER FILES</Typography>
                     <div className='form-group'>
@@ -55,20 +57,25 @@ const SharingForm = ()=> {
                       <label htmlFor='message'>Message:</label>
                       <Field name='message' className='Message-Input form-control' row='5' id='message' component='textarea'/>
                     </div>
-                    <div className='form-group '>
-                        <label className='Upload-Div' htmlFor='file'> 
-                          <input type='file' style={{display:'none'}} id='file' name='file' onChange={(event) => {
-                              setFieldValue('file', event.currentTarget.files[0])
-                            }} multiple />
-                          <div className='text-center'><CloudUpload >
-                          </CloudUpload><p>Drag and drop here or browse files</p></div>
-                        </label>
-                    </div>
+                    <Dropzone>
+                      <div className='form-group '>
+                          <label className='Upload-Div' htmlFor='file'> 
+                            <input type='file' style={{display:'none'}} id='file' name='file' onChange={(event) => {
+                                setFieldValue('file', event.currentTarget.files[0])
+                              }} multiple />
+                            <div className='text-center'><CloudUpload >
+                            </CloudUpload><p>Drag and drop here or browse files</p></div>
+                          </label>
+                      </div>
+                    </Dropzone>            
                     <button type='submit' onClick={handleSubmit} className='Transfer-Button col'>Transfer</button>
                   </Form>
+                
                 )
               }
             </Formik>
+              </div>
+            </div>
     )
 }
 
