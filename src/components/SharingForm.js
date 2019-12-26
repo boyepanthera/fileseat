@@ -11,6 +11,7 @@ import {
   FormControl, 
   MenuItem , Grid
 } from '@material-ui/core'; 
+import DropMessage from './DropMessage';
 
 const SharingForm = ()=> {
     const handleSubmit = (values)=> {
@@ -84,7 +85,8 @@ const SharingForm = ()=> {
                             } else if (files.values.length===0) {
                               return 'Drag and drop files here or click to browse files'
                             }
-                            return values.files.map((file, i) => <p>{file}</p>)
+                            return values.files.map((file, i) =>
+                            <DropMessage file={file} key = {i} /> )
                           }
                         }
                     </Dropzone>
