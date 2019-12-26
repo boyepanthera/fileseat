@@ -4,6 +4,7 @@ import {Formik, Form, Field} from 'formik';
 import '../assets/css/SharingForm.css';
 import {CloudUpload} from '@material-ui/icons';
 import Dropzone from 'react-dropzone';
+import DropMessage from '../components/DropMessage.js'
 import { 
   Typography, InputLabel, 
   makeStyles, Select, 
@@ -11,7 +12,6 @@ import {
   FormControl, 
   MenuItem , Grid
 } from '@material-ui/core'; 
-import DropMessage from './DropMessage';
 
 const SharingForm = ()=> {
     const handleSubmit = (values)=> {
@@ -82,7 +82,7 @@ const SharingForm = ()=> {
                               return 'This file is allowed'
                             }  else if (isDragReject){
                               return 'This file extension is not allowed'
-                            } else if (files.values.length===0) {
+                            } else if (values.files.length===0) {
                               return 'Drag and drop files here or click to browse files'
                             }
                             return values.files.map((file, i) =>

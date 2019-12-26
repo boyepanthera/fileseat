@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React , {useState, useEffect} from 'react';
 
 
  const DropMessage = (props)=> {
@@ -9,17 +9,17 @@ import React , {useState} from 'react';
         if(!props.file){ 
             return null
         } 
-        setLoading(true);
-        ()=> {
+        
+            setLoading(true);
             let reader =  new FileReader();
             reader.onloadend = ()=> {
                 setLoading(false)
             }
             reader.readAsDataURL(props.file);
-        }
+        
          },[props.file])
     return (
-    <p>{file.name}</p>
+        <p>{file.name}</p>
     )
 }
 
