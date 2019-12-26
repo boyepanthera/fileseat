@@ -84,7 +84,7 @@ const SharingForm = ()=> {
                             } else if (files.values.length===0) {
                               return 'Drag and drop files here or click to browse files'
                             }
-                            return values.files.map((file, i) => (<p key={i} file={file} />));
+                            return values.files.map((file, i) => <p>{file}</p>)
                           }
                         }
                     </Dropzone>
