@@ -4,11 +4,13 @@ import '../assets/css/Navbar.css';
 const Navbar =  ()=>  {
     return (
         <nav className='Navbar'>
-            <NavLink className='NavLink' to='/'>FS</NavLink>  
+            <div>                
+                <NavLink className='NavLink text-white' to='/'>FS</NavLink>  
+            </div>
             <div>
-            <NavLink>SignIn</NavLink>                  
-            <NavLink>About</NavLink>                  
-            <NavLink>Help</NavLink> 
+                <NavLink className='text-white m-1' to='/auth'><button className='bg-white'>SignIn</button></NavLink>                  
+                <NavLink className='text-white m-1' to='/about'>About</NavLink>                  
+                <NavLink className='text-white m-1' to='/help'>Help</NavLink> 
             </div>                 
         </nav>
     )
