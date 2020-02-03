@@ -45,11 +45,11 @@ const SharingForm = ()=> {
                     </div>
                     <div  className='form-group'>
                         <label htmlFor='senderEmail' className='block text-gray-700 text-sm font-bold mb-2'>Your email:</label>
-                        <Field type='email' className='shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline border-gray-400 ' name='senderEmail' id='senderEmail' />
+                        <Field type='email' className='shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline border-gray-400 ' name='senderEmail' id='senderEmail' />
                     </div>
                     <div  className='mb-6'>
                         <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='message'>Message:</label>
-                        <Field name='message' className=' border-gray-400 appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none' row='7' id='message' component='textarea'/>
+                        <Field name='message' className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-gray-400 ' row='7' id='message' component='textarea'/>
                     </div>
                     <button type='submit' onClick={handleSubmit} className='bg-blue-700 rounded-lg text-white font-bold p-2'>Transfer</button>
                   </Form>     
