@@ -8,9 +8,9 @@ const Navbar =  ()=>  {
                 <NavLink className='NavLink text-white font-bold' to='/'>FS</NavLink>  
             </div>
             <div>
-                <NavLink className='-m-1' to='/about'><button className='bg-white rounded-l-lg font-bold px-2 py-1'>About</button></NavLink>                  
-                <NavLink className='-m-1' to='/auth'><button className='bg-white font-bold px-2 py-1'>SignIn</button></NavLink>                  
-                <NavLink className='-m-1' to='/help'><button className='bg-white font-bold px-2 py-1 rounded-r-lg'>Help</button></NavLink> 
+                <NavLink className='border-gray-600 border-r-2' to='/about'><button className='bg-white rounded-l-lg font-bold px-2 py-1  '>About</button></NavLink>                  
+                <NavLink className='' to='/auth'><button className='bg-white font-bold px-2 py-1'>SignIn</button></NavLink>                  
+                <NavLink className='border-gray-600 border-l-2' to='/help'><button className='bg-white font-bold px-2 py-1 rounded-r-lg '>Help</button></NavLink> 
             </div>                 
         </nav>
     )

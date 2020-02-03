@@ -35,7 +35,7 @@ const SharingForm = ()=> {
                   isSubmitting, setFieldValue
                 }
                 )=> (              
-                    <Form className='rounded-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 my-20' onSubmit={handleSubmit} >
+                    <Form className='rounded-lg bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 my-20' onSubmit={handleSubmit} >
                     <div>
                         <Typography variat='h2' className='text-center my-10' component='h2'>TRANSFER FILES</Typography>
                     </div>
