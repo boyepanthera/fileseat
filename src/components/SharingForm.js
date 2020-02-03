@@ -6,7 +6,6 @@ import {CloudUpload} from '@material-ui/icons';
 import Dropzone from 'react-dropzone';
 import DropMessage from '../components/DropMessage.js'
 import {Typography} from '@material-ui/core'; 
-
 const SharingForm = ()=> {
     const handleSubmit = (values)=> {
       console.log(values)

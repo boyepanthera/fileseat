@@ -1,11 +1,15 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import '../assets/css/Navbar.css';
-
 const Navbar =  ()=>  {
     return (
         <nav className='Navbar'>
-            <NavLink className='navbar-brand text-light NavLink display-4' to='/'>FS</NavLink>                    
+            <NavLink className='NavLink' to='/'>FS</NavLink>  
+            <div>
+            <NavLink>SignIn</NavLink>                  
+            <NavLink>About</NavLink>                  
+            <NavLink>Help</NavLink> 
+            </div>                 
         </nav>
     )
 }
