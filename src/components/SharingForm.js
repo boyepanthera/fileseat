@@ -37,21 +37,23 @@ const SharingForm = ()=> {
                 )=> (              
                     <Form className='rounded-lg bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 my-20' onSubmit={handleSubmit} >
                     <div>
-                        <Typography variat='h2' className='text-center my-10' component='h2'>TRANSFER FILES</Typography>
+                        <Typography variat='h2' className='text-center my-10 text-2xl' component='h2'>TRANSFER FILES</Typography>
                     </div>
                     <div className='mb-4'>
                         <label htmlFor='receipientEmail' className='block text-gray-700 text-sm font-bold mb-2 mt-8'>Send files to this email:</label>
-                        <Field type='email' className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-gray-400 ' name='receipientEmail' id='receipientEmail'/>
+                        <Field type='email' className='bg-gray-100 focus:bg-white shadow-sm appearance-none border-b-2  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-500 ' name='receipientEmail' id='receipientEmail'/>
                     </div>
-                    <div  className='form-group'>
+                    <div  className=''>
                         <label htmlFor='senderEmail' className='block text-gray-700 text-sm font-bold mb-2'>Your email:</label>
-                        <Field type='email' className='shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline border-gray-400 ' name='senderEmail' id='senderEmail' />
+                        <Field type='email' className='bg-gray-100 focus:bg-white shadow-sm appearance-none border-b-2 w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline border-blue-500 ' name='senderEmail' id='senderEmail' />
                     </div>
                     <div  className='mb-6'>
                         <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='message'>Message:</label>
-                        <Field name='message' className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-gray-400 ' row='7' id='message' component='textarea'/>
+                        <Field name='message' className='bg-gray-100 focus:bg-white shadow-sm appearance-none border-b-2 border-blue-500  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' row='7' id='message' component='textarea'/>
                     </div>
-                    <button type='submit' onClick={handleSubmit} className='bg-blue-700 rounded-lg text-white font-bold p-2'>Transfer</button>
+                    <div className='border-dashed border-gray-600 border-2 h-20 mb-4'>
+                    </div>
+                    <button type='submit' onClick={handleSubmit} className='rounded-full shadow-lg w-full bg-blue-700 rounded-lg text-white font-bold p-2'>Transfer</button>
                   </Form>     
                 )
               }

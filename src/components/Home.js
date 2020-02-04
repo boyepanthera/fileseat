@@ -8,7 +8,7 @@ const Home = ()=> {
     return (
       <>
       <Router>
-      <div  className='m-20'>
+      <div  className='my-12 mx-20'>
         <Navbar/>
           <Switch>
             <Route exact path ='/' component={SharingForm} />         
