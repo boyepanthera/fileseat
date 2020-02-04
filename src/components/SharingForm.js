@@ -14,7 +14,7 @@ const SharingForm = ()=> {
     }  
 
     return ( 
-      <div className='w-full max-w-sm container min-w-xs'>
+      <div className='w-full max-w-sm container min-w-sm'>
               <Formik 
             onSubmit={handleSubmit}
             initialValues = {{
