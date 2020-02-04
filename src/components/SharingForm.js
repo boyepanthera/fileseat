@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import axios from 'axios';
 import {Formik, Form, Field} from 'formik';
-import {CloudUpload} from '@material-ui/icons';
-import Dropzone from 'react-dropzone';
+// import {CloudUpload} from '@material-ui/icons';
+// import Dropzone from 'react-dropzone';
 
 const SharingForm = ()=> {
     const handleSubmit = (values)=> {
@@ -14,7 +14,7 @@ const SharingForm = ()=> {
     }  
 
     return ( 
-      <div className='min-w-sm container w-1/4'>
+      <div className='min-w-sm sm:mx-2 container w-1/4'>
               <Formik 
             onSubmit={handleSubmit}
             initialValues = {{
@@ -50,7 +50,7 @@ const SharingForm = ()=> {
                         <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='message'>Message:</label>
                         <Field name='message' className='bg-gray-100 focus:bg-white shadow-sm appearance-none border-b-2 border-blue-500  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' row='7' id='message' component='textarea'/>
                     </div>
-                    <div className='border-dashed border-gray-600 border-2 h-20 mb-4'>
+                    <div className='border-dashed border-gray-600 border-2 h-24 mb-4'>
                     </div>
                     <button type='submit' onClick={handleSubmit} className='rounded-full shadow-lg w-full bg-indigo-700 rounded-lg text-white font-bold p-2'>Transfer</button>
                   </Form>     
