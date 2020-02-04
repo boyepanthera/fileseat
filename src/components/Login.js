@@ -28,7 +28,7 @@ const Login = ()=> {
                 onSubmit={values=> console.log(values)}
                 >
                 {props => (
-                    <Form className='w-full max-w-sm rounded-lg bg-white p-12 my-20 shadow-lg'>
+                    <Form className='w-full max-w-sm rounded-lg bg-white px-12 py-8 my-20 shadow-lg'>
                         <h1 className='text-center text-2xl font-extrabold mb-4'>Welcome Back</h1>
                         <div className='text-center font-bold'>Login to your account</div>
                         <div className='mb-4 mt-12'>
