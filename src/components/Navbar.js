@@ -6,7 +6,7 @@ const Navbar =  ()=>  {
         // <nav className='justify-between'>
             <div className='flex justify-between'>
                 <div className='w-1/2'>
-                    <NavLink className='NavLink text-white font-extrabold' to='/'>FS</NavLink>
+                    <NavLink className='text-white font-extrabold tracking-wider text-4xl' to='/'>FS</NavLink>
                 </div>
                 <div className='w-1/2 mt-4'>
                     <div className='float-right mr-10'>

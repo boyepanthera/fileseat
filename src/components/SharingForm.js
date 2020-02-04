@@ -3,7 +3,6 @@ import axios from 'axios';
 import {Formik, Form, Field} from 'formik';
 import {CloudUpload} from '@material-ui/icons';
 import Dropzone from 'react-dropzone';
-import {Typography} from '@material-ui/core'; 
 
 const SharingForm = ()=> {
     const handleSubmit = (values)=> {
@@ -37,7 +36,7 @@ const SharingForm = ()=> {
                 )=> (              
                     <Form className='rounded-lg bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 my-20' onSubmit={handleSubmit} >
                     <div>
-                        <Typography variat='h2' className='text-center my-10 text-2xl' component='h2'>TRANSFER FILES</Typography>
+                        <h3 className='text-center text-xl font-bold tracking-normal'>TRANSFER FILES</h3>
                     </div>
                     <div className='mb-4'>
                         <label htmlFor='receipientEmail' className='block text-gray-700 text-sm font-bold mb-2 mt-8'>Send files to this email:</label>
@@ -53,7 +52,7 @@ const SharingForm = ()=> {
                     </div>
                     <div className='border-dashed border-gray-600 border-2 h-20 mb-4'>
                     </div>
-                    <button type='submit' onClick={handleSubmit} className='rounded-full shadow-lg w-full bg-blue-700 rounded-lg text-white font-bold p-2'>Transfer</button>
+                    <button type='submit' onClick={handleSubmit} className='rounded-full shadow-lg w-full bg-indigo-700 rounded-lg text-white font-bold p-2'>Transfer</button>
                   </Form>     
                 )
               }
