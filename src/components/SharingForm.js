@@ -52,7 +52,7 @@ const SharingForm = ()=> {
                     </div>
                     <div className='border-dashed border-gray-600 border-2 h-24 mb-4'>
                     </div>
-                    <button type='submit' onClick={handleSubmit} className='rounded-full shadow-lg w-full bg-indigo-700 rounded-lg text-white font-bold p-2'>Transfer</button>
+                    <button type='submit' onClick={handleSubmit} className='hover:bg-indigo-500 rounded-full shadow-lg w-full bg-indigo-700 rounded-lg text-white font-bold p-2'>Transfer</button>
                   </Form>     
                 )
               }
