@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 import '../assets/css/Navbar.css';
 const Navbar =  ()=>  {
     return (
-            <div className='flex justify-between'>
+        <div className='flex justify-between'>
                 <div className='w-1/2'>
                     <NavLink className='text-white font-extrabold tracking-wider text-4xl' to='/'>FS</NavLink>
                 </div>

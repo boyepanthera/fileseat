@@ -4,6 +4,7 @@ import LoginPicture from '../assets/images/ThreeHappyFriends.jpg';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 import {Link} from 'react-router-dom';
+import Navbar from './Navbar';
 
 const ErrMessage = styled.div`
     color:  red
@@ -15,12 +16,11 @@ const LoginSchema = Yup.object().shape({
     .min(8, 'Your password cannot be fewer than 8 characters')
 })
 
-
 const Login = ()=> {
     return (
-
         <div className='h-full'>
-            <div className='w-1/2 m-0'>
+            <Navbar/>
+            <div className='w-1/2 m-0 p-20 bg-gray-300'>
                 <Formik
                 initialValues = 
                 {{email : '' , password : ''}}
@@ -54,6 +54,5 @@ const Login = ()=> {
         </div>
     )
 }
-
 
 export default Login
