@@ -51,7 +51,6 @@ const Login = ()=> {
             <div className='w-1/2'>
                 <image src={LoginPicture} alt='Three happy friends in the snow'/>
             </div>
-
         </div>
     )
 }
