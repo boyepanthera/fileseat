@@ -41,7 +41,7 @@ const Login = ()=> {
                             <Field name='password' className='border-b-2 h-10 border-indigo-700 w-full' type='password' />
                             {props.errors.password && props.touched.password ? <ErrMessage /> : null}
                         </div>
-                        <button type='submit' className='rounded-full bg-indigo-700 w-full hover:bg-indigo-500 text-white p-2'>Login</button>
+                        <button type='submit' className='rounded-full shadow-lg bg-indigo-700 w-full hover:bg-indigo-500 text-white p-2'>Login</button>
                         <div className='m-4 text-center'>Forgot password?</div>
                         <div className='m-6 text-center'>Dont have an account yet? <Link className='text-purple-500' to='/newauth'>Sign Up</Link></div>
                     </Form>
