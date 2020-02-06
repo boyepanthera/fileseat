@@ -14,13 +14,13 @@ const LoginSchema = Yup.object().shape({
     .email('This is not a valid email'),
     password: Yup.string()
     .min(8, 'Your password cannot be fewer than 8 characters')
-})
+});
 
 const Login = ()=> {
     return (
         <div className='h-full'>
-            <Navbar/>
-            <div className='w-1/2 m-0 p-20 bg-gray-300'>
+            <div className='w-1/2 m-0 px-20 py-10 bg-gray-300'>
+                <Navbar />
                 <Formik
                 initialValues = 
                 {{email : '' , password : ''}}
@@ -28,7 +28,7 @@ const Login = ()=> {
                 onSubmit={values=> console.log(values)}
                 >
                 {props => (
-                    <Form className='w-full max-w-sm rounded-lg bg-white px-12 py-8 my-20 shadow-lg'>
+                    <Form className='w-full max-w-sm rounded-lg bg-white px-12 py-8 my-20 mx-auto shadow-lg'>
                         <h1 className='text-center text-2xl font-extrabold mb-4'>Welcome Back</h1>
                         <div className='text-center font-bold'>Login to your account</div>
                         <div className='mb-4 mt-12'>
