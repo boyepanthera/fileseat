@@ -27,6 +27,14 @@ export const RightNavbar = ()=> (
         </div>
     )
 
+export const RightLoginNavbar = ()=> (
+        <div className='float-right mr-10 mt-12'>
+            <NavLink className='border-gray-600 border-r-2' to='/about'><button className='bg-white rounded-l-lg font-bold px-2 py-1  '>About</button></NavLink>
+            <NavLink className='' to='/newauth'><button className='bg-white font-bold px-2 py-1'>SignUp</button></NavLink>
+            <NavLink className='border-gray-600 border-l-2' to='/help'><button className='bg-white font-bold px-2 py-1 rounded-r-lg '>Help</button></NavLink>
+        </div>
+    )
+
 export const LeftNavbar = () => {
     return (
         <div className='w-1/2'>

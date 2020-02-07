@@ -4,7 +4,7 @@ import LoginPicture from '../assets/images/ThreeHappyFriends.jpg';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 import {Link} from 'react-router-dom';
-import {LeftNavbar, RightNavbar} from './Navbar';
+import {LeftNavbar, RightLoginNavbar} from './Navbar';
 const LoginRightStyles = {
     background: {
         backgroundImage: "url(" + LoginPicture  + ")",
@@ -54,7 +54,7 @@ const Login = ()=> {
                 </Formik>
             </div>
             <div className='w-1/2 bg-cover' style= {LoginRightStyles.background} >
-                <RightNavbar />
+                <RightLoginNavbar />
             </div>
         </div>
     )
