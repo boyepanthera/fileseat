@@ -1,6 +1,5 @@
 import React from 'react';
-import SharingForm from '../components/SharingForm';
-// import Navbar from './Navbar';
+import Fileseat from './Fileseat';
 import Login from './Login';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import '../assets/css/Home.css';
@@ -10,9 +9,8 @@ const Home = ()=> {
       <>
       <Router>
       <div  className='h-full'>
-        {/* <Navbar/> */}
           <Switch>
-            <Route exact path ='/' component={SharingForm} />         
+            <Route exact path ='/' component={Fileseat} />         
             <Route path ='/auth' component={Login} />         
           </Switch>
        </div>       

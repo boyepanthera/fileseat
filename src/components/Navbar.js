@@ -19,17 +19,13 @@ export const Navbar =  ()=>  {
     )
 }
 
-export const RightNavbar = ()=> {
-    return (
-    // <div className='w-1/2 mt-4'>
+export const RightNavbar = ()=> (
         <div className='float-right mr-10 mt-12'>
             <NavLink className='border-gray-600 border-r-2' to='/about'><button className='bg-white rounded-l-lg font-bold px-2 py-1  '>About</button></NavLink>
             <NavLink className='' to='/auth'><button className='bg-white font-bold px-2 py-1'>SignIn</button></NavLink>
             <NavLink className='border-gray-600 border-l-2' to='/help'><button className='bg-white font-bold px-2 py-1 rounded-r-lg '>Help</button></NavLink>
         </div>
-    // </div> 
     )
-}
 
 export const LeftNavbar = () => {
     return (
