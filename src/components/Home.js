@@ -4,6 +4,7 @@ import Login from './Login';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import '../assets/css/Home.css';
 import {Signup} from './Signup';
+import {AdminDashboard, UserDashboard} from './Dashboard';
 
 const Home = ()=> {
     return (
