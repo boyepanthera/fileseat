@@ -34,3 +34,11 @@ export const LeftNavbar = () => {
         </div>
     )
 }
+
+export const LeftNavbarWhite = () => {
+    return (
+        <div className='w-1/2'>
+            <NavLink className='text-white font-extrabold tracking-wider text-4xl' to='/'>FS</NavLink>
+        </div>
+    )
+}

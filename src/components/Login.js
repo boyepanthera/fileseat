@@ -48,7 +48,7 @@ const Login = ()=> {
                         </div>
                         <button type='submit' className='rounded-full shadow-lg bg-indigo-700 w-full hover:bg-indigo-500 text-white p-2'>Login</button>
                         <div className='m-4 text-center'>Forgot password?</div>
-                        <div className='m-6 text-center'>Dont have an account yet? <Link className='text-purple-500' to='/newauth'>Sign up</Link></div>
+                        <div className='m-6 text-center text-sm'>Dont have an account yet? <Link className='text-purple-500 font-bold' to='/newauth'>Sign up</Link></div>
                     </Form>
                 )}
                 </Formik>
