@@ -42,7 +42,7 @@ const Fileseat = ()=> {
                   isSubmitting, setFieldValue
                 }
               ) => (
-                  <Form className='rounded-larger bg-white shadow-lg rounded px-8 pt-6 pb-8 my-8' onSubmit={handleSubmit} >
+                  <Form className='rounded-larger bg-white shadow-lg rounded px-10 pt-6 pb-8 my-8' onSubmit={handleSubmit} >
                     <div>
                       <h3 className='text-center text-xl font-bold tracking-normal'>TRANSFER FILES</h3>
                     </div>
