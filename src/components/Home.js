@@ -15,8 +15,10 @@ const Home = ()=> {
           <Switch>
             <Route exact path ='/' component={Fileseat} />         
             <Route path ='/auth' component={Login} />         
-            <Route path ='/newauth' component={Signup} />   #
-            <Route path='*' component={NotFound} />      
+            <Route path ='/newauth' component={Signup} />
+            <Route path='/user' component={UserDashboard} />
+            <Route path='/admin' component={AdminDashboard} />   
+            <Route path='*' component={NotFound} />
           </Switch>
        </div>       
       </Router>

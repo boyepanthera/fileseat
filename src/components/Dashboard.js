@@ -2,7 +2,7 @@ import React from 'react';
 
 export const UserDashboard = ()=> 
     (
-        <div className='m-0 h-full bg-gray-200 p-20'>
+        <div className='m-0 bg-gray-200 p-20'>
             <div className='text-bold'>Hey I am a protected Route
                 <div>Users can use me to</div>
                 <ul>
