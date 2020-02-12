@@ -6,6 +6,7 @@ import '../assets/css/Home.css';
 import {Signup} from './Signup';
 import {AdminDashboard, UserDashboard} from './Dashboard';
 import {NotFound} from './NotFound';
+import {PrivateRoute} from '../utils/auth'
 
 const Home = ()=> {
     return (
@@ -17,7 +18,8 @@ const Home = ()=> {
             <Route path ='/auth' component={Login} />         
             <Route path ='/newauth' component={Signup} />
             <Route path='/user' component={UserDashboard} />
-            <Route path='/admin' component={AdminDashboard} />   
+            <PrivateRoute path='/admin' component={AdminDashboard} />
+            {/* <Route path='/admin' component={AdminDashboard} />    */}
             <Route path='*' component={NotFound} />
           </Switch>
        </div>       

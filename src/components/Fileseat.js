@@ -3,6 +3,8 @@ import axios from 'axios';
 import {Formik, Form, Field} from 'formik';
 import BackgroundImage from '../assets/images/bg.png';
 import {Navbar} from './Navbar';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import Dropzone from 'react-dropzone';
 
 const LoginStyles = {background : { 
   backgroundImage: "url(" + BackgroundImage + ")", 
@@ -58,8 +60,19 @@ const Fileseat = ()=> {
                       <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='message'>Message:</label>
                       <Field name='message' className='bg-indigo-100 focus:bg-white shadow-sm appearance-none border-b-2 border-blue-500  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' row='7' id='message' component='textarea' />
                     </div>
-                    <div className='border-dashed border-gray-600 border-2 h-24 mb-4'>
-                    </div>
+                    <Dropzone onDrop = {droppedFiles=> console.log(droppedFiles)} maxSize='125000000'>
+                      {
+                        ({getRootProps, getInputProps})=> 
+                          <div className='border-dashed border-gray-600 border-2 h-24 mb-4' {...getRootProps()}>
+                            <div className='mx-32 my-8 text-indigo-700' >
+                              <input {...getInputProps()}/>
+                              <CloudUploadIcon color='inherit' fontSize='large' />
+                            </div>
+                          </div>
+                        
+                      }
+                    </Dropzone>
+
                     <button type='submit' onClick={handleSubmit} className='hover:bg-indigo-500 rounded-full shadow-lg w-full bg-indigo-700 rounded-lg text-white font-bold p-2'>Transfer</button>
                   </Form>
                 )
