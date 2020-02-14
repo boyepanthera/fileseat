@@ -16,18 +16,20 @@ const LoginStyles = {
 
 const Fileseat = () => {
   const [fileData, setFileData] = useState(false);
+  const [err, setErr] = useState(false);
   const handleSubmit = values => {
     console.log(values);
     axios
       .post("http://localhost:3001/api/v1/file/new", values, {
         headers: { Accept: "multipart/form-data" }
       })
-      .then(response => console.log(response));
+      .then(response => console.log(response))
+      .catch(err => setErr(err));
   };
 
-  const { getRootProps, getInputProps } = useDropzone();
+  const { getRootProps, getInputProps, acceptedFiles } = useDropzone();
 
-  // const files = droppedFiles.map(file => <span>{file.name}</span>);
+  const files = acceptedFiles.map(file => <span>{file.name}</span>);
   return (
     <div className="m-0 p-16" style={LoginStyles.background}>
       <Navbar />
@@ -104,9 +106,6 @@ const Fileseat = () => {
                   component="textarea"
                 />
               </div>
-              {/* <Dropzone onDrop = {droppedFiles=> {console.log(droppedFiles);}} maxSize={125000000}> */}
-              {/* {
-                        ({getRootProps, getInputProps})=>  */}
               <div
                 className="border-dashed border-indigo-600 border-2 h-24 mb-4"
                 {...getRootProps()}
@@ -122,17 +121,12 @@ const Fileseat = () => {
                     })}
                   />
                   {fileData ? (
-                    <p>
-                      {fileData[0].name} - {fileData[0].size}
-                    </p>
+                    <p className="w-full">{files}</p>
                   ) : (
                     <CloudUploadIcon color="inherit" fontSize="large" />
                   )}
                 </div>
               </div>
-              {/* } */}
-              {/* </Dropzone> */}
-
               <button
                 type="submit"
                 onClick={handleSubmit}
