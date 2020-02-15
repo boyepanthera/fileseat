@@ -33,8 +33,8 @@ const Fileseat = () => {
   return (
     <div className="m-0 p-16" style={LoginStyles.background}>
       <Navbar />
+      <div>{err ? err.message : null}</div>
       <div className="min-w-sm sm:mx-2 container w-1/4">
-        s
         <Formik
           onSubmit={handleSubmit}
           initialValues={{

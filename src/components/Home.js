@@ -15,10 +15,10 @@ const Home = () => {
         <div className="h-full">
           <Switch>
             <Route exact path="/" component={Fileseat} />
-            <Route path="/auth" component={Login} />
-            <Route path="/newauth" component={Signup} />
-            <Route path="/user" component={UserDashboard} />
-            <PrivateRoute path="/admin" component={AdminDashboard} />
+            <Route exact path="/auth" component={Login} />
+            <Route exact path="/newauth" component={Signup} />
+            <PrivateRoute exact path="/user" component={UserDashboard} />
+            <PrivateRoute exact path="/admin" component={AdminDashboard} />
             <Route path="*" component={NotFound} />
           </Switch>
         </div>

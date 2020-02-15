@@ -24,7 +24,7 @@ const LoginSchema = Yup.object().shape({
   )
 });
 
-const Login = props => {
+const Login = loginprops => {
   return (
     <div className="h-full flex">
       <div className="w-1/2 m-0 px-20 py-10 bg-gray-300">
@@ -69,7 +69,9 @@ const Login = props => {
                 ) : null}
               </div>
               <button
-                onClick={() => auth.login(() => props.history.push("/user"))}
+                onClick={() =>
+                  auth.login(() => loginprops.history.push("/user"))
+                }
                 type="submit"
                 className="rounded-full shadow-lg bg-indigo-700 w-full hover:bg-indigo-500 text-white p-2"
               >

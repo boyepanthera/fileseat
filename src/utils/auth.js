@@ -1,4 +1,4 @@
-export class auth {
+class Auth {
   constructor() {
     this.authenticated = false;
   }
@@ -8,8 +8,11 @@ export class auth {
   }
   logout(cb) {
     this.authenticated = false;
+    cb();
   }
   isAuthenticated() {
     return this.authenticated;
   }
 }
+
+export const auth = new Auth();
