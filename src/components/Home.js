@@ -6,7 +6,7 @@ import "../assets/css/Home.css";
 import { Signup } from "./Signup";
 import { AdminDashboard, UserDashboard } from "./Dashboard";
 import { NotFound } from "./NotFound";
-import { PrivateRoute, Auth } from "../utils/auth";
+import { PrivateRoute } from "./Private.route";
 
 const Home = () => {
   return (

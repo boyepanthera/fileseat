@@ -121,7 +121,7 @@ const Fileseat = () => {
                     })}
                   />
                   {fileData ? (
-                    <p className="w-full">{files}</p>
+                    <p className="w-full p-0 m-0">{files}</p>
                   ) : (
                     <CloudUploadIcon color="inherit" fontSize="large" />
                   )}
