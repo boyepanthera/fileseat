@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import LoginPicture from "../assets/images/ThreeHappyFriends.jpg";
 import styled from "styled-components";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import { LeftNavbar, RightLoginNavbar } from "./Navbar";
-import { auth } from "../utils/auth";
+// import { auth } from "../utils/auth";
 
 const LoginRightStyles = {
   background: {
@@ -24,17 +25,50 @@ const LoginSchema = Yup.object().shape({
   )
 });
 
-const Login = loginprops => {
+const Login = () => {
+  const [err, setErr] = useState(null);
+  const handleLogin = values => {
+    console.log(values);
+    const { email, password } = values;
+    let data = new FormData();
+    data.append("email", email);
+    data.append("password", password);
+    console.log(data.get("email"));
+    console.log(data.get("password"));
+    axios
+      .post(
+        "http://localhost:3005/api/v1/users/login",
+        values,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          }
+        }
+      )
+      .then(
+        response =>
+          localStorage.setItem(
+            "login",
+            JSON.stringify({ login: true, token: response.token })
+          )
+      )
+      .catch(err => {
+        setErr(err);
+        console.log(err);
+      });
+  };
+
   return (
     <div className="h-full flex">
       <div className="w-1/2 m-0 px-20 py-10 bg-gray-300">
         <LeftNavbar />
+        <div>{err ? err.message : null}</div>
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={LoginSchema}
-          onSubmit={values => console.log(values)}
+          onSubmit={handleLogin}
         >
-          {props => (
+          {(errors, touched) => (
             <Form className="w-3/5 rounded-larger bg-white px-12 py-8 my-20 mx-auto shadow-lg">
               <h1 className="text-center text-2xl font-bolder mb-4">
                 Welcome Back
@@ -51,7 +85,7 @@ const Login = loginprops => {
                   className="border-b-2 bg-indigo-100 h-10 border-indigo-700 w-full"
                   type="email"
                 />
-                {props.errors.name && props.touched.name ? (
+                {errors.name && touched.name ? (
                   <ErrMessage />
                 ) : null}
               </div>
@@ -64,16 +98,16 @@ const Login = loginprops => {
                   className="border-b-2 bg-indigo-100 h-10 border-indigo-700 w-full"
                   type="password"
                 />
-                {props.errors.password && props.touched.password ? (
+                {errors.password && touched.password ? (
                   <ErrMessage />
                 ) : null}
               </div>
               <button
-                onClick={() =>
-                  auth.login(() => loginprops.history.push("/user"))
-                }
+                // onClick={() =>
+                //   auth.login(() => loginprops.history.push("/user"))
+                // }
                 type="submit"
-                className="rounded-full shadow-lg bg-indigo-700 w-full hover:bg-indigo-500 text-white p-2"
+                className="rounded-full shadow-lg bg-indigo-700 w-full focus:outline-none hover:bg-indigo-500 text-white p-2"
               >
                 Login
               </button>

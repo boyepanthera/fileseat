@@ -10,7 +10,6 @@ const SignupStyles = {
     }
 }
 
-
 export const Signup = () => (
         <div className = 'h-full flex'>
             <div className='bg-cover m-0 w-1/2' style={SignupStyles.background}>

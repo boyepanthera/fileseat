@@ -56,7 +56,7 @@ const Fileseat = () => {
           }) => (
             <Form
               className="rounded-larger bg-white shadow-lg rounded px-10 pt-6 pb-8 my-8"
-              onSubmit={handleSubmit}
+              // onSubmit={handleSubmit}
             >
               <div>
                 <h3 className="text-center text-xl font-bold tracking-normal">
