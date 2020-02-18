@@ -27,6 +27,7 @@ const LoginSchema = Yup.object().shape({
 
 const Login = () => {
   const [err, setErr] = useState(null);
+  const [success, setSuccess] = useState(null);
   const handleLogin = values => {
     console.log(values);
     const { email, password } = values;
@@ -46,11 +47,14 @@ const Login = () => {
         }
       )
       .then(
-        response =>
+        response => {
+          setSuccess('You successfully logged in')
+          console.log(response.data);
           localStorage.setItem(
             "login",
-            JSON.stringify({ login: true, token: response.token })
+            JSON.stringify({ login: true, token: response.data.token })
           )
+        }
       )
       .catch(err => {
         setErr(err);
@@ -63,6 +67,7 @@ const Login = () => {
       <div className="w-1/2 m-0 px-20 py-10 bg-gray-300">
         <LeftNavbar />
         <div>{err ? err.message : null}</div>
+        <div>{success ? success : null}</div>
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={LoginSchema}
