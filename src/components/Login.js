@@ -3,10 +3,12 @@ import { Formik, Form, Field } from "formik";
 import LoginPicture from "../assets/images/ThreeHappyFriends.jpg";
 import styled from "styled-components";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { LeftNavbar, RightLoginNavbar } from "./Navbar";
-// import { auth } from "../utils/auth";
+import { AuthContext } from "./Home";
+
+
 
 const LoginRightStyles = {
   background: {
@@ -26,6 +28,8 @@ const LoginSchema = Yup.object().shape({
 });
 
 const Login = () => {
+  let history = useHistory();
+  const { dispatch } = React.useContext(AuthContext)
   const [err, setErr] = useState(null);
   const [success, setSuccess] = useState(null);
   const handleLogin = values => {
@@ -54,6 +58,7 @@ const Login = () => {
             "login",
             JSON.stringify({ login: true, token: response.data.token })
           )
+          history.push('/user')
         }
       )
       .catch(err => {
