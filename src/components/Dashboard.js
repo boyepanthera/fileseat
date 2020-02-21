@@ -42,7 +42,7 @@ export const UserDashboard = () => {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER_DETAILS' });
-    axios.get(`http://localhost:3005/api/v1/users/`)
+    axios.get(`http://localhost:3005/api/v1/users/userdash`, { headers: { Authorization: dispatchAuth.token } })
       .then(response => {
         dispatch({
           type: "FETCH_USER_SUCCESS",
@@ -69,7 +69,6 @@ export const UserDashboard = () => {
               <span>Logout </span> <i className='fas fa-sign-out-alt'></i>
             </button>
             <Link className='text-white' to='/admin'>Admin</Link>
-
             <ul>
               <li>Know the number of files they have shared all time!</li>
               <li>
@@ -81,7 +80,6 @@ export const UserDashboard = () => {
           </>
         )
       }
-
     </div>
   )
 };

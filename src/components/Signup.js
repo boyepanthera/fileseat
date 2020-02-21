@@ -24,7 +24,7 @@ export const Signup = () => {
                 setSubmitting(false);
             })
     }
-    const history = useHistory();
+    let history = useHistory();
     return (
         <div className='h-full flex'>
             <div className='bg-cover m-0 w-1/2' style={SignupStyles.background}>
@@ -64,14 +64,14 @@ export const Signup = () => {
                                 </div>
                                 <div className='mb-4'>
                                     <label className='font-semibold'>Password</label>
-                                    <Field name='password' type='password' autoComplete='on' className='h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full' />
+                                    <Field name='password' type='password' autoComplete='true' className='h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full' />
                                     {errors.password && touched.password ? (
                                         <ErrMessage />
                                     ) : null}
                                 </div>
                                 <div className='mb-6'>
                                     <label className='font-semibold'>Confirm Password</label>
-                                    <Field name='confirmPassword' type='password' autoComplete='on' className='h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full' />
+                                    <Field name='confirmPassword' type='password' autoComplete='true' className='h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full' />
                                     {errors.confirmPassword && touched.confirmPassword ? (
                                         <ErrMessage />
                                     ) : null}
