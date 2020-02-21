@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import LoginPicture from "../assets/images/ThreeHappyFriends.jpg";
-import styled from "styled-components";
 import * as Yup from "yup";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { LeftNavbar, RightLoginNavbar } from "./Navbar";
 import { AuthContext } from "./Home";
-
-
+import { ErrMessage, Spinner } from '../utils/index';
 
 const LoginRightStyles = {
   background: {
@@ -16,9 +14,6 @@ const LoginRightStyles = {
   }
 };
 
-const ErrMessage = styled.div`
-  color: red;
-`;
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email("This is not a valid email"),
   password: Yup.string().min(
@@ -29,17 +24,17 @@ const LoginSchema = Yup.object().shape({
 
 const Login = () => {
   let history = useHistory();
-  const { dispatch } = React.useContext(AuthContext)
+  const { dispatch } = React.useContext(AuthContext);
   const [err, setErr] = useState(null);
   const [success, setSuccess] = useState(null);
+  const [signIn, setSignIn] = useState(false);
   const handleLogin = values => {
     console.log(values);
+    setSignIn(true)
     const { email, password } = values;
     let data = new FormData();
     data.append("email", email);
     data.append("password", password);
-    console.log(data.get("email"));
-    console.log(data.get("password"));
     axios
       .post(
         "http://localhost:3005/api/v1/users/login",
@@ -52,13 +47,10 @@ const Login = () => {
       )
       .then(
         response => {
-          setSuccess('You successfully logged in')
+          setSuccess('You successfully logged in');
           console.log(response.data);
-          localStorage.setItem(
-            "login",
-            JSON.stringify({ login: true, token: response.data.token })
-          )
-          history.push('/user')
+          dispatch({ type: 'LOGIN', payload: response.data })
+          setTimeout(() => history.push('/user'), 1000);
         }
       )
       .catch(err => {
@@ -113,17 +105,14 @@ const Login = () => {
                 ) : null}
               </div>
               <button
-                // onClick={() =>
-                //   auth.login(() => loginprops.history.push("/user"))
-                // }
                 type="submit"
                 className="rounded-full shadow-lg bg-indigo-700 w-full focus:outline-none hover:bg-indigo-500 text-white p-2"
               >
-                Login
+                {signIn ? <Spinner /> : 'Login'}
               </button>
               <div className="m-4 text-center">Forgot password?</div>
               <div className="m-6 text-center text-sm">
-                Dont have an account yet?{" "}
+                Don't have an account yet?
                 <Link className="text-purple-500 font-bold" to="/newauth">
                   Sign up
                 </Link>
