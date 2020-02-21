@@ -14,6 +14,14 @@ export const UserDashboard = () => {
         <button
           className="bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:outline-none  text-white p-2"
           onClick={() => {
+            history.push("/admin");
+          }} >
+          Logout X
+      </button>
+
+        <button
+          className="bg-red-700 rounded-lg hover:bg-indigo-800 focus:outline-none  text-white p-2"
+          onClick={() => {
             dispatch({ type: 'LOGOUT' })
             history.push("/");
           }} >
