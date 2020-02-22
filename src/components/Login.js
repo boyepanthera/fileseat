@@ -49,7 +49,7 @@ const Login = () => {
         response => {
           setSuccess('You successfully logged in');
           console.log(response.data);
-          dispatch({ type: 'LOGIN', payload: response.data })
+          dispatch({ type: 'LOGIN', payload: response.data });
           setTimeout(() => history.push('/user'), 1000);
         }
       )

@@ -1,14 +1,12 @@
 import React, { useContext, useReducer, useEffect } from "react";
 import { AuthContext } from "./Home";
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link, Redirect } from 'react-router-dom';
 import axios from "axios";
-import { PageLoader } from '../utils/index';
 
 const initialState = {
   user: null,
   isFetching: false,
   err: false,
-  message: null
 }
 
 const reducer = (state, action) => {
@@ -23,14 +21,15 @@ const reducer = (state, action) => {
       return {
         ...state,
         isFetching: false,
-        user: action.payload
+        user: action.payload,
+        err: false,
       }
     case 'FETCH_USER_FAILURE':
       return {
         ...state,
-        isFetching: true,
+        isFetching: false,
         user: null,
-        message: action.payload
+        err: true
       }
     default:
       return state;
@@ -57,12 +56,14 @@ export const UserDashboard = () => {
         stateDispatch({ type: 'FETCH_USER_FAILURE' })
       })
   }, [token])
-  console.log(state)
+  console.log(state);
   return (
-    <div className="m-0 bg-gray-200 p-20">
-      {state.isFetching ? <PageLoader /> :
+    <>
+      {state.err ? <Redirect to='/auth' /> :
         (
-          <>
+
+          <div className="m-0 bg-gray-200 p-20">
+
             <div>Users can use me to</div>
             <button
               className="bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:outline-none  text-white p-2"
@@ -82,10 +83,12 @@ export const UserDashboard = () => {
               <li>List of file deprecated</li>
               <li>List of file Active</li>
             </ul>
-          </>
+          </div>
+
+
         )
       }
-    </div>
+    </>
   )
 };
 
