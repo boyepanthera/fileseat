@@ -7,7 +7,8 @@ import { PageLoader } from '../utils/index';
 const initialState = {
   user: null,
   isFetching: false,
-  err: false
+  err: false,
+  message: null
 }
 
 const reducer = (state, action) => {
@@ -22,13 +23,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         isFetching: false,
-        user: action.payload.user
+        user: action.payload
       }
     case 'FETCH_USER_FAILURE':
       return {
         ...state,
         isFetching: true,
-        user: null
+        user: null,
+        message: action.payload
       }
     default:
       return state;
@@ -36,24 +38,26 @@ const reducer = (state, action) => {
 }
 
 export const UserDashboard = () => {
-  const { dispatchAuth } = useContext(AuthContext);
+  const { dispatch } = useContext(AuthContext);
+  // console.log(dispatch);
+  const token = JSON.parse(localStorage.getItem('token'));
   let history = useHistory();
-  const [state, dispatch] = useReducer(reducer, initialState);
-
+  const [state, stateDispatch] = useReducer(reducer, initialState);
   useEffect(() => {
-    dispatch({ type: 'FETCH_USER_DETAILS' });
-    axios.get(`http://localhost:3005/api/v1/users/userdash`, { headers: { Authorization: dispatchAuth.token } })
+    stateDispatch({ type: 'FETCH_USER_DETAILS' });
+    axios.get(`http://localhost:3005/api/v1/users/userdash`, { headers: { Authorization: token } })
       .then(response => {
-        dispatch({
+        stateDispatch({
           type: "FETCH_USER_SUCCESS",
           payload: response.data.user
         });
       })
       .catch(err => {
         console.log(err)
-        dispatch({ type: 'FETCH_USER_FAILURE' })
+        stateDispatch({ type: 'FETCH_USER_FAILURE' })
       })
-  }, [dispatchAuth.token])
+  }, [token])
+  console.log(state)
   return (
     <div className="m-0 bg-gray-200 p-20">
       {state.isFetching ? <PageLoader /> :
@@ -63,7 +67,7 @@ export const UserDashboard = () => {
             <button
               className="bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:outline-none  text-white p-2"
               onClick={() => {
-                dispatchAuth({ type: 'LOGOUT' });
+                dispatch({ type: 'LOGOUT' });
                 history.push("/");
               }} >
               <span>Logout </span> <i className='fas fa-sign-out-alt'></i>
@@ -71,6 +75,7 @@ export const UserDashboard = () => {
             <Link className='text-white' to='/admin'>Admin</Link>
             <ul>
               <li>Know the number of files they have shared all time!</li>
+              <li>{state.user ? state.user.email : null}</li>
               <li>
                 Know the dates they uploaded and the date of deletion/expiration
               </li>
@@ -84,20 +89,31 @@ export const UserDashboard = () => {
   )
 };
 
-export const AdminDashboard = () => (
-  <div className="m-0 h-full bg-gray-200">
-    <div>
-      <div className="text-bold">Hey I am a protected Route for Admin</div>
-      <div>Admin can use me to</div>
-      <ul>
-        <li>Know the number Senders all time</li>
-        <li>List of Registered Senders</li>
-        <li>List of Anonymous Senders</li>
-        <li>List of Registered Receipientss</li>
-        <li>List of Anonymous Receipientss</li>
-        <li>List of all files sent all time</li>
-        <li>List of files based on category Deprecated/Active</li>
-      </ul>
+export const AdminDashboard = () => {
+  const { dispatch } = useContext(AuthContext);
+  let history = useHistory();
+  return (
+    <div className="m-0 h-full bg-gray-200">
+      <div>
+        <div className="text-bold">Hey I am a protected Route for Admin</div>
+        <div>Admin can use me to</div>
+        <button
+          className="bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:outline-none  text-white p-2"
+          onClick={() => {
+            dispatch({ type: 'LOGOUT' });
+            history.push("/");
+          }}
+        ><span>Logout </span> <i className='fas fa-sign-out-alt'></i></button>
+        <ul>
+          <li>Know the number Senders all time</li>
+          <li>List of Registered Senders</li>
+          <li>List of Anonymous Senders</li>
+          <li>List of Registered Receipientss</li>
+          <li>List of Anonymous Receipientss</li>
+          <li>List of all files sent all time</li>
+          <li>List of files based on category Deprecated/Active</li>
+        </ul>
+      </div>
     </div>
-  </div>
-);
+  )
+};
