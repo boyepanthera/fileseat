@@ -5,6 +5,7 @@ import BackgroundImage from "../assets/images/bg.png";
 import { Navbar } from "./Navbar";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import { useDropzone } from "react-dropzone";
+import { Uploading } from '../utils/index';
 
 const LoginStyles = {
   background: {
@@ -17,126 +18,150 @@ const LoginStyles = {
 const Fileseat = () => {
   const [fileData, setFileData] = useState(false);
   const [err, setErr] = useState(false);
+  let [receipient, setReceipient] = useState('');
+  const [progress, setProgress] = useState(null);
   const handleSubmit = values => {
     console.log(values);
+    let { receipientEmail, senderEmail, files, message } = values;
+    setReceipient(receipientEmail);
+
+    let config = {
+      headers: { Accept: "multipart/form-data" },
+      onUploadProgress: (progressEvent) => {
+        let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+        setProgress(percentCompleted)
+      }
+    }
+    const data = new FormData();
+    data.append('senderEmail', senderEmail);
+    data.append('file', files[0]);
+    data.append('receipientEmail', receipientEmail);
+    data.append('message', message);
+
     axios
-      .post("http://localhost:3001/api/v1/file/new", values, {
-        headers: { Accept: "multipart/form-data" }
-      })
+      .post("http://localhost:3005/api/v1/files", data, config)
       .then(response => console.log(response))
       .catch(err => setErr(err));
   };
 
   const { getRootProps, getInputProps, acceptedFiles } = useDropzone();
 
-  const files = acceptedFiles.map(file => <span>{file.name}</span>);
+  const files = acceptedFiles.map(file => <li key={file.name.toString()}>{file.name}</li>);
   return (
     <div className="m-0 p-16" style={LoginStyles.background}>
       <Navbar />
       <div>{err ? err.message : null}</div>
       <div className="min-w-sm sm:mx-2 container w-1/4">
-        <Formik
-          onSubmit={handleSubmit}
-          initialValues={{
-            receipientEmail: "",
-            message: "",
-            senderEmail: "",
-            files: []
-          }}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting,
-            setFieldValue
-          }) => (
-            <Form
-              className="rounded-larger bg-white shadow-lg rounded px-10 pt-6 pb-8 my-8"
-              // onSubmit={handleSubmit}
+        <div
+          className="rounded-larger bg-white shadow-lg rounded px-10 pt-6 pb-8 my-8"
+        > {progress ? <Uploading progress={progress} fileName={fileData[0].name} receipient={receipient} /> :
+          (
+            <Formik
+              onSubmit={handleSubmit}
+              initialValues={{
+                receipientEmail: "",
+                message: "",
+                senderEmail: "",
+                files: []
+              }}
             >
-              <div>
-                <h3 className="text-center text-xl font-bold tracking-normal">
-                  TRANSFER FILES
+              {({
+                values,
+                errors,
+                touched,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+                isSubmitting,
+                setFieldValue
+              }) => (
+                  <Form
+                  // className="rounded-larger bg-white shadow-lg rounded px-10 pt-6 pb-8 my-8"
+                  >
+                    <div>
+                      <h3 className="text-center text-xl font-bold tracking-normal">
+                        TRANSFER FILES
                 </h3>
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="receipientEmail"
-                  className="block text-gray-700 text-sm font-bold mb-2 mt-8"
-                >
-                  Send files to this email:
+                    </div>
+                    <div className="mb-4">
+                      <label
+                        htmlFor="receipientEmail"
+                        className="block text-gray-700 text-sm font-bold mb-2 mt-8"
+                      >
+                        Send files to this email:
                 </label>
-                <Field
-                  type="email"
-                  className="bg-indigo-100 focus:bg-white shadow-sm appearance-none border-b-2  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-500 "
-                  name="receipientEmail"
-                  id="receipientEmail"
-                />
-              </div>
-              <div className="mb-2">
-                <label
-                  htmlFor="senderEmail"
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                >
-                  Your email:
+                      <Field
+                        type="email"
+                        className="bg-indigo-100 focus:bg-white shadow-sm appearance-none border-b-2  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-500 "
+                        name="receipientEmail"
+                        id="receipientEmail"
+                      />
+                    </div>
+                    <div className="mb-2">
+                      <label
+                        htmlFor="senderEmail"
+                        className="block text-gray-700 text-sm font-bold mb-2"
+                      >
+                        Your email:
                 </label>
-                <Field
-                  type="email"
-                  className="bg-indigo-100 focus:bg-white shadow-sm appearance-none border-b-2 w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline border-blue-500 "
-                  name="senderEmail"
-                  id="senderEmail"
-                />
-              </div>
-              <div className="mb-6">
-                <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="message"
-                >
-                  Message:
+                      <Field
+                        type="email"
+                        className="bg-indigo-100 focus:bg-white shadow-sm appearance-none border-b-2 w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline border-blue-500 "
+                        name="senderEmail"
+                        id="senderEmail"
+                      />
+                    </div>
+                    <div className="mb-6">
+                      <label
+                        className="block text-gray-700 text-sm font-bold mb-2"
+                        htmlFor="message"
+                      >
+                        Message:
                 </label>
-                <Field
-                  name="message"
-                  className="bg-indigo-100 focus:bg-white shadow-sm appearance-none border-b-2 border-blue-500  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  row="7"
-                  id="message"
-                  component="textarea"
-                />
-              </div>
-              <div
-                className="border-dashed border-indigo-600 border-2 h-24 mb-4"
-                {...getRootProps()}
-              >
-                <div className="mx-32 my-8 text-indigo-700">
-                  <input
-                    name="files"
-                    {...getInputProps({
-                      onChange: event => {
-                        setFieldValue("files", event.currentTarget.files);
-                        setFileData(event.currentTarget.files);
-                      }
-                    })}
-                  />
-                  {fileData ? (
-                    <p className="w-full p-0 m-0">{files}</p>
-                  ) : (
-                    <CloudUploadIcon color="inherit" fontSize="large" />
-                  )}
-                </div>
-              </div>
-              <button
-                type="submit"
-                onClick={handleSubmit}
-                className="hover:bg-indigo-500 rounded-full shadow-lg w-full bg-indigo-700 rounded-lg text-white font-bold p-2"
-              >
-                Transfer
+                      <Field
+                        name="message"
+                        className="bg-indigo-100 focus:bg-white shadow-sm appearance-none border-b-2 border-blue-500  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        row="7"
+                        id="message"
+                        component="textarea"
+                      />
+                    </div>
+                    <div
+                      className="border-dashed border-indigo-600 border-2 h-24 mb-4"
+                      {...getRootProps()}
+                    >
+                      <div className="mx-32 my-8 text-indigo-700">
+                        <input
+                          name="files"
+                          {...getInputProps({
+                            onChange: event => {
+                              setFieldValue("files", event.currentTarget.files);
+                              setFileData(event.currentTarget.files);
+                            }
+                          })}
+                        />
+                        {fileData ? (
+                          <span className="w-full p-0 m-0"><ul>{files}</ul></span>
+                        ) : (
+                            <CloudUploadIcon color="inherit" fontSize="large" />
+                          )}
+                      </div>
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      onClick={handleSubmit}
+                      className="hover:bg-indigo-500 rounded-full shadow-lg w-full bg-indigo-700 rounded-lg text-white font-bold p-2"
+                    >
+                      Transfer
               </button>
-            </Form>
-          )}
-        </Formik>
+                  </Form>
+                )}
+            </Formik>
+          )
+          }
+        </div>
+
       </div>
     </div>
   );
