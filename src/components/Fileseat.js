@@ -5,7 +5,7 @@ import BackgroundImage from "../assets/images/bg.png";
 import { Navbar } from "./Navbar";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import { useDropzone } from "react-dropzone";
-import { Uploading } from '../utils/index';
+import { Uploading, Uploaded } from '../utils/index';
 
 const LoginStyles = {
   background: {
@@ -18,9 +18,10 @@ const LoginStyles = {
 const Fileseat = () => {
   const [fileData, setFileData] = useState(false);
   const [err, setErr] = useState(false);
+  const [success, setSuccess] = useState(false);
   let [receipient, setReceipient] = useState('');
   const [progress, setProgress] = useState(null);
-  const handleSubmit = values => {
+  const handleSubmit = async values => {
     console.log(values);
     let { receipientEmail, senderEmail, files, message } = values;
     setReceipient(receipientEmail);
@@ -37,24 +38,38 @@ const Fileseat = () => {
     data.append('file', files[0]);
     data.append('receipientEmail', receipientEmail);
     data.append('message', message);
+    try {
+      let response = await axios.post("http://localhost:3005/api/v1/files", data, config)
+      setProgress(false);
+      setSuccess(true);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+      setErr(err);
+    }
 
-    axios
-      .post("http://localhost:3005/api/v1/files", data, config)
-      .then(response => console.log(response))
-      .catch(err => setErr(err));
+
+    // axios
+    //   .post("http://localhost:3005/api/v1/files", data, config)
+    //   .then((response) => {
+    //     console.log(response);
+    //     setProgress(false);
+    //     setSuccess(true);
+    //   })
+    //   .catch(err => setErr(err));
   };
-
   const { getRootProps, getInputProps, acceptedFiles } = useDropzone();
-
   const files = acceptedFiles.map(file => <li key={file.name.toString()}>{file.name}</li>);
   return (
     <div className="m-0 p-16" style={LoginStyles.background}>
       <Navbar />
-      <div>{err ? err.message : null}</div>
-      <div className="min-w-sm sm:mx-2 container w-1/4">
+      <div className='text-red-800'>{err ? err.message : null}</div>
+      <div className="max-w-md sm:mx-2 ">
         <div
           className="rounded-larger bg-white shadow-lg rounded px-10 pt-6 pb-8 my-8"
-        > {progress ? <Uploading progress={progress} fileName={fileData[0].name} receipient={receipient} /> :
+        > {progress ? <Uploading progress={progress} fileName={fileData[0].name} receipient={receipient} /> : success ? (
+          <Uploaded />
+        ) :
           (
             <Formik
               onSubmit={handleSubmit}
@@ -75,13 +90,11 @@ const Fileseat = () => {
                 isSubmitting,
                 setFieldValue
               }) => (
-                  <Form
-                  // className="rounded-larger bg-white shadow-lg rounded px-10 pt-6 pb-8 my-8"
-                  >
+                  <Form>
                     <div>
                       <h3 className="text-center text-xl font-bold tracking-normal">
                         TRANSFER FILES
-                </h3>
+                      </h3>
                     </div>
                     <div className="mb-4">
                       <label
@@ -89,7 +102,7 @@ const Fileseat = () => {
                         className="block text-gray-700 text-sm font-bold mb-2 mt-8"
                       >
                         Send files to this email:
-                </label>
+                      </label>
                       <Field
                         type="email"
                         className="bg-indigo-100 focus:bg-white shadow-sm appearance-none border-b-2  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-500 "
@@ -103,7 +116,7 @@ const Fileseat = () => {
                         className="block text-gray-700 text-sm font-bold mb-2"
                       >
                         Your email:
-                </label>
+                      </label>
                       <Field
                         type="email"
                         className="bg-indigo-100 focus:bg-white shadow-sm appearance-none border-b-2 w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline border-blue-500 "
@@ -117,7 +130,7 @@ const Fileseat = () => {
                         htmlFor="message"
                       >
                         Message:
-                </label>
+                      </label>
                       <Field
                         name="message"
                         className="bg-indigo-100 focus:bg-white shadow-sm appearance-none border-b-2 border-blue-500  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -127,12 +140,12 @@ const Fileseat = () => {
                       />
                     </div>
                     <div
-                      className="border-dashed border-indigo-600 border-2 h-24 mb-4"
+                      className="border-dashed border-indigo-600 border-2 h-24 mb-4 focus:outline-none"
                       {...getRootProps()}
                     >
-                      <div className="mx-32 my-8 text-indigo-700">
+                      <div className="text-center text-indigo-700 py-5">
                         <input
-                          name="files"
+                          name="files "
                           {...getInputProps({
                             onChange: event => {
                               setFieldValue("files", event.currentTarget.files);
@@ -153,8 +166,8 @@ const Fileseat = () => {
                       onClick={handleSubmit}
                       className="hover:bg-indigo-500 rounded-full shadow-lg w-full bg-indigo-700 rounded-lg text-white font-bold p-2"
                     >
-                      Transfer
-              </button>
+                      Transfer <i></i>
+                    </button>
                   </Form>
                 )}
             </Formik>

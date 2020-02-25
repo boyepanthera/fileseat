@@ -61,7 +61,6 @@ export const UserDashboard = () => {
     <>
       {state.err ? <Redirect to='/auth' /> :
         (
-
           <div className="m-0 bg-gray-200 p-20">
 
             <div>Users can use me to</div>
@@ -84,8 +83,6 @@ export const UserDashboard = () => {
               <li>List of file Active</li>
             </ul>
           </div>
-
-
         )
       }
     </>

@@ -16,6 +16,7 @@
     "formik": "^2.0.3",
     "history": "^4.10.1",
     "react": "^16.10.2",
+    "react-circular-progressbar": "^2.0.3",
     "react-dom": "^16.10.2",
     "react-dropzone": "^10.2.1",
     "react-router-dom": "^5.1.2",
