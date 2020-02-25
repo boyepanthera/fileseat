@@ -31,6 +31,10 @@ const Fileseat = () => {
       onUploadProgress: (progressEvent) => {
         let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
         setProgress(percentCompleted)
+        if (percentCompleted === 100) {
+          setProgress(false)
+          setSuccess(true);
+        }
       }
     }
     const data = new FormData();
@@ -40,8 +44,8 @@ const Fileseat = () => {
     data.append('message', message);
     try {
       let response = await axios.post("http://localhost:3005/api/v1/files", data, config)
-      setProgress(false);
-      setSuccess(true);
+      // setProgress(false);
+      // setSuccess(true);
       console.log(response);
     } catch (err) {
       console.log(err);
