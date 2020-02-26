@@ -43,24 +43,12 @@ const Fileseat = () => {
     data.append('receipientEmail', receipientEmail);
     data.append('message', message);
     try {
-      let response = await axios.post("http://localhost:3005/api/v1/files", data, config)
-      // setProgress(false);
-      // setSuccess(true);
+      let response = await axios.post("http://localhost:3005/api/v1/files", data, config);
       console.log(response);
     } catch (err) {
       console.log(err);
       setErr(err);
     }
-
-
-    // axios
-    //   .post("http://localhost:3005/api/v1/files", data, config)
-    //   .then((response) => {
-    //     console.log(response);
-    //     setProgress(false);
-    //     setSuccess(true);
-    //   })
-    //   .catch(err => setErr(err));
   };
   const { getRootProps, getInputProps, acceptedFiles } = useDropzone();
   const files = acceptedFiles.map(file => <li key={file.name.toString()}>{file.name}</li>);

@@ -17,13 +17,14 @@ export const Uploading = (props) => {
     backgroundColor: '#4C51BF',
     pathColor: '#4C51BF',
     trailColor: '#A3BFFA',
+    backgroundPadding:'5px'
   })
 
   return (
     <div className='mx-auto items-center my-8'>
       <div className='text-3xl text-center font-bold mb-4'>FILESEAT</div>
       <div>
-        <CircularProgressbar className='my-4' value={props.progress} text={`${props.progress}%`} styles={styles} />
+        <CircularProgressbar strokeWidth={6} className='my-4 \' height={250} width={250} value={props.progress} text={`${props.progress}%`} style={styles} />
       </div>
       <div className='items-center flex justify-start font-bold'>Sending:</div>
       <div className='my-2'>{props.fileName}</div>
@@ -37,11 +38,11 @@ export const Uploading = (props) => {
 export const Uploaded = () => (
   <div className='mx-auto items-center my-8'>
     <div className='text-3xl text-center font-bold mb-4'>FILESEAT</div>
-    <div className='items-center justify-center flex'>
-      <img src={sentImage} alt='Sent success jubilation!' />
-      <div className='items-center flex justify-center font-bold text-2xl font-bold'>SENT!!!</div>
-      <div className='items-center flex justify-center font-bold'>The download email has been sent - your file's seat is available for 7days.</div>
-      <button className='bg-indigo-700 w-full p-2 mx-4' disabled>Done!</button>
+    <div className='items-center justify-center flex mb-4'>
+      <img src={sentImage} width={250} height={250} alt='Sent success jubilation!' />
     </div>
+    <div className='text-center font-bold text-2xl mb-4'>SENT!!!</div>
+    <div className='text-center font-bold mb-4'>The download email has been sent - your file's seat is available for 7days.</div>
+    <button className='bg-indigo-700 w-full rounded-full h-10 text-white font-semibold mx-4 my-4' disabled={true}>Done!</button>
   </div>
 )
