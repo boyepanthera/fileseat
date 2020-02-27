@@ -10,22 +10,19 @@ export const ErrMessage = styled.div`
 
 export const Spinner = () => <span>Signing In... <i className='fas fa-spinner fa-pulse'></i></span>
 
-export const Uploading = (props) => {
   const styles = buildStyles({
     textColor: '#4C51BF',
     textSize: "16px",
-    backgroundColor: '#4C51BF',
     pathColor: '#4C51BF',
     trailColor: '#A3BFFA',
-    backgroundPadding:'5px'
+    backgroundPadding: '5px'
   })
 
+export const Uploading = (props) => {
   return (
     <div className='mx-auto items-center my-8'>
       <div className='text-3xl text-center font-bold mb-4'>FILESEAT</div>
-      <div>
-        <CircularProgressbar strokeWidth={6} className='my-4 \' height={250} width={250} value={props.progress} text={`${props.progress}%`} style={styles} />
-      </div>
+      <CircularProgressbar strokeWidth={6} className='my-4 h-48 w-48 border-indigo-700' styles={styles} value={props.progress} text={`${props.progress}%`}  />
       <div className='items-center flex justify-start font-bold'>Sending:</div>
       <div className='my-2'>{props.fileName}</div>
       <div className='items-center flex justify-start font-bold'>To: </div>
@@ -39,7 +36,7 @@ export const Uploaded = () => (
   <div className='mx-auto items-center my-8'>
     <div className='text-3xl text-center font-bold mb-4'>FILESEAT</div>
     <div className='items-center justify-center flex mb-4'>
-      <img src={sentImage} width={250} height={250} alt='Sent success jubilation!' />
+      <img src={sentImage} className='h-48 w-48' alt='Sent success jubilation!' />
     </div>
     <div className='text-center font-bold text-2xl mb-4'>SENT!!!</div>
     <div className='text-center font-bold mb-4'>The download email has been sent - your file's seat is available for 7days.</div>
