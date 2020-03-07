@@ -3,10 +3,6 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import sentImage from "../assets/images/sent.svg";
 
-export const ErrMessage = () => (
-  <div className="text-center text-red-600"></div>
-);
-
 export const Spinner = () => (
   <span>
     Signing In... <i className="fas fa-spinner fa-pulse"></i>

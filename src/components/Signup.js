@@ -38,7 +38,8 @@ const SignupSchema = Yup.object().shape({
 export const Signup = () => {
   const [submitting, setSubmitting] = useState(false);
   const [err, setErr] = useState(null);
-  const handleSignup = (values, { resetForm }) => {
+  const [success, setSuccess] = useState(null);
+  const handleSignup = values => {
     setSubmitting(true);
     axios
       .post("http://localhost:3005/api/v1/users/register", values, {
@@ -46,15 +47,18 @@ export const Signup = () => {
       })
       .then(response => {
         console.log(response);
+        setSuccess(response.data.message);
         setTimeout(() => history.push("/auth"), 2000);
       })
       .catch(err => {
         if (err.response) {
           setSubmitting(false);
-          setErr(err.response.data);
+          setErr(err.response.data.message);
+          setTimeout(() => setErr(null), 5000);
         } else {
           console.log(err);
           setErr("unable to connect to server");
+          setTimeout(() => setErr(null), 5000);
         }
       });
   };
@@ -64,15 +68,24 @@ export const Signup = () => {
       <div className="bg-cover m-0 w-1/2" style={SignupStyles.background}>
         <div className="m-10">
           <LeftNavbarWhite />
+        </div>
+      </div>
+      <div className="w-1/2 bg-gray-300">
+        <div className="mt-12">
+          <RightNavbar />
+        </div>
+        <div className="mt-32">
           {err ? (
-            <div className="w-4/5 bg-red-100 text-center text-red-500">
+            <div className="w-4/5 bg-red-100 my-2 border py-2 border-bred-300 rounded-lg mx-auto  text-center text-red-500">
               {err}
             </div>
           ) : null}
+          {success ? (
+            <div className="w-4/5 bg-blue-100 my-2 border py-2 border-blue-300 rounded-lg mx-auto text-center">
+              {success}
+            </div>
+          ) : null}
         </div>
-      </div>
-      <div className="w-1/2 bg-gray-200">
-        <RightNavbar />
         <Formik
           onSubmit={handleSignup}
           validationSchema={SignupSchema}
@@ -84,71 +97,77 @@ export const Signup = () => {
           }}
         >
           {({ errors, touched }) => (
-            <Form className="max-w-sm w-full bg-white rounded-larger mx-auto my-32 p-8">
-              <div className="text-center font-bold">Let's get started</div>
-              <div className="text-center mb-8">
-                Create a FS account to get all features
-              </div>
-              <div className="mb-4">
-                <label className="font-semibold">Full name</label>
-                <Field
-                  name="fullName"
-                  className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full"
-                />
-                {errors.fullName && touched.fullName ? (
-                  <div className="text-red-600 text-xs">{errors.fullName}</div>
-                ) : null}
-              </div>
-              <div className="mb-4">
-                <label className="font-semibold">Email</label>
-                <Field
-                  name="email"
-                  className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full"
-                />
-                {errors.email && touched.email ? (
-                  <div className="text-red-600 text-xs"> {errors.email} </div>
-                ) : null}
-              </div>
-              <div className="mb-4">
-                <label className="font-semibold">Password</label>
-                <Field
-                  name="password"
-                  type="password"
-                  autoComplete="true"
-                  className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full"
-                />
-                {errors.password && touched.password ? (
-                  <div className="text-red-600 text-xs">{errors.password}</div>
-                ) : null}
-              </div>
-              <div className="mb-6">
-                <label className="font-semibold">Confirm Password</label>
-                <Field
-                  name="confirmPassword"
-                  type="password"
-                  autoComplete="true"
-                  className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full"
-                />
-                {errors.confirmPassword && touched.confirmPassword ? (
-                  <div className="text-red-600 text-xs">
-                    {" "}
-                    {errors.confirmPassword}
-                  </div>
-                ) : null}
-              </div>
-              <button
-                className="rounded-full w-full bg-purple-600 h-10 text-white font-normal focus:outline-none"
-                type="submit"
-              >
-                {submitting ? <Spinner /> : "Create account"}
-              </button>
-              <div className="text-center my-4 mx-auto text-sm">
-                Already have an account? Log in{" "}
-                <Link className="text-purple-600 font-bold" to="/auth">
-                  here
-                </Link>
-              </div>
-            </Form>
+            <>
+              <Form className="max-w-sm w-full my-auto bg-white rounded-larger mx-auto mb-32 p-8">
+                <div className="text-center font-bold">Let's get started</div>
+                <div className="text-center mb-8">
+                  Create a FS account to get all features
+                </div>
+                <div className="mb-4">
+                  <label className="font-semibold">Full name</label>
+                  <Field
+                    name="fullName"
+                    className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full"
+                  />
+                  {errors.fullName && touched.fullName ? (
+                    <div className="text-red-600 text-xs">
+                      {errors.fullName}
+                    </div>
+                  ) : null}
+                </div>
+                <div className="mb-4">
+                  <label className="font-semibold">Email</label>
+                  <Field
+                    name="email"
+                    className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full"
+                  />
+                  {errors.email && touched.email ? (
+                    <div className="text-red-600 text-xs"> {errors.email} </div>
+                  ) : null}
+                </div>
+                <div className="mb-4">
+                  <label className="font-semibold">Password</label>
+                  <Field
+                    name="password"
+                    type="password"
+                    autoComplete="true"
+                    className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full"
+                  />
+                  {errors.password && touched.password ? (
+                    <div className="text-red-600 text-xs">
+                      {errors.password}
+                    </div>
+                  ) : null}
+                </div>
+                <div className="mb-6">
+                  <label className="font-semibold">Confirm Password</label>
+                  <Field
+                    name="confirmPassword"
+                    type="password"
+                    autoComplete="true"
+                    className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full"
+                  />
+                  {errors.confirmPassword && touched.confirmPassword ? (
+                    <div className="text-red-600 text-xs">
+                      {" "}
+                      {errors.confirmPassword}
+                    </div>
+                  ) : null}
+                </div>
+                <button
+                  className="rounded-full w-full bg-purple-600 h-10 text-white font-normal focus:outline-none"
+                  type="submit"
+                >
+                  {submitting ? <Spinner /> : "Create account"}
+                </button>
+                <div className="text-center my-4 mx-auto text-sm">
+                  Already have an account? Log in{" "}
+                  <Link className="text-purple-600 font-bold" to="/auth">
+                    here
+                  </Link>
+                </div>
+              </Form>
+            </>
           )}
         </Formik>
       </div>
