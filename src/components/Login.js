@@ -6,7 +6,7 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { LeftNavbar, RightLoginNavbar } from "./Navbar";
 import { AuthContext } from "./Home";
-import { ErrMessage, Spinner } from '../utils/index';
+import { Spinner } from "../utils/index";
 
 const LoginRightStyles = {
   background: {
@@ -16,10 +16,9 @@ const LoginRightStyles = {
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email("This is not a valid email"),
-  password: Yup.string().min(
-    8,
-    "Your password cannot be fewer than 8 characters"
-  )
+  password: Yup.string()
+    .min(8, "Your password cannot be fewer than 8 characters")
+    .required("Password is required!")
 });
 
 const Login = () => {
@@ -30,32 +29,26 @@ const Login = () => {
   const [signIn, setSignIn] = useState(false);
   const handleLogin = values => {
     console.log(values);
-    setSignIn(true)
-    const { email, password } = values;
-    let data = new FormData();
-    data.append("email", email);
-    data.append("password", password);
+    setSignIn(true);
     axios
-      .post(
-        "http://localhost:3005/api/v1/users/login",
-        values,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          }
+      .post("http://localhost:3005/api/v1/users/login", values, {
+        headers: {
+          "Content-Type": "application/json"
         }
-      )
-      .then(
-        response => {
-          setSuccess('You successfully logged in');
-          console.log(response.data);
-          dispatch({ type: 'LOGIN', payload: response.data });
-          setTimeout(() => history.push('/user'), 1000);
-        }
-      )
+      })
+      .then(response => {
+        setSuccess("You successfully logged in");
+        console.log(response.data);
+        dispatch({ type: "LOGIN", payload: response.data });
+        setTimeout(() => history.push("/user"), 1000);
+      })
       .catch(err => {
-        setErr(err);
-        console.log(err);
+        if (err.response) {
+          setErr(err.response.data);
+        } else {
+          console.log(err);
+          setErr("Unable to connect to the server");
+        }
       });
   };
 
@@ -63,14 +56,14 @@ const Login = () => {
     <div className="h-full flex">
       <div className="w-1/2 m-0 px-20 py-10 bg-gray-300">
         <LeftNavbar />
-        <div>{err ? err.message : null}</div>
+        <div>{err ? err : null}</div>
         <div>{success ? success : null}</div>
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={LoginSchema}
           onSubmit={handleLogin}
         >
-          {(errors, touched) => (
+          {({ errors, touched }) => (
             <Form className="w-3/5 rounded-larger bg-white px-12 py-8 my-20 mx-auto shadow-lg">
               <h1 className="text-center text-2xl font-bolder mb-4">
                 Welcome Back
@@ -87,8 +80,8 @@ const Login = () => {
                   className="border-b-2 bg-indigo-100 h-10 border-indigo-700 w-full"
                   type="email"
                 />
-                {errors.name && touched.name ? (
-                  <ErrMessage />
+                {errors.email && touched.email ? (
+                  <div className="text-red-600 text-xs">{errors.email} </div>
                 ) : null}
               </div>
               <div className="mb-8">
@@ -101,14 +94,14 @@ const Login = () => {
                   type="password"
                 />
                 {errors.password && touched.password ? (
-                  <ErrMessage />
+                  <div className="text-red-600 text-xs">{errors.password}</div>
                 ) : null}
               </div>
               <button
                 type="submit"
                 className="rounded-full shadow-lg bg-indigo-700 w-full focus:outline-none hover:bg-indigo-500 text-white p-2"
               >
-                {signIn ? <Spinner /> : 'Login'}
+                {signIn ? <Spinner /> : "Login"}
               </button>
               <div className="m-4 text-center">Forgot password?</div>
               <div className="m-6 text-center text-sm">
