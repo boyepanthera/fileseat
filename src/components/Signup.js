@@ -64,9 +64,11 @@ export const Signup = () => {
       <div className="bg-cover m-0 w-1/2" style={SignupStyles.background}>
         <div className="m-10">
           <LeftNavbarWhite />
-          <div className="w-4/5 bg-red-100 text-center text-red-500">
-            {err ? err : null}
-          </div>
+          {err ? (
+            <div className="w-4/5 bg-red-100 text-center text-red-500">
+              {err}
+            </div>
+          ) : null}
         </div>
       </div>
       <div className="w-1/2 bg-gray-200">
