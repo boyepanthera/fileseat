@@ -65,7 +65,7 @@ const Fileseat = () => {
       <Navbar />
       <div className="text-red-800">{err ? err.message : null}</div>
       <div className="max-w-md sm:mx-2 ">
-        <div className="rounded-larger bg-white shadow-lg rounded px-10 pt-6 pb-8 my-8">
+        <div className="px-10 pt-6 pb-8 my-8">
           {" "}
           {progress ? (
             <Uploading
@@ -95,7 +95,7 @@ const Fileseat = () => {
                 isSubmitting,
                 setFieldValue
               }) => (
-                <Form>
+                <Form className="rounded-larger bg-white w-4-5 shadow-lg rounded p-6">
                   <div>
                     <h3 className="text-center text-xl font-bold tracking-normal">
                       TRANSFER FILES

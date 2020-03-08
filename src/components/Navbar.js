@@ -7,7 +7,7 @@ export const Navbar = () => {
     <div className="flex justify-between">
       <div className="w-1/2">
         <NavLink
-          className="text-white font-extrabold tracking-wider text-4xl"
+          className="text-white font-extrabold tracking-wider ml-10 text-4xl"
           to="/"
         >
           FS
@@ -41,7 +41,7 @@ export const NavbarColor = () => {
     <div className="flex justify-between">
       <div className="w-1/2">
         <NavLink
-          className="text-purple-900 font-extrabold tracking-wider text-4xl"
+          className="text-purple-900 font-extrabold tracking-wider ml-6 text-4xl"
           to="/"
         >
           FS
@@ -119,7 +119,7 @@ export const LeftNavbar = () => {
   return (
     <div className="w-1/2">
       <NavLink
-        className="text-purple-900 font-extrabold tracking-wider text-4xl"
+        className="text-purple-900 font-extrabold tracking-wider ml-6 text-4xl"
         to="/"
       >
         FS
@@ -132,7 +132,7 @@ export const LeftNavbarWhite = () => {
   return (
     <div className="w-1/2">
       <NavLink
-        className="text-white font-extrabold tracking-wider text-4xl"
+        className="text-white font-extrabold tracking-wider ml-6 text-4xl"
         to="/"
       >
         FS
