@@ -15,15 +15,18 @@ export const Navbar = () => {
       </div>
       <div className="w-1/2 mt-4">
         <div className="float-right mr-10">
-          <NavLink className="border-gray-600 border-r-2" to="/about">
+          <NavLink className="border-gray-600 mr-1" to="/about">
             <button className="bg-white rounded-l-lg font-bold px-2 py-1  ">
               About
             </button>
           </NavLink>
-          <NavLink className="" to="/auth">
+          <NavLink className="mr-1" to="/newauth">
+            <button className="bg-white font-bold px-2 py-1">SignUp</button>
+          </NavLink>
+          <NavLink className="mr-1" to="/auth">
             <button className="bg-white font-bold px-2 py-1">SignIn</button>
           </NavLink>
-          <NavLink className="border-gray-600 border-l-2" to="/help">
+          <NavLink className="border-gray-600" to="/help">
             <button className="bg-white font-bold px-2 py-1 rounded-r-lg ">
               Help
             </button>
@@ -46,15 +49,18 @@ export const NavbarColor = () => {
       </div>
       <div className="w-1/2 mt-4">
         <div className="float-right mr-10">
-          <NavLink className="border-gray-600 border-r-2" to="/about">
+          <NavLink className="mr-1" to="/about">
             <button className="bg-white rounded-l-lg font-bold px-2 py-1  ">
               About
             </button>
           </NavLink>
-          <NavLink className="" to="/auth">
+          <NavLink className="mr-1" to="/newauth">
+            <button className="bg-white font-bold px-2 py-1">SignUp</button>
+          </NavLink>
+          <NavLink className="mr-1" to="/auth">
             <button className="bg-white font-bold px-2 py-1">SignIn</button>
           </NavLink>
-          <NavLink className="border-gray-600 border-l-2" to="/help">
+          <NavLink className="" to="/help">
             <button className="bg-white font-bold px-2 py-1 rounded-r-lg ">
               Help
             </button>
@@ -68,15 +74,18 @@ export const NavbarColor = () => {
 export const RightNavbar = () => (
   <div className="float-right">
     <div className="mr-10">
-      <NavLink className="border-gray-600 border-r-2" to="/about">
+      <NavLink className="mr-1" to="/about">
         <button className="bg-white rounded-l-lg font-bold px-2 py-1  ">
           About
         </button>
       </NavLink>
-      <NavLink className="" to="/auth">
+      <NavLink className="mr-1" to="/newauth">
+        <button className="bg-white font-bold px-2 py-1">SignUp</button>
+      </NavLink>
+      <NavLink className="mr-1" to="/auth">
         <button className="bg-white font-bold px-2 py-1">SignIn</button>
       </NavLink>
-      <NavLink className="border-gray-600 border-l-2" to="/help">
+      <NavLink className="" to="/help">
         <button className="bg-white font-bold px-2 py-1 rounded-r-lg ">
           Help
         </button>
@@ -87,15 +96,18 @@ export const RightNavbar = () => (
 
 export const RightLoginNavbar = () => (
   <div className="float-right mr-10 mt-12">
-    <NavLink className="border-gray-600 border-r-2" to="/about">
+    <NavLink className="mr-1" to="/about">
       <button className="bg-white rounded-l-lg font-bold px-2 py-1  ">
         About
       </button>
     </NavLink>
-    <NavLink className="" to="/newauth">
+    <NavLink className="mr-1" to="/newauth">
       <button className="bg-white font-bold px-2 py-1">SignUp</button>
     </NavLink>
-    <NavLink className="border-gray-600 border-l-2" to="/help">
+    <NavLink className="mr-1" to="/auth">
+      <button className="bg-white font-bold px-2 py-1">SignIn</button>
+    </NavLink>
+    <NavLink className="mr-1" to="/help">
       <button className="bg-white font-bold px-2 py-1 rounded-r-lg ">
         Help
       </button>
