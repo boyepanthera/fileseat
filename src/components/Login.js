@@ -56,8 +56,12 @@ const Login = () => {
     <div className="h-full flex">
       <div className="w-1/2 m-0 px-20 py-10 bg-gray-300">
         <LeftNavbar />
-        <div>{err ? err : null}</div>
-        <div>{success ? success : null}</div>
+        <div className="w-4/5 bg-red-100 my-2 border py-1 border-bred-300 rounded-lg mx-auto  text-center text-red-500">
+          {err ? err : null}
+        </div>
+        <div className="w-4/5 bg-blue-100 my-2 border py-1 border-blue-300 rounded-lg mx-auto text-center">
+          {success ? success : null}
+        </div>
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={LoginSchema}
