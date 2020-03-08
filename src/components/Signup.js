@@ -57,6 +57,7 @@ export const Signup = () => {
           setTimeout(() => setErr(null), 5000);
         } else {
           console.log(err);
+          setSubmitting(false);
           setErr("unable to connect to server");
           setTimeout(() => setErr(null), 5000);
         }
@@ -76,12 +77,12 @@ export const Signup = () => {
         </div>
         <div className="mt-32">
           {err ? (
-            <div className="w-4/5 bg-red-100 my-2 border py-2 border-bred-300 rounded-lg mx-auto  text-center text-red-500">
+            <div className="w-4/5 bg-red-100 my-2 border py-1 border-bred-300 rounded-lg mx-auto  text-center text-red-500">
               {err}
             </div>
           ) : null}
           {success ? (
-            <div className="w-4/5 bg-blue-100 my-2 border py-2 border-blue-300 rounded-lg mx-auto text-center">
+            <div className="w-4/5 bg-blue-100 my-2 border py-1 border-blue-300 rounded-lg mx-auto text-center">
               {success}
             </div>
           ) : null}
