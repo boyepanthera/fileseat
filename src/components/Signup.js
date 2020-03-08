@@ -42,7 +42,7 @@ export const Signup = () => {
   const handleSignup = values => {
     setSubmitting(true);
     axios
-      .post("http://api.fileseat.com/api/v1/users/register", values, {
+      .post("https://api.fileseat.com/api/v1/users/register", values, {
         headers: { "Content-Type": "application/json" }
       })
       .then(response => {
