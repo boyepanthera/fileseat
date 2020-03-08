@@ -161,10 +161,10 @@ export const Signup = () => {
                 >
                   {submitting ? <Spinner /> : "Create account"}
                 </button>
-                <div className="text-center my-4 mx-auto text-sm">
-                  Already have an account? Log in{" "}
-                  <Link className="text-purple-600 font-bold" to="/auth">
-                    here
+                <div className="text-center my-4 mx-auto text-xs">
+                  Already have an account?
+                  <Link className="text-purple-600 ml-2 font-bold" to="/auth">
+                    Login here
                   </Link>
                 </div>
               </Form>

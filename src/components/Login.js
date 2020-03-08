@@ -112,10 +112,10 @@ const Login = () => {
                 {signIn ? <Spinner /> : "Login"}
               </button>
               <div className="m-4 text-center">Forgot password?</div>
-              <div className="m-6 text-center text-sm">
+              <div className="m-6 text-center text-xs">
                 Don't have an account yet?
-                <Link className="text-purple-500 font-bold" to="/newauth">
-                  Sign up
+                <Link className="ml-2 text-purple-500 font-bold" to="/newauth">
+                  Signup here.
                 </Link>
               </div>
             </Form>

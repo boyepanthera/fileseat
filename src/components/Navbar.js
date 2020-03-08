@@ -102,13 +102,17 @@ export const RightLoginNavbar = () => (
       </button>
     </NavLink>
     <NavLink className="mr-1" to="/newauth">
-      <button className="bg-white font-bold px-2 py-1">SignUp</button>
+      <button className="bg-white focus:outline-none font-bold px-2 py-1">
+        SignUp
+      </button>
     </NavLink>
     <NavLink className="mr-1" to="/auth">
-      <button className="bg-white font-bold px-2 py-1">SignIn</button>
+      <button className="bg-white focus:outline-none font-bold px-2 py-1">
+        SignIn
+      </button>
     </NavLink>
     <NavLink className="mr-1" to="/help">
-      <button className="bg-white font-bold px-2 py-1 rounded-r-lg ">
+      <button className="bg-white focus:outline-none font-bold px-2 py-1 rounded-r-lg ">
         Help
       </button>
     </NavLink>
@@ -132,7 +136,7 @@ export const LeftNavbarWhite = () => {
   return (
     <div className="w-1/2">
       <NavLink
-        className="text-white font-extrabold tracking-wider ml-6 text-4xl"
+        className="text-white  font-extrabold tracking-wider ml-12 text-4xl"
         to="/"
       >
         FS

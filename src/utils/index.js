@@ -19,7 +19,7 @@ const styles = buildStyles({
 
 export const Uploading = props => {
   return (
-    <div className="mx-auto items-center my-8">
+    <div className="items-center my-8 mx-auto items-center rounded-larger bg-white w-4-5 shadow-lg rounded p-8 shadow-lg">
       <div className="text-3xl text-center font-bold mb-4">FILESEAT</div>
       <CircularProgressbar
         strokeWidth={6}
@@ -40,7 +40,7 @@ export const Uploading = props => {
 };
 
 export const Uploaded = () => (
-  <div className="mx-auto items-center my-8">
+  <div className="mx-auto items-center my-8 rounded-larger bg-white w-4-5 shadow-lg rounded p-8 shadow-lg">
     <div className="text-3xl text-center font-bold mb-4">FILESEAT</div>
     <div className="items-center justify-center flex mb-4">
       <img
@@ -55,7 +55,7 @@ export const Uploaded = () => (
       7days.
     </div>
     <button
-      className="bg-indigo-700 w-full rounded-full h-10 text-white font-semibold mx-4 my-4"
+      className="bg-indigo-700 opacity-75 w-full rounded-full h-10 text-white font-semibold mx-auto my-4"
       disabled={true}
     >
       Done!
