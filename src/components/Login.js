@@ -31,7 +31,7 @@ const Login = () => {
     console.log(values);
     setSignIn(true);
     axios
-      .post("api.fileseat.com/api/v1/users/login", values, {
+      .post("http://api.fileseat.com/api/v1/users/login", values, {
         headers: {
           "Content-Type": "application/json"
         }

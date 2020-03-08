@@ -46,7 +46,7 @@ const Fileseat = () => {
     data.append("message", message);
     try {
       let response = await axios.post(
-        "api.fileseat.com/api/v1/files",
+        "http://api.fileseat.com/api/v1/files",
         data,
         config
       );
