@@ -5,8 +5,10 @@ import { Switch, Route } from "react-router-dom";
 import "../assets/css/Home.css";
 import { Signup } from "./Signup";
 import { AdminDashboard, UserDashboard } from "./Dashboard";
+import { Forgot, Reset } from './Forgot';
 import { NotFound } from "./NotFound";
 import { PrivateRoute } from "./Private.route";
+import { Download } from './Download';
 export const AuthContext = React.createContext();
 
 const initialState = {
@@ -50,6 +52,9 @@ const Home = () => {
             <Route exact path="/newauth" component={Signup} />
             <PrivateRoute exact path="/user" component={UserDashboard} />
             <PrivateRoute exact path="/admin" component={AdminDashboard} />
+            <Route exact path="/forgot" component={Forgot} />
+            <Route exact path="/reset/:id" component={Reset}/>
+            <Route exact path="/download/:downloadID" component={Download} />
             <Route path="*" component={NotFound} />
           </Switch>
         </div>

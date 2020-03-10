@@ -116,7 +116,9 @@ const Login = () => {
               >
                 {signIn ? <Spinner /> : "Login"}
               </button>
-              <div className="m-4 text-center">Forgot password?</div>
+              <div className='text-center m-2'>
+                <Link to='/forgot' className="m-4 text-center text-purple-700 font-semibold text-sm">Forgot password?</Link>
+              </div>
               <div className="m-6 text-center text-xs">
                 Don't have an account yet?
                 <Link className="ml-2 text-purple-500 font-bold" to="/newauth">
