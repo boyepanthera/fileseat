@@ -1,25 +1,25 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Field, Formik } from 'formik';
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 
 export const Forgot = () => {
     let [err, setErr] = useState(null);
     let [success, setSuccess] = useState(null);
-    const handleSubmit = async (values)=> {
-        try{
-            let response = await axios.post('http://localhost:3005/api/v1/users/resetpassword', values, {headers:{Accept: "application/json"}})
+    const handleSubmit = async (values) => {
+        try {
+            let response = await axios.post('https://fileseat.com/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
             console.log(response);
             setSuccess(response.data.message);
-            setTimeout(()=> setSuccess(null), 4000);
+            setTimeout(() => setSuccess(null), 4000);
         } catch (err) {
-            if(err.response) {
+            if (err.response) {
                 setErr(err.response.data.message);
-                setTimeout(()=> setErr(null), 4000);
+                setTimeout(() => setErr(null), 4000);
             } else {
                 setErr('Unable to connect to reset password server');
-                setTimeout(()=> setErr(null), 4000)
+                setTimeout(() => setErr(null), 4000)
             }
         }
     }
@@ -27,17 +27,17 @@ export const Forgot = () => {
         <div className='bg-gray-200 flex flex-wrap h-screen'>
 
             <div className='m-auto w-1/4'>
-                            {
-                err ? <div className='text-sm bg-red-100 rounded rounded-sm py-1 text-center text-red-500 border-red-300'>{err}</div> : null
-            }
-            {
-                success ? <div className='text-sm bg-blue-100 rounded rounded-sm py-1 text-center text-blue-500 border-blue-300'>{success}</div> : null
-            }
+                {
+                    err ? <div className='text-sm bg-red-100 rounded rounded-sm py-1 text-center text-red-500 border-red-300'>{err}</div> : null
+                }
+                {
+                    success ? <div className='text-sm bg-blue-100 rounded rounded-sm py-1 text-center text-blue-500 border-blue-300'>{success}</div> : null
+                }
                 <Formik
                     initialValues={{
                         email: ''
                     }}
-                    onSubmit ={handleSubmit}
+                    onSubmit={handleSubmit}
                 >
                     {
                         () =>
@@ -59,34 +59,34 @@ export const Reset = () => {
     let [err, setErr] = useState(null);
     let [success, setSuccess] = useState(null);
     let [email, setEmail] = useState(null);
-    let {id} = useParams();
-    const handleSubmit = async (values)=> {
-        try{
-            let response = await axios.post('http://localhost:3005/api/v1/users/resetpassword', values, {headers:{Accept: "application/json"}})
+    let { id } = useParams();
+    const handleSubmit = async (values) => {
+        try {
+            let response = await axios.post('http://localhost:3005/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
             console.log(response);
             setSuccess(response.data.message);
         } catch (err) {
-            if(err.response) {
+            if (err.response) {
                 setErr(err.response.data.message);
-                setTimeout(()=> setErr(null), 4000);
+                setTimeout(() => setErr(null), 4000);
             } else {
                 setErr('Unable to connect to reset password server');
-                setTimeout(()=> setErr(null), 4000)
+                setTimeout(() => setErr(null), 4000)
             }
         }
     }
 
     useEffect(
-        ()=> async ()=> {
+        () => async () => {
             try {
-                let response = await axios.get(`http://localhost:3005/api/v1/users/resetpassword/${id}`);
+                let response = await axios.get(`https://fileseat.com/api/v1/users/resetpassword/${id}`);
                 console.log(response);
                 setEmail(response.data.email);
                 setSuccess(response.data.message);
             } catch (err) {
-                if(err.response){
+                if (err.response) {
                     setErr(err.response.data.message);
-                    setTimeout(()=> setErr(null), 4000)
+                    setTimeout(() => setErr(null), 4000)
                 } else {
                     setErr('There were issues connecting with backend server!')
                 }
@@ -98,17 +98,17 @@ export const Reset = () => {
         <div className='bg-gray-200 flex flex-wrap h-screen'>
 
             <div className='m-auto w-1/4'>
-                            {
-                err ? <div className='text-sm bg-red-100 rounded rounded-sm py-1 text-center text-red-500 border-red-300'>{err}</div> : null
-            }
-            {
-                success ? <div className='text-sm bg-blue-100 rounded rounded-sm py-1 text-center text-blue-500 border-blue-300'>{success}</div> : null
-            }
+                {
+                    err ? <div className='text-sm bg-red-100 rounded rounded-sm py-1 text-center text-red-500 border-red-300'>{err}</div> : null
+                }
+                {
+                    success ? <div className='text-sm bg-blue-100 rounded rounded-sm py-1 text-center text-blue-500 border-blue-300'>{success}</div> : null
+                }
                 <Formik
                     initialValues={{
-                        email: {email}
+                        email: { email }
                     }}
-                    onSubmit ={handleSubmit}
+                    onSubmit={handleSubmit}
                 >
                     {
                         () =>
