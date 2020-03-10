@@ -28,7 +28,7 @@ export const Uploading = props => {
         value={props.progress}
         text={`${props.progress}%`}
       />
-      <div className="items-center flex justify-start font-bold">Sending:</div>
+      <div className="text-center text-2xl uppercase font-bold">Transfering</div>
       <div className="my-2">{props.fileName}</div>
       <div className="items-center flex justify-start font-bold">To: </div>
       <div className="my-2">{props.receipient}</div>

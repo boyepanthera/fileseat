@@ -5,6 +5,7 @@ import { RightNavbar, LeftNavbarWhite } from "./Navbar";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import * as Yup from "yup";
+import Helmet from 'react-helmet';
 import { Spinner } from "../utils/index";
 
 const SignupStyles = {
@@ -67,6 +68,10 @@ export const Signup = () => {
   return (
     <div className="h-full flex">
       <div className="bg-cover m-0 w-1/2" style={SignupStyles.background}>
+        <Helmet>
+          <title>Sign Up for your Fileseat Account.</title>
+          <meta name="description" content="Send files with ease." />
+        </Helmet>
         <div className="m-10">
           <LeftNavbarWhite />
         </div>

@@ -53,8 +53,13 @@ const Fileseat = () => {
       );
       console.log(response);
     } catch (err) {
-      console.log(err);
-      setErr(err);
+      if (err.response) {
+        console.log(err);
+        setErr(err.response.data.message);
+      } else {
+        setErr('Problem connecting to backend server!')
+      }
+
     }
   };
   const { getRootProps, getInputProps, acceptedFiles } = useDropzone();

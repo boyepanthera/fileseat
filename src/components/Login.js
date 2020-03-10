@@ -4,6 +4,7 @@ import LoginPicture from "../assets/images/ThreeHappyFriends.jpg";
 import * as Yup from "yup";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import Helmet from 'react-helmet';
 import { LeftNavbar, RightLoginNavbar } from "./Navbar";
 import { AuthContext } from "./Home";
 import { Spinner } from "../utils/index";
@@ -54,6 +55,10 @@ const Login = () => {
 
   return (
     <div className="h-full flex">
+      <Helmet>
+        <title> Login: Welcome back to your Fileseat Account.</title>
+        <meta name="description" content="Login and view your file sharing history" />
+      </Helmet>
       <div className="w-1/2 m-0 px-20 py-10 bg-gray-300">
         <LeftNavbar />
         {err ? (
