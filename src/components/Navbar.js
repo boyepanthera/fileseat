@@ -4,34 +4,32 @@ import "../assets/css/Navbar.css";
 
 export const Navbar = () => {
   return (
-    <div className="flex justify-between">
-      <div className="w-1/2">
+    <div className="flex justify-between mb-8">
+      <div>
         <NavLink
-          className="text-white font-extrabold tracking-wider ml-10 text-4xl"
+          className="text-white font-extrabold tracking-wider text-4xl"
           to="/"
         >
           FS
         </NavLink>
       </div>
-      <div className="w-1/2 mt-4">
-        <div className="float-right mr-10">
-          <NavLink className="border-gray-600 mr-1" to="/about">
-            <button className="bg-white rounded-l-lg font-bold px-2 py-1  ">
-              About
+      <div className="mt-3">
+        <NavLink className="border-gray-600 mr-1" to="/about">
+          <button className="bg-white rounded-l-lg font-bold px-2 py-1  ">
+            About
             </button>
-          </NavLink>
-          <NavLink className="mr-1" to="/newauth">
-            <button className="bg-white font-bold px-2 py-1">SignUp</button>
-          </NavLink>
-          <NavLink className="mr-1" to="/auth">
-            <button className="bg-white font-bold px-2 py-1">SignIn</button>
-          </NavLink>
-          <NavLink className="border-gray-600" to="/help">
-            <button className="bg-white font-bold px-2 py-1 rounded-r-lg ">
-              Help
+        </NavLink>
+        <NavLink className="mr-1" to="/newauth">
+          <button className="bg-white font-bold px-2 py-1">SignUp</button>
+        </NavLink>
+        <NavLink className="mr-1" to="/auth">
+          <button className="bg-white font-bold px-2 py-1">SignIn</button>
+        </NavLink>
+        <NavLink className="border-gray-600" to="/help">
+          <button className="bg-white font-bold px-2 py-1 rounded-r-lg ">
+            Help
             </button>
-          </NavLink>
-        </div>
+        </NavLink>
       </div>
     </div>
   );

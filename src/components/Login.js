@@ -54,12 +54,12 @@ const Login = () => {
   };
 
   return (
-    <div className="h-full flex">
+    <div className="h-full flex flex-wrap -m-2">
       <Helmet>
         <title> Login: Welcome back to your Fileseat Account.</title>
         <meta name="description" content="Login and view your file sharing history" />
       </Helmet>
-      <div className="w-1/2 m-0 px-20 py-10 bg-gray-300">
+      <div className="sm:w-1/2 m-0 px-20 py-10 bg-gray-300">
         <LeftNavbar />
         {err ? (
           <div className="w-4/5 bg-red-100 my-2 border py-1 border-bred-300 rounded-lg mx-auto  text-center text-red-500">
@@ -129,7 +129,7 @@ const Login = () => {
           )}
         </Formik>
       </div>
-      <div className="w-1/2 bg-cover" style={LoginRightStyles.background}>
+      <div className="sm:w-1/2 bg-cover" style={LoginRightStyles.background}>
         <RightLoginNavbar />
       </div>
     </div>

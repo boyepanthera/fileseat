@@ -25,8 +25,7 @@ export const Forgot = () => {
     }
     return (
         <div className='bg-gray-200 flex flex-wrap h-screen'>
-
-            <div className='m-auto w-1/4'>
+            <div className='m-auto sm:w-1/3 w-full p-8 sm:inset-0'>
                 {
                     err ? <div className='text-sm bg-red-100 rounded rounded-sm py-1 text-center text-red-500 border-red-300'>{err}</div> : null
                 }
@@ -97,7 +96,7 @@ export const Reset = () => {
     return (
         <div className='bg-gray-200 flex flex-wrap h-screen'>
 
-            <div className='m-auto w-1/4'>
+            <div className='m-auto w-1/4 sm:w-full'>
                 {
                     err ? <div className='text-sm bg-red-100 rounded rounded-sm py-1 text-center text-red-500 border-red-300'>{err}</div> : null
                 }
