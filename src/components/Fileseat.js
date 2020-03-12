@@ -106,11 +106,11 @@ const Fileseat = () => {
                       isSubmitting,
                       setFieldValue
                     }) => (
-                        <Form className="rounded-larger bg-white w-4/5 sm:w-1/3  shadow-lg rounded p-8">
+                        <Form className="rounded-larger bg-white w-4/5 mx-auto sm:mx-0 sm:w-1/3  shadow-lg rounded p-8">
                           <div>
                             <h3 className="text-center text-xl font-bold tracking-normal">
                               TRANSFER FILES
-                    </h3>
+                            </h3>
                           </div>
                           <div className="mb-4">
                             <label
