@@ -9,7 +9,7 @@ export const Forgot = () => {
     let [success, setSuccess] = useState(null);
     const handleSubmit = async (values) => {
         try {
-            let response = await axios.post('https://fileseat.com/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
+            let response = await axios.post('http://localhost:3005/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
             console.log(response);
             setSuccess(response.data.message);
             setTimeout(() => setSuccess(null), 4000);
@@ -78,7 +78,7 @@ export const Reset = () => {
     useEffect(
         () => async () => {
             try {
-                let response = await axios.get(`https://fileseat.com/api/v1/users/resetpassword/${id}`);
+                let response = await axios.get(`http://localhost:3005/api/v1/users/resetpassword/${id}`);
                 console.log(response);
                 setEmail(response.data.email);
                 setSuccess(response.data.message);
@@ -94,9 +94,9 @@ export const Reset = () => {
     )
 
     return (
-        <div className='bg-gray-200 flex flex-wrap h-screen'>
+        <div className='bg-gray-200 h-screen flex'>
 
-            <div className='m-auto w-1/4 sm:w-full'>
+            <div className='w-full mx-10 my-24 sm:m-auto'>
                 {
                     err ? <div className='text-sm bg-red-100 rounded rounded-sm py-1 text-center text-red-500 border-red-300'>{err}</div> : null
                 }
@@ -111,10 +111,10 @@ export const Reset = () => {
                 >
                     {
                         () =>
-                            <Form className='w-full bg-white mx-auto p-8 my-8 rounded-lg'>
+                            <Form className='w-full sm:w-1/3 bg-white mx-auto p-8 my-8  rounded-lg'>
                                 <div className='my-2'>
                                     <label className='block text-black font-bold uppercase text-sm'>Email</label>
-                                    <Field className='w-full rounded rounded-sm p-2 my-2 border border-gray-400' type='text' value={email} name='email' placeholder='e.g johnjude@gm.com' />
+                                    <Field className='w-full rounded rounded-sm p-2 my-2 border border-gray-400' type='text' name='email' placeholder='e.g johnjude@gm.com' />
                                 </div>
                                 <div className='my-2'>
                                     <label className='block text-black font-bold uppercase text-sm'>New Password</label>
