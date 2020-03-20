@@ -7,6 +7,8 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import { useDropzone } from "react-dropzone";
 import { Uploading, Uploaded } from "../utils/index";
 import { Helmet } from 'react-helmet';
+const { CancelToken } = axios;
+const source = CancelToken.source();
 
 const LoginStyles = {
   background: {
@@ -29,6 +31,7 @@ const Fileseat = () => {
 
     let config = {
       headers: { Accept: "multipart/form-data" },
+      cancelToken: source.token,
       onUploadProgress: progressEvent => {
         let percentCompleted = Math.round(
           (progressEvent.loaded * 100) / progressEvent.total
@@ -56,7 +59,10 @@ const Fileseat = () => {
       if (err.response) {
         console.log(err);
         setErr(err.response.data.message);
-      } else {
+      } else if (axios.isCancel(err)) {
+        setErr(err.message);
+      }
+      else {
         setErr('Problem connecting to backend server!')
       }
 
@@ -83,6 +89,7 @@ const Fileseat = () => {
                 progress={progress}
                 fileName={fileData[0].name}
                 receipient={receipient}
+                CancelToken={source}
               />
             ) : success ? (
               <Uploaded />
