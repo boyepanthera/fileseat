@@ -19,7 +19,7 @@ const styles = buildStyles({
 
 export const Uploading = props => {
   return (
-    <div className="items-center my-8 mx-auto sm:mx-0 sm:max-w-sm rounded-larger bg-white w-full sm:w-1/4 shadow-lg rounded p-8">
+    <div className="flex items-center my-8 mx-auto sm:mx-0 sm:max-w-sm rounded-larger bg-white w-full sm:w-1/4 shadow-lg rounded p-8">
       <div className="text-3xl text-center font-bold mb-4">FILESEAT</div>
       <CircularProgressbar
         strokeWidth={6}
