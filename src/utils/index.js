@@ -21,13 +21,15 @@ export const Uploading = props => {
   return (
     <div className="items-center my-8 mx-auto sm:mx-0 sm:max-w-sm rounded-larger bg-white w-full sm:w-1/4 shadow-lg rounded p-8">
       <div className="text-3xl text-center font-bold mb-4">FILESEAT</div>
-      <CircularProgressbar
-        strokeWidth={6}
-        className="my-4 h-48 w-48 mx-auto border-indigo-700"
-        styles={styles}
-        value={props.progress}
-        text={`${props.progress}%`}
-      />
+      <div className ='flex items-center'>
+        <CircularProgressbar
+          strokeWidth={6}
+          className="my-4 h-48 w-48 mx-auto border-indigo-700"
+          styles={styles}
+          value={props.progress}
+          text={`${props.progress}%`}
+        />
+      </div>
       <div className="text-center text-xl uppercase font-bold">Transfering...</div>
       <div className="my-2">{props.fileName}</div>
       <div className="items-center flex justify-start font-bold">To: </div>
