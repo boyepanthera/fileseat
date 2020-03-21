@@ -21,7 +21,7 @@ export const Uploading = props => {
   return (
     <div className="items-center my-8 mx-auto sm:mx-0 sm:max-w-sm rounded-larger bg-white w-full sm:w-1/4 shadow-lg rounded p-8">
       <div className="text-3xl text-center font-bold mb-4">FILESEAT</div>
-      <div className ='flex items-center'>
+      <div className ='flex justify-center'>
         <CircularProgressbar
           strokeWidth={6}
           className="my-4 h-48 w-48 mx-auto border-indigo-700"
