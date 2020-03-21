@@ -32,9 +32,9 @@ const Login = () => {
     console.log(values);
     setSignIn(true);
     axios
-      .post("https://api.fileseat.com/api/v1/users/login", values, {
+      .post("http://localhost:3005/api/v1/users/login", values, {
         headers: {
-          "Content-Type": "application/json"
+          "Accept": "application/json",
         }
       })
       .then(response => {
@@ -59,7 +59,7 @@ const Login = () => {
         <title> Login: Welcome back to your Fileseat Account.</title>
         <meta name="description" content="Login and view your file sharing history" />
       </Helmet>
-      <div className="sm:w-1/2 m-0 px-20 py-10 bg-gray-300">
+      <div className="sm:w-1/2 w-full m-0 sm:px-20 sm:py-10 p-10 bg-gray-300">
         <LeftNavbar />
         {err ? (
           <div className="w-4/5 bg-red-100 my-2 border py-1 border-bred-300 rounded-lg mx-auto  text-center text-red-500">
@@ -77,7 +77,7 @@ const Login = () => {
           onSubmit={handleLogin}
         >
           {({ errors, touched }) => (
-            <Form className="w-3/5 rounded-larger bg-white px-12 py-8 my-20 mx-auto shadow-lg">
+            <Form className="sm:w-3/5 w-full rounded-larger bg-white my-10 py-8 px-4 sm:px-12 sm:py-8 sm:my-20 sm:mx-auto mx-2 shadow-lg">
               <h1 className="text-center text-2xl font-bolder mb-4">
                 Welcome Back
               </h1>
