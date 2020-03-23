@@ -32,7 +32,7 @@ export const Uploading = props => {
       <div className="my-2">{props.fileName}</div>
       <div className="items-center flex justify-start font-bold">To: </div>
       <div className="my-2">{props.receipient}</div>
-      <button className="rounded-full w-full bg-indigo-700 hover:bg-indigo-500 focus:outline-none p-2 mt-4 mx-auto text-white font-semibold">
+      <button onClick={props.CancelToken.cancel('You cancelled the upload')} className="rounded-full w-full bg-indigo-700 hover:bg-indigo-500 focus:outline-none p-2 mt-4 mx-auto text-white font-semibold">
         Cancel...
       </button>
     </div>

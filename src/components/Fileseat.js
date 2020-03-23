@@ -61,6 +61,8 @@ const Fileseat = () => {
         setErr(err.response.data.message);
       } else if (axios.isCancel(err)) {
         setErr(err.message);
+        setProgress(false)
+        setSuccess(false)
       }
       else {
         setErr('Problem connecting to backend server!')
@@ -80,7 +82,8 @@ const Fileseat = () => {
       </Helmet>
       <div className="h-screen p-8 sm:p-20" style={LoginStyles.background}>
         <Navbar />
-        {err ? (<div className="text-red-800 w-1/4 ml-20 bg-red-100 my-2 border py-1 border-red-300 rounded-lg mx-auto  text-center text-red-500">{err.message}</div>) : null}
+        {err ? (
+          <div className="text-red-800 w-1/4 ml-20 bg-red-100 my-2 border py-1 border-red-300 rounded-lg  text-center text-red-500">{err.message}</div>) : null}
         <div className="sm:mx-2">
           <div className="">
             {" "}
@@ -187,8 +190,8 @@ const Fileseat = () => {
                           </div>
                           <button
                             type="submit"
-                            disabled={isSubmitting}
-                            onClick={handleSubmit}
+                            // disabled={isSubmitting}
+                            // onClick={handleSubmit}
                             className="hover:bg-indigo-500 rounded-full shadow-lg w-full bg-indigo-700 rounded-lg text-white font-bold p-2"
                           >
                             Transfer <i></i>
