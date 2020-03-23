@@ -43,8 +43,11 @@ export const Signup = () => {
   const handleSignup = values => {
     setSubmitting(true);
     axios
-      .post("https://api.fileseat.com/api/v1/users/register", values, {
-        headers: { "Content-Type": "application/json" }
+      .post("http://localhost:3005/api/v1/users/register", values, {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "http://localhost:3000"
+        }
       })
       .then(response => {
         console.log(response);
