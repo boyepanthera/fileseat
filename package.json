@@ -11,6 +11,7 @@
     "axios": "^0.19.0",
     "formik": "^2.0.3",
     "history": "^4.10.1",
+    "npm-force-resolutions": "^0.0.3",
     "postcss-cli": "^7.1.0",
     "react": "^16.12.4",
     "react-circular-progressbar": "^2.0.3",
