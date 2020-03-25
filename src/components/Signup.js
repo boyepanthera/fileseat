@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SignupMan from "../assets/images/one-happy-man.jpg";
 import { Formik, Form, Field } from "formik";
-import { RightNavbar, LeftNavbarWhite } from "./Navbar";
+import { RightNavbar, LeftNavbarWhite, Navbar } from "./Navbar";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import * as Yup from "yup";
@@ -69,20 +69,25 @@ export const Signup = () => {
   };
   let history = useHistory();
   return (
-    <div className="h-full flex">
-      <div className="bg-cover m-0 w-1/2" style={SignupStyles.background}>
-        <Helmet>
-          <title>Sign Up for your Fileseat Account.</title>
-          <meta name="description" content="Send files with ease." />
-        </Helmet>
-        <div className="m-10">
-          <LeftNavbarWhite />
-        </div>
+    <div className="h-full flex bg-gray-300">
+      <Helmet>
+        <title>Sign Up for your Fileseat Account.</title>
+        <meta name="description" content="Send files with ease." />
+      </Helmet>
+      <div>
+        <Navbar />
+
       </div>
-      <div className="w-1/2 bg-gray-300">
-        <div className="mt-12">
+      <div className="bg-cover m-0 w-1/2" style={SignupStyles.background}>
+
+        {/* <div className="m-10">
+          <LeftNavbarWhite />
+        </div> */}
+      </div>
+      <div className="w-1/2 ">
+        {/* <div className="mt-12">
           <RightNavbar />
-        </div>
+        </div> */}
         <div className="mt-32">
           {err ? (
             <div className="w-4/5 bg-red-100 my-2 border py-1 border-bred-300 rounded-lg mx-auto  text-center text-red-500">
