@@ -7,8 +7,8 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import { useDropzone } from "react-dropzone";
 import { Uploading, Uploaded } from "../utils/index";
 import { Helmet } from 'react-helmet';
-const { CancelToken } = axios;
-const source = CancelToken.source();
+// const { CancelToken } = axios;
+// const source = CancelToken.source();
 
 const LoginStyles = {
   background: {
@@ -25,13 +25,11 @@ const Fileseat = () => {
   let [receipient, setReceipient] = useState("");
   const [progress, setProgress] = useState(null);
   const handleSubmit = async values => {
-    // console.log(values);
     let { receipientEmail, senderEmail, files, message } = values;
     setReceipient(receipientEmail);
-
     let config = {
       headers: { Accept: "multipart/form-data" },
-      cancelToken: source.token,
+      // cancelToken: source.token,
       onUploadProgress: progressEvent => {
         let percentCompleted = Math.round(
           (progressEvent.loaded * 100) / progressEvent.total
@@ -59,10 +57,6 @@ const Fileseat = () => {
       if (err.response) {
         console.log(err);
         setErr(err.response.data.message);
-      } else if (axios.isCancel(err)) {
-        setErr(err.message);
-        setProgress(false)
-        setSuccess(false)
       }
       else {
         setErr('Problem connecting to backend server!')
@@ -83,7 +77,7 @@ const Fileseat = () => {
       <div className="h-screen p-8 sm:p-20" style={LoginStyles.background}>
         <Navbar />
         {err ? (
-          <div className="text-red-800 w-1/4 ml-20 bg-red-100 my-2 border py-1 border-red-300 rounded-lg  text-center text-red-500">{err.message}</div>) : null}
+          <div className="text-red-800 sm:w-1/4 w-full bg-red-100 my-2  py-2 rounded-lg text-center">{err.message}</div>) : null}
         <div className="sm:mx-2">
           <div className="">
             {" "}
@@ -92,7 +86,6 @@ const Fileseat = () => {
                 progress={progress}
                 fileName={fileData[0].name}
                 receipient={receipient}
-                CancelToken={source}
               />
             ) : success ? (
               <Uploaded />
@@ -190,9 +183,7 @@ const Fileseat = () => {
                           </div>
                           <button
                             type="submit"
-                            // disabled={isSubmitting}
-                            // onClick={handleSubmit}
-                            className="hover:bg-indigo-500 rounded-full shadow-lg w-full bg-indigo-700 rounded-lg text-white font-bold p-2"
+                            className="hover:bg-indigo-500 focus:outline-none rounded-full shadow-lg w-full bg-indigo-700 rounded-lg text-white font-bold p-2"
                           >
                             Transfer <i></i>
                           </button>

@@ -21,7 +21,7 @@ export const Uploading = props => {
   return (
     <div className="items-center my-8 mx-auto sm:mx-0 sm:max-w-sm rounded-larger bg-white w-full sm:w-1/4 shadow-lg rounded p-8">
       <div className="text-3xl text-center font-bold mb-4">FILESEAT</div>
-      <div className ='flex justify-center'>
+      <div className='flex justify-center'>
         <CircularProgressbar
           strokeWidth={6}
           className="my-4 h-48 w-48 mx-auto border-indigo-700"
@@ -34,7 +34,7 @@ export const Uploading = props => {
       <div className="my-2">{props.fileName}</div>
       <div className="items-center flex justify-start font-bold">To: </div>
       <div className="my-2">{props.receipient}</div>
-      <button onClick={props.CancelToken.cancel('You cancelled the upload')} className="rounded-full w-full bg-indigo-700 hover:bg-indigo-500 focus:outline-none p-2 mt-4 mx-auto text-white font-semibold">
+      <button className="rounded-full w-full bg-indigo-700 hover:bg-indigo-500 focus:outline-none p-2 mt-4 mx-auto text-white font-semibold">
         Cancel...
       </button>
     </div>

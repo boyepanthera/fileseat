@@ -32,9 +32,10 @@ const Login = () => {
     console.log(values);
     setSignIn(true);
     axios
-      .post("http://localhost:3005/api/v1/users/login", values, {
+      .post("https://api.fileseat.com/api/v1/users/login", values, {
         headers: {
           "Accept": "application/json",
+          "Access-Control-Allow-Origin": "*"
         }
       })
       .then(response => {
