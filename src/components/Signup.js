@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SignupMan from "../assets/images/one-happy-man.jpg";
 import { Formik, Form, Field } from "formik";
-import { RightNavbar, LeftNavbarWhite, Navbar } from "./Navbar";
+import { RightNavbar, LeftNavbarWhite } from "./Navbar";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import * as Yup from "yup";
@@ -43,10 +43,10 @@ export const Signup = () => {
   const handleSignup = values => {
     setSubmitting(true);
     axios
-      .post("http://localhost:3005/api/v1/users/register", values, {
+      .post("https://api.fileseat.com/api/v1/users/register", values, {
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "http://localhost:3000"
+          // "Access-Control-Allow-Origin": "*"
         }
       })
       .then(response => {
@@ -74,20 +74,15 @@ export const Signup = () => {
         <title>Sign Up for your Fileseat Account.</title>
         <meta name="description" content="Send files with ease." />
       </Helmet>
-      <div>
-        <Navbar />
-
-      </div>
       <div className="bg-cover m-0 w-1/2" style={SignupStyles.background}>
-
-        {/* <div className="m-10">
+        <div className="m-10">
           <LeftNavbarWhite />
-        </div> */}
+        </div>
       </div>
       <div className="w-1/2 ">
-        {/* <div className="mt-12">
+        <div className="mt-12">
           <RightNavbar />
-        </div> */}
+        </div>
         <div className="mt-32">
           {err ? (
             <div className="w-4/5 bg-red-100 my-2 border py-1 border-bred-300 rounded-lg mx-auto  text-center text-red-500">

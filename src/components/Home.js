@@ -52,7 +52,7 @@ const Home = () => {
             <Route exact path="/newauth" component={Signup} />
             <PrivateRoute exact path="/user" component={UserDashboard} />
             <PrivateRoute exact path="/admin" component={AdminDashboard} />
-            <Route exact path="/forgot" component={Forgot} />
+            <Route exact path="/forgot" component={Forgot}/>
             <Route exact path="/reset/:id" component={Reset}/>
             <Route exact path="/download/:downloadID" component={Download} />
             <Route path="*" component={NotFound} />
