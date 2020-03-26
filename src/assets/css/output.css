@@ -743,6 +743,10 @@ img {
   margin-bottom: 1rem;
 }
 
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
 .mb-6 {
   margin-bottom: 1.5rem;
 }
@@ -861,6 +865,10 @@ img {
 
 .shadow-lg {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 .focus\:shadow-outline:focus {

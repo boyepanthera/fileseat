@@ -34,6 +34,40 @@ export const Navbar = () => {
     </div>
   );
 };
+
+export const ResetNavbar = () => {
+  return (
+    <div className="flex justify-between mb-8">
+      <div>
+        <NavLink
+          className="text-purple-700 font-extrabold tracking-wider text-4xl"
+          to="/"
+        >
+          FS
+        </NavLink>
+      </div>
+      <div className="mt-3">
+        <NavLink className="border-gray-600 mr-1" to="/about">
+          <button className="bg-white rounded-l-lg font-bold px-2 py-1  ">
+            About
+            </button>
+        </NavLink>
+        <NavLink className="mr-1" to="/newauth">
+          <button className="bg-white font-bold px-2 py-1">SignUp</button>
+        </NavLink>
+        <NavLink className="mr-1" to="/auth">
+          <button className="bg-white font-bold px-2 py-1">SignIn</button>
+        </NavLink>
+        <NavLink className="border-gray-600" to="/help">
+          <button className="bg-white font-bold px-2 py-1 rounded-r-lg ">
+            Help
+            </button>
+        </NavLink>
+      </div>
+    </div>
+  );
+};
+
 export const NavbarColor = () => {
   return (
     <div className="flex justify-between">

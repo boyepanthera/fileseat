@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Form, Field, Formik } from 'formik';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-
+import {ResetNavbar} from './Navbar';
 
 export const Forgot = () => {
     let [err, setErr] = useState(null);
     let [success, setSuccess] = useState(null);
     const handleSubmit = async (values) => {
         try {
-            let response = await axios.post('http://localhost:3005/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
+            let response = await axios.post('https://localhost:3005/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
             console.log(response);
             setSuccess(response.data.message);
             setTimeout(() => setSuccess(null), 4000);
@@ -19,19 +19,24 @@ export const Forgot = () => {
                 setTimeout(() => setErr(null), 4000);
             } else {
                 setErr('Unable to connect to reset password server');
-                setTimeout(() => setErr(null), 4000)
+                setTimeout(() => setErr(null), 4000);
             }
         }
     }
     return (
-        <div className='bg-gray-200 flex flex-wrap h-screen'>
+        <div className='bg-gray-200 h-screen'>
+            <div className='p-10 mt-20'>
+                <ResetNavbar />
+            </div>
             <div className='m-auto sm:w-1/3 w-full p-8 sm:inset-0'>
-                {
-                    err ? <div className='text-sm bg-red-100 rounded rounded-sm py-1 text-center text-red-500 border-red-300'>{err}</div> : null
-                }
-                {
-                    success ? <div className='text-sm bg-blue-100 rounded rounded-sm py-1 text-center text-blue-500 border-blue-300'>{success}</div> : null
-                }
+                <div className='my-10'>
+                    {
+                        err ? <div className='text-sm bg-red-100 rounded rounded-sm py-1 text-center text-red-500 border-red-300'>{err}</div> : null
+                    }
+                    {
+                        success ? <div className='text-sm bg-blue-100 rounded rounded-sm py-1 text-center text-blue-500 border-blue-300'>{success}</div> : null
+                    }
+                </div>
                 <Formik
                     initialValues={{
                         email: ''
@@ -40,7 +45,7 @@ export const Forgot = () => {
                 >
                     {
                         () =>
-                            <Form className='w-full bg-white mx-auto p-8 my-8 rounded-lg'>
+                            <Form className='w-full bg-white mx-auto p-8 mt-20 rounded-lg'>
                                 <div>
                                     <label className='block text-black font-bold uppercase text-sm'>Email</label>
                                     <Field className='w-full rounded rounded-sm p-2 my-2 border border-gray-400' type='text' name='email' placeholder='e.g johnjude@gm.com' />
