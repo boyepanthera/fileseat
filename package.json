@@ -26,8 +26,8 @@
     "yup": "^0.28.3"
   },
   "scripts": {
-    "dev": "tailwind build ./src/assets/css/App.css -o ./src/assets/css/output.css &  react-scripts start",
-    "start": "tailwind build ./src/assets/css/App.css -o ./src/assets/css/output.css & serve -s build",
+    "dev": "postcss ./src/assets/css/App.css -o ./src/assets/css/output.css &  react-scripts start",
+    "start": "postcss ./src/assets/css/App.css -o ./src/assets/css/output.css & serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -50,6 +50,7 @@
   "devDependencies": {
     "@babel/compat-data": "7.8.0",
     "@babel/helper-call-delegate": "^7.8.7",
+    "@fullhuman/postcss-purgecss": "^2.1.0",
     "autoprefixer": "^9.7.5"
   }
 }
