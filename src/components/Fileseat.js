@@ -6,9 +6,7 @@ import { Navbar } from "./Navbar";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import { useDropzone } from "react-dropzone";
 import { Uploading, Uploaded } from "../utils/index";
-import { Helmet } from 'react-helmet';
-// const { CancelToken } = axios;
-// const source = CancelToken.source();
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const LoginStyles = {
   background: {
@@ -29,7 +27,6 @@ const Fileseat = () => {
     setReceipient(receipientEmail);
     let config = {
       headers: { Accept: "multipart/form-data" },
-      // cancelToken: source.token,
       onUploadProgress: progressEvent => {
         let percentCompleted = Math.round(
           (progressEvent.loaded * 100) / progressEvent.total
@@ -69,7 +66,7 @@ const Fileseat = () => {
     <li key={file.name.toString()}>{file.name}</li>
   ));
   return (
-    <>
+    <HelmetProvider>
       <Helmet>
         <title>Fileseat, easy and fast way to share large files.</title>
         <meta name="description" content="Sometimes we want to share those files that are way above 50mb then our mail service tell us that is not possible to attach, attachment and mails? Fileseat can handle it all for you." />
@@ -197,7 +194,7 @@ const Fileseat = () => {
           </div>
         </div>
       </div>
-    </>
+    </HelmetProvider>
   );
 };
 
