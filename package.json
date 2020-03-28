@@ -26,8 +26,8 @@
     "yup": "^0.28.3"
   },
   "scripts": {
-    "dev": "postcss ./src/assets/css/App.css -o ./src/assets/css/output.css &  react-scripts start",
-    "start": "postcss ./src/assets/css/App.css -o ./src/assets/css/output.css & serve -s build",
+    "dev": "tailwind build ./src/assets/css/App.css -o ./src/assets/css/output.css &  react-scripts start",
+    "start": "tailwind build ./src/assets/css/App.css -o ./src/assets/css/output.css & serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
