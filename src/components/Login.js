@@ -35,7 +35,6 @@ const Login = () => {
       .post("https://api.fileseat.com/api/v1/users/login", values, {
         headers: {
           "Accept": "application/json",
-          // "Access-Control-Allow-Origin": "*"
         }
       })
       .then(response => {
