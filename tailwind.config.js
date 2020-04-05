@@ -1,5 +1,4 @@
 module.exports = {
-
     variants : {
         display: ['responsive', 'hover', 'focus'],
     },

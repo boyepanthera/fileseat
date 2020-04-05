@@ -9,10 +9,10 @@ export const Forgot = () => {
     let [success, setSuccess] = useState(null);
     const handleSubmit = async (values) => {
         try {
-            let response = await axios.post('https://localhost:3005/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
+            let response = await axios.post('https://api.fileseat.com/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
             console.log(response);
             setSuccess(response.data.message);
-            setTimeout(() => setSuccess(null), 4000);
+            // setTimeout(() => setSuccess(null), 4000);
         } catch (err) {
             if (err.response) {
                 setErr(err.response.data.message);
@@ -25,7 +25,7 @@ export const Forgot = () => {
     }
     return (
         <div className='bg-gray-200 h-screen'>
-            <div className='p-10 mt-20'>
+            <div className='p-10'>
                 <ResetNavbar />
             </div>
             <div className='m-auto sm:w-1/3 w-full p-8 sm:inset-0'>
@@ -45,7 +45,10 @@ export const Forgot = () => {
                 >
                     {
                         () =>
-                            <Form className='w-full bg-white mx-auto p-8 mt-20 rounded-lg'>
+                            <Form className='w-full bg-white mx-auto p-8 mt-5 rounded-lg'>
+                                <div className ='text-sm mb-4 text-center'>
+                                    Fill in the email for your account. Password reset instructions will be sent to your email in real time.
+                                </div>
                                 <div>
                                     <label className='block text-black font-bold uppercase text-sm'>Email</label>
                                     <Field className='w-full rounded rounded-sm p-2 my-2 border border-gray-400' type='text' name='email' placeholder='e.g johnjude@gm.com' />
