@@ -43,8 +43,8 @@ export const Signup = () => {
   const handleSignup = values => {
     setSubmitting(true);
     axios
-      .post("https://api.fileseat.com/api/v1/users/register", values
-      // .post("http://localhost:3005/api/v1/users/register", values
+      // .post("https://api.fileseat.com/api/v1/users/register", values
+      .post("http://localhost:3005/api/v1/users/register", values
       , {
         headers: {
           "Accept": "application/json",
@@ -59,6 +59,7 @@ export const Signup = () => {
       .catch(err => {
         if (err.response) {
           setSubmitting(false);
+          console.log(err, err.response.data);
           setErr(err.response.data.message);
           setTimeout(() => setErr(null), 5000);
         } else {

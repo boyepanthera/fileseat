@@ -40,18 +40,21 @@ const Login = () => {
       })
       .then(response => {
         setSuccess("You successfully logged in");
-        console.log(response.data);
+        // console.log(response.data);
         dispatch({ type: "LOGIN", payload: response.data });
         setTimeout(() => history.push("/user"), 1000);
       })
       .catch(err => {
         if (err.response) {
           setSignIn(false);
-          setErr(err.response.data.message);
+          // console.log(err, err.response)
+          setErr(err.response.data);
+          setTimeout(() => setErr(null), 4000);
         } else {
-          console.log(err);
+          // console.log(err);
           setSignIn(false);
           setErr("Unable to connect to the server");
+          setTimeout(() => setErr(null), 4000);
         }
       });
   };
