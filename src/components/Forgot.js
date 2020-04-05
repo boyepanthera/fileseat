@@ -73,8 +73,8 @@ export const Reset = () => {
     let { id } = useParams();
     const handleSubmit = async (values) => {
         try {
-            let response = await axios.get('http://localhost:3005/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
-            console.log(response);
+            let response = await axios.get('https://api.fileseat.com/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
+            // console.log(response);
             setSuccess(response.data.message);
         } catch (err) {
             if (err.response) {
