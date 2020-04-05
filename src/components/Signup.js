@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SignupMan from "../assets/images/one-happy-man.jpg";
 import { Formik, Form, Field } from "formik";
-import { RightNavbar, LeftNavbarWhite } from "./Navbar";
+import { RightNavbar, LeftNavbarWhite, ResetNavbar } from "./Navbar";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import * as Yup from "yup";
@@ -73,21 +73,24 @@ export const Signup = () => {
   let history = useHistory();
   return (
     <HelmetProvider>
-      <div className="h-full flex">
-        <div className="bg-cover m-0 w-1/2" style={SignupStyles.background}>
-          <Helmet>
-            <title>Sign Up for your Fileseat Account.</title>
-            <meta name="description" content="Send files with ease." />
-          </Helmet>
+      <Helmet>
+        <title>Sign Up for your Fileseat Account.</title>
+        <meta name="description" content="Send files with ease." />
+      </Helmet>
+      <div className="h-full flex flex-wrap">
+        <div className="sm:inline hidden bg-cover m-0 w-full sm:w-1/2" style={SignupStyles.background}>
           <div className="m-10">
             <LeftNavbarWhite />
           </div>
         </div>
-        <div className="w-1/2 bg-gray-300">
-          <div className="mt-12">
+        <div className="sm:w-1/2 w-full bg-gray-300 sm:pt-12 p-8">
+          <div className=" sm:inline hidden">
             <RightNavbar />
           </div>
-          <div className="mt-32">
+          <div className=" sm:hidden inline mx-10">
+            <ResetNavbar />
+          </div>
+          <div className="sm:mt-32 mt-8">
             {err ? (
               <div className="w-4/5 bg-red-100 my-2 border py-1 border-bred-300 rounded-lg mx-auto  text-center text-red-500">
                 {err}
@@ -111,7 +114,7 @@ export const Signup = () => {
           >
             {({ errors, touched }) => (
               <>
-                <Form className="max-w-sm w-full my-auto bg-white rounded-larger mx-auto mb-32 p-8">
+                <Form className="max-w-sm w-full sm:my-auto my-8 bg-white rounded-larger mx-auto mb-32 p-8">
                   <div className="text-center font-bold">Let's get started</div>
                   <div className="text-center mb-8">
                     Create a FS account to get all features

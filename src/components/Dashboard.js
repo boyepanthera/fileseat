@@ -65,7 +65,11 @@ export const UserDashboard = () => {
       {state.err ? (
         <Redirect to="/auth" />
       ) : (
-        <div className="m-0 bg-gray-200 p-20">
+        <div className="m-0 bg-gray-200 px-20 py-8">
+          <div className='flex flex-wrap'> 
+            <div className='w-full sm:w-1/2 bg-red-800'>Hello</div> 
+            <div className='w-full sm:w-1/2 bg-red-800'>Hi</div>
+          </div>
           <div>Users can use me to</div>
           <button
             className="bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:outline-none  text-white p-2"

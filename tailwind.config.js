@@ -1,4 +1,9 @@
 module.exports = {
+
+    variants : {
+        display: ['responsive', 'hover', 'focus'],
+    },
+
     theme : {
         borderRadius: {
             'none': '0',
