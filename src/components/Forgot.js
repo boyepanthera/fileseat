@@ -46,9 +46,13 @@ export const Forgot = () => {
                     {
                         () =>
                             <Form className='w-full bg-white mx-auto p-8 mt-5 rounded-lg'>
-                                <div className ='text-sm mb-4 text-center'>
-                                    Fill in the email for your account. Password reset instructions will be sent to your email in real time.
-                                </div>
+                                    {
+                                        success ? (null) : (
+                                        <div className='text-sm mb-4 font-semibold text-center'>
+                                            Fill in the email for your account. Password reset instructions will be sent to your email in real time.
+                                        </div>                                          
+                                        )
+                                    }
                                 <div>
                                     <label className='block text-black font-bold uppercase text-sm'>Email</label>
                                     <Field className='w-full rounded rounded-sm p-2 my-2 border border-gray-400' type='text' name='email' placeholder='e.g johnjude@gm.com' />
