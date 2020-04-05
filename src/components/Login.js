@@ -32,8 +32,8 @@ const Login = () => {
     // console.log(values);
     setSignIn(true);
     axios
-      .post("https://localhost:3005/api/v1/users/login", values, {
-      // .post("https://api.fileseat.com/api/v1/users/login", values, {
+      // .post("http://localhost:3005/api/v1/users/login", values, {
+      .post("https://api.fileseat.com/api/v1/users/login", values, {
         headers: {
           "Accept": "application/json",
         }
@@ -46,9 +46,11 @@ const Login = () => {
       })
       .catch(err => {
         if (err.response) {
-          setErr(err.response.data);
+          setSignIn(false);
+          setErr(err.response.data.message);
         } else {
           console.log(err);
+          setSignIn(false);
           setErr("Unable to connect to the server");
         }
       });
