@@ -43,6 +43,7 @@ export const Signup = () => {
   const handleSignup = values => {
     setSubmitting(true);
     axios
+      // .post("https://api.fileseat.com/api/v1/users/register", values
       .post("http://localhost:3005/api/v1/users/register", values
       , {
         headers: {
