@@ -7,6 +7,7 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import { useDropzone } from "react-dropzone";
 import { Uploading, Uploaded } from "../utils/index";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import {ResetSpinner} from '../utils/index';
 
 const LoginStyles = {
   background: {
@@ -21,8 +22,10 @@ const Fileseat = () => {
   const [err, setErr] = useState(false);
   const [success, setSuccess] = useState(false);
   let [receipient, setReceipient] = useState("");
-  const [progress, setProgress] = useState(null);
+  const [progress, setProgress] = useState(-1);
+  const [load, setLoad] =useState(false);
   const handleSubmit = async values => {
+    setLoad(true);
     let { receipientEmail, senderEmail, files, message } = values;
     setReceipient(receipientEmail);
     let config = {
@@ -81,7 +84,7 @@ const Fileseat = () => {
         <div className="sm:mx-2">
           <div className="">
             {" "}
-            {progress ? (
+            { progress > -1 ? (
               <Uploading
                 progress={progress}
                 fileName={fileData[0].name}
@@ -185,7 +188,10 @@ const Fileseat = () => {
                             type="submit"
                             className="hover:bg-indigo-500 focus:outline-none rounded-full shadow-lg w-full bg-indigo-700 rounded-lg text-white font-bold p-2"
                           >
-                            Transfer <i></i>
+                            {
+                              load ? <span>Starting engine... <ResetSpinner/></span> :
+                            <span>Transfer <i className='fas fa-paper-plane'></i></span>
+                            }
                           </button>
                         </Form>
                       )}
