@@ -74,7 +74,7 @@ const Fileseat = () => {
         <title>Fileseat, easy and fast way to share large files.</title>
         <meta name="description" content="Sometimes we want to share those files that are way above 50mb then our mail service tell us that is not possible to attach, attachment and mails? Fileseat can handle it all for you." />
       </Helmet>
-      <div className="h-screen p-8 sm:p-20" style={LoginStyles.background}>
+      <div className="h-full p-8 sm:p-20" style={LoginStyles.background}>
         <Navbar />
         {
           err ? (
@@ -112,7 +112,7 @@ const Fileseat = () => {
                       isSubmitting,
                       setFieldValue
                     }) => (
-                        <Form className="rounded-larger bg-white w-full mx-auto sm:mx-0 sm:w-1/3 sm:max-w-sm  shadow-lg rounded p-8">
+                        <Form className="rounded-larger mb-10 bg-white w-full mx-auto sm:mx-0 sm:w-1/3 sm:max-w-sm  shadow-lg rounded p-8">
                           <div>
                             <h3 className="text-center text-xl font-bold tracking-normal">
                               TRANSFER FILES
@@ -186,11 +186,11 @@ const Fileseat = () => {
                           </div>
                           <button
                             type="submit"
-                            className="hover:bg-indigo-500 focus:outline-none rounded-full shadow-lg w-full bg-indigo-700 rounded-lg text-white font-bold p-2"
+                            className="hover:bg-indigo-500 focus:outline-none mt-4 rounded-full shadow-lg w-full bg-indigo-700 rounded-lg text-white font-bold p-2"
                           >
                             {
                               load ? <span>Starting engine... <ResetSpinner/></span> :
-                            <span>Transfer <i className='fas fa-paper-plane'></i></span>
+                            <span><i className='fas fa-paper-plane text-2xl'></i></span>
                             }
                           </button>
                         </Form>
