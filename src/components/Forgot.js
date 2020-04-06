@@ -129,7 +129,7 @@ export const Reset = () => {
                                     <label className='block text-black font-bold uppercase text-sm'>Email</label>
                                     <Field className='w-full rounded  rounded-sm p-2 my-2 border border-gray-400' type='text' value={email} name='email' placeholder='e.g johnjude@gm.com' />
                                 </div>
-                                <div className='text-xs'>{id}</div>
+                                <div className='text-xs'>{id} , {email}</div>
                                 <div className='my-2'>
                                     <label className='block text-black font-bold uppercase text-sm'>New Password</label>
                                     <Field className='w-full rounded rounded-sm p-2 my-2 border border-gray-400' type='text' name='password' placeholder='e.g. **********' />
