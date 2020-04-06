@@ -76,7 +76,7 @@ export const Reset = () => {
     const history = useHistory()
     const handleSubmit = async (values) => {
         try {
-            let response = await axios.get('https://api.fileseat.com/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
+            let response = await axios.post(`https://api.fileseat.com/api/v1/users/resetpassword/${id}`, values, { headers: { Accept: "application/json" } })
             // console.log(response);
             setSuccess(response.data.message);
             setTimeout(()=> history.push('/auth'), 5000);
