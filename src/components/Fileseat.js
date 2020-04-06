@@ -38,6 +38,7 @@ const Fileseat = () => {
         if (percentCompleted === 100) {
           setProgress(100);
           setSuccess(true);
+          console.log(success, percentCompleted, progress)
         }
       }
     };
@@ -84,7 +85,7 @@ const Fileseat = () => {
         <div className="sm:mx-2">
           <div className="">
             {" "}
-            { progress > -1 ? (
+            { progress > -1 && !success ? (
               <Uploading
                 progress={progress}
                 fileName={fileData[0].name}
