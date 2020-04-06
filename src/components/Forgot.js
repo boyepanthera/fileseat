@@ -71,7 +71,7 @@ export const Reset = () => {
     let [success, setSuccess] = useState(null);
     let [email, setEmail] = useState('');
     let { id } = useParams();
-    console.log(id + " in the component");
+    // console.log(id + " in the component");
     const handleSubmit = async (values) => {
         try {
             let response = await axios.get('https://api.fileseat.com/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
@@ -93,13 +93,13 @@ export const Reset = () => {
             (async () => {
             try {
                 let response = await axios.get(`https://api.fileseat.com/api/v1/users/resetpassword/${id}`);
-                console.log(response);
+                // console.log(response);
                 setEmail(response.data.email);
-                setSuccess(response.data.message + 'Fill in your new passwords');
+                setSuccess(response.data.message + ' .Fill in your new password');
             } catch (err) {
                 if (err.response) {
                     setErr(err.response.data.message);
-                    setTimeout(() => setErr(null), 4000)
+                    // setTimeout(() => setErr(null), 4000)
                 } else {
                     setErr('There were issues connecting with backend server!')
                 }
@@ -109,12 +109,15 @@ export const Reset = () => {
 
     return (
         <div className='bg-gray-200 h-screen flex'>
-            <div className='w-full mx-10 my-24 sm:m-auto'>
+            <div className='w-full mx-10 my-4 sm:m-auto'>
+                <div className='sm:px-20'>
+                    <ResetNavbar />
+                </div>
                 {
-                    err ? <div className='text-sm bg-red-100 sm:w-1/3 rounded rounded-sm py-1 text-center text-red-500 border-red-300'>{err}</div> : null
+                    err ? <div className='text-sm mx-auto bg-red-100 sm:w-1/3 rounded rounded-sm py-1 text-center text-red-500 border-red-300'>{err}</div> : null
                 }
                 {
-                    success ? <div className='text-sm bg-blue-100 sm:w-1/3 rounded rounded-sm py-1 text-center text-blue-500 border-blue-300'>{success}</div> : null
+                    success ? <div className='text-sm mx-auto bg-blue-100 sm:w-1/3 rounded rounded-sm py-1 text-center text-blue-500 border-blue-300'>{success}</div> : null
                 }
                 <Formik
                     initialValues={{
@@ -129,7 +132,6 @@ export const Reset = () => {
                                     <label className='block text-black font-bold uppercase text-sm'>Email</label>
                                     <Field className='w-full rounded  rounded-sm p-2 my-2 border border-gray-400' type='text' value={email} name='email' placeholder='e.g johnjude@gm.com' />
                                 </div>
-                                <div className='text-xs'>{id} , {email}</div>
                                 <div className='my-2'>
                                     <label className='block text-black font-bold uppercase text-sm'>New Password</label>
                                     <Field className='w-full rounded rounded-sm p-2 my-2 border border-gray-400' type='text' name='password' placeholder='e.g. **********' />
