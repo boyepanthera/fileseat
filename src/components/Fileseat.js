@@ -35,10 +35,15 @@ const Fileseat = () => {
           (progressEvent.loaded * 100) / progressEvent.total
         );
         setProgress(percentCompleted);
-        if (percentCompleted === 100) {
-          setProgress(false);
-          setSuccess(true);
+        if(progress >10) {
+        console.log(progress)
+
         }
+        // if (percentCompleted === 100) {
+        //   setProgress(percentCompleted);
+        //   setSuccess(true);
+        //   console.log(progress, percentCompleted,  typeof(progress))
+        // }
       }
     };
     const data = new FormData();
@@ -90,7 +95,7 @@ const Fileseat = () => {
                 fileName={fileData[0].name}
                 receipient={receipient}
               />
-            ) : success ? (
+            ) : progress===100  ? (
               <Uploaded />
             ) : (
                   <Formik
