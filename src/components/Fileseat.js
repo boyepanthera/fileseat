@@ -36,7 +36,7 @@ const Fileseat = () => {
         );
         setProgress(percentCompleted);
         if (percentCompleted === 100) {
-          setProgress(false);
+          setProgress(100);
           setSuccess(true);
         }
       }
