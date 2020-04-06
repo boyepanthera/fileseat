@@ -93,14 +93,14 @@ const Login = () => {
                 <Form className="sm:w-3/5 w-full rounded-larger bg-white my-10 py-8 px-8 sm:px-12 sm:py-8 sm:my-20 sm:mx-auto shadow-lg">
                   <h1 className="text-center text-2xl font-bolder mb-4">
                     Welcome Back
-              </h1>
+                  </h1>
                   <div className="text-center font-semibold">
                     Login to your account
-              </div>
+                  </div>
                   <div className="mb-4 mt-12">
                     <label className="font-black" htmlFor="email">
                       Email
-                </label>
+                    </label>
                     <Field
                       name="email"
                       className="border-b-2 bg-indigo-100 h-10 border-indigo-700 w-full"
@@ -141,7 +141,6 @@ const Login = () => {
                 </Form>
               )}
             </Formik>
-
           </div>
         </div>
         <div className="w-full hidden md:inline md:w-1/2 bg-cover" style={LoginRightStyles.background}>

@@ -9,6 +9,12 @@ export const Spinner = () => (
   </span>
 );
 
+export const ResetSpinner = () => (
+  <span>
+    <i className="fas fa-spinner fa-pulse"></i>
+  </span>
+);
+
 const styles = buildStyles({
   textColor: "#4C51BF",
   textSize: "16px",
