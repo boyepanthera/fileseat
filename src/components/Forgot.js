@@ -69,8 +69,9 @@ export const Forgot = () => {
 export const Reset = () => {
     let [err, setErr] = useState(null);
     let [success, setSuccess] = useState(null);
-    let [email, setEmail] = useState(null);
+    let [email, setEmail] = useState('');
     let { id } = useParams();
+    console.log(id + " in the component");
     const handleSubmit = async (values) => {
         try {
             let response = await axios.get('https://api.fileseat.com/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
@@ -88,13 +89,13 @@ export const Reset = () => {
     }
 
     useEffect(
-        () => async () => {
+        () => { 
+            (async () => {
             try {
-                console.log(id);
                 let response = await axios.get(`https://api.fileseat.com/api/v1/users/resetpassword/${id}`);
                 console.log(response);
                 setEmail(response.data.email);
-                setSuccess(response.data.message);
+                setSuccess(response.data.message + 'Fill in your new passwords');
             } catch (err) {
                 if (err.response) {
                     setErr(err.response.data.message);
@@ -103,12 +104,11 @@ export const Reset = () => {
                     setErr('There were issues connecting with backend server!')
                 }
             }
-        }, [id]
+        })() }, [id]
     )
 
     return (
         <div className='bg-gray-200 h-screen flex'>
-
             <div className='w-full mx-10 my-24 sm:m-auto'>
                 {
                     err ? <div className='text-sm bg-red-100 rounded rounded-sm py-1 text-center text-red-500 border-red-300'>{err}</div> : null
