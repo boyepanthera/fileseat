@@ -111,10 +111,10 @@ export const Reset = () => {
         <div className='bg-gray-200 h-screen flex'>
             <div className='w-full mx-10 my-24 sm:m-auto'>
                 {
-                    err ? <div className='text-sm bg-red-100 rounded rounded-sm py-1 text-center text-red-500 border-red-300'>{err}</div> : null
+                    err ? <div className='text-sm bg-red-100 sm:w-1/3 rounded rounded-sm py-1 text-center text-red-500 border-red-300'>{err}</div> : null
                 }
                 {
-                    success ? <div className='text-sm bg-blue-100 rounded rounded-sm py-1 text-center text-blue-500 border-blue-300'>{success}</div> : null
+                    success ? <div className='text-sm bg-blue-100 sm:w-1/3 rounded rounded-sm py-1 text-center text-blue-500 border-blue-300'>{success}</div> : null
                 }
                 <Formik
                     initialValues={{
