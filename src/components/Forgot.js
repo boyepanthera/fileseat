@@ -3,6 +3,7 @@ import { Form, Field, Formik } from 'formik';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import {ResetNavbar} from './Navbar';
+import {useHistory} from 'react-router-dom';
 
 export const Forgot = () => {
     let [err, setErr] = useState(null);
@@ -55,7 +56,7 @@ export const Forgot = () => {
                                     }
                                 <div>
                                     <label className='block text-black font-bold uppercase text-sm'>Email</label>
-                                    <Field className='w-full rounded rounded-sm p-2 my-2 border border-gray-400' type='text' name='email' placeholder='e.g johnjude@gm.com' />
+                                    <Field className='w-full rounded rounded-sm p-2 my-2 border border-gray-400' type='email' name='email' placeholder='e.g johnjude@gm.com' />
                                 </div>
                                 <button type='submit' className='bg-purple-700 my-4 focus:outline-none hover:bg-purple-500 w-full font-bold text-white rounded rounded-lg py-2'>Reset Password <i className="fas text-2xl  text-white fa-street-view"></i></button>
                             </Form>
@@ -72,11 +73,13 @@ export const Reset = () => {
     let [email, setEmail] = useState('');
     let { id } = useParams();
     // console.log(id + " in the component");
+    const history = useHistory()
     const handleSubmit = async (values) => {
         try {
             let response = await axios.get('https://api.fileseat.com/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
             // console.log(response);
             setSuccess(response.data.message);
+            setTimeout(()=> history.push('/auth'), 5000);
         } catch (err) {
             if (err.response) {
                 setErr(err.response.data.message);
@@ -96,6 +99,7 @@ export const Reset = () => {
                 // console.log(response);
                 setEmail(response.data.email);
                 setSuccess(response.data.message + '. Fill in your new password');
+
             } catch (err) {
                 if (err.response) {
                     setErr(err.response.data.message);
