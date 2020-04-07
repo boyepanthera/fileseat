@@ -77,8 +77,8 @@ export const Downloading = props => {
   const handleDownload = async()=> {
     try {
       console.log('download clicked!!!')
-      Axios.get(`http://localhost:3005/api/v1/files/${props.fileName}`, { 
-      // Axios.get(`https://api.fileseat.com/api/v1/files/${props.fileName}`, { 
+      // Axios.get(`http://localhost:3005/api/v1/files/${props.fileName}`, { 
+      Axios.get(`https://api.fileseat.com/api/v1/files/${props.fileName}`, { 
         onDownloadProgress: progressEvent => {
           setProgress(
             Math.round((progressEvent.loaded * 100)/progressEvent.total )
