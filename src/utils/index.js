@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import sentImage from "../assets/images/sent.svg";
+import Axios from "axios";
 
 export const Spinner = () => (
   <span>
@@ -72,6 +73,28 @@ export const Uploaded = () => (
 );
 
 export const Downloading = props => {
+  let [progress, setProgress] = useState(0);
+  const handleDownload = async()=> {
+    try {
+      console.log('download clicked!!!')
+      Axios.get(`http://localhost:3005/api/v1/files/${props.fileName}`, { 
+      // Axios.get(`https://api.fileseat.com/api/v1/files/${props.fileName}`, { 
+        onDownloadProgress: progressEvent => {
+          setProgress(
+            Math.round((progressEvent.loaded * 100)/progressEvent.total )
+          )
+          console.log('download', progressEvent)
+        }
+       })
+    } catch (err) {
+      if (err.response) {
+        console.log(err.response.data);
+      } else {
+        console.log('There is issue connecting to server for download!');
+      }
+    }
+  }
+
   return (
     <div className="items-center my-8 mx-auto sm:mx-0 sm:max-w-sm rounded-larger bg-white w-full sm:w-1/4 shadow-lg rounded p-8">
       <div className="text-3xl text-center font-bold mb-4">FILESEAT</div>
@@ -80,17 +103,17 @@ export const Downloading = props => {
           strokeWidth={6}
           className="my-4 h-48 w-48 mx-auto border-indigo-700"
           styles={styles}
-          value={40}
-          text={`${40}%`}
+          value={progress}
+          text={`${progress}%`}
         />
       </div>
       <div className="text-center text-xl uppercase font-bold">Download</div>
-      <div className="my-2">Lookers.mp4</div>
-      <div className="items-center flex justify-start font-bold">To: </div>
       <div className="my-2">{props.fileName}</div>
+      <div className="items-center flex justify-start font-bold">From: </div>
+      <div className="my-2">{props.sender}</div>
       <div>
-        <button className="rounded-full w-full bg-indigo-700 hover:bg-indigo-500 focus:outline-none mt-6 p-2 mx-auto text-white font-semibold">
-          Downloadl!
+        <button onClick={handleDownload} className="rounded-full w-full bg-indigo-700 hover:bg-indigo-500 focus:outline-none mt-6 p-2 mx-auto text-white font-semibold">
+          Download <i className='fas fa-download'></i>
         </button>
       </div>
     </div>

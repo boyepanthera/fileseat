@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {useParams } from 'react-router-dom';
 import {Helmet, HelmetProvider} from 'react-helmet-async';
 import BackgroundImage from "../assets/images/bg.png";
@@ -6,9 +6,12 @@ import BackgroundImage from "../assets/images/bg.png";
 import 'react-circular-progressbar/dist/styles.css';
 import {Navbar} from './Navbar';
 import {Downloading} from '../utils/index';
+import Axios from 'axios';
 
 export const Download = () => {
     const { downloadID } = useParams();
+    const [sender, setSender] = useState(null)
+    const [err, setErr] = useState(null)
     const LoginStyles = {
         background: {
             backgroundImage: "url(" + BackgroundImage + ")",
@@ -16,21 +19,42 @@ export const Download = () => {
             backgroundRepeat: "no-repeat"
         }
     };
+    useEffect(() => {
+        (
+            async ()=> {
+                try {
+                    let res= await Axios.get(`http://localhost:3005/api/v1/files/${downloadID}/details`)
+                    // let res= await Axios.get(`https://api.fileseat.com/api/v1/files/${downloadID}/details`)
+                    setSender(res.data.senderEmail);
+                }catch (err) {
+                    if(err.response) {
+                        console.log(err.response);
+                        setErr (err.response.data.message);
+                    } else {
+                        setErr('Unable to connect to server!');
+                        // console.log('Unable to connect to server!');
+                    }
+                }
+            }
+        )()
+    }, [downloadID])
     return (
         <HelmetProvider>
             <Helmet>
                 <title>Fileseat, easy and fast way to share large files.</title>
                 <meta name="description" content="Sometimes we want to share those files that are way above 50mb then our mail service tell us that is not possible to attach, attachment and mails? Fileseat can handle it all for you." />
             </Helmet>
-            <div className='h-screen p-8 sm:p-20' style={LoginStyles.background}>
+            <div className='h-full p-8 sm:p-20' style={LoginStyles.background}>
                 <Navbar/>
-                {/* <div className='bg-white rounded-lg shadow-2xl w-full sm:w-1/4 p-8'> */}
-                    {/* <div>Users will download here</div>
-                    <div>File to be downloaded {downloadID}</div>
-                    <button>Dowload</button>
-                    <Link to='/'>Go home</Link> */}
-                    <Downloading fileName={downloadID}/>
-                {/* </div> */}
+                {err ? (
+                    <div className=" bg-red-200 mx-auto sm:mx-0 sm:max-w-sm w-full sm:w-1/4 shadow-sm rounded px-8 py-1 border-red-300 text-center text-red-500">
+                        {err}{" "}
+                    </div>
+                ) : null}
+                <Downloading 
+                fileName={downloadID} 
+                sender={sender}
+                />
             </div>
         </HelmetProvider>
     )

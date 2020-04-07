@@ -49,6 +49,7 @@ const Fileseat = () => {
     data.append("message", message);
     try {
       let response = await axios.post(
+        // "http://localhost:3005/api/v1/files",
         "https://api.fileseat.com/api/v1/files",
         data,
         config
