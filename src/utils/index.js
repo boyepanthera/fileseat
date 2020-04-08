@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import sentImage from "../assets/images/sent.svg";
-import Axios from "axios";
+import axios from "axios";
+import Downloader from  'js-file-download';
 
 export const Spinner = () => (
   <span>
@@ -76,21 +77,45 @@ export const Downloading = props => {
   let [progress, setProgress] = useState(0);
   const handleDownload = async()=> {
     try {
-      console.log('download clicked!!!')
-      // Axios.get(`http://localhost:3005/api/v1/files/${props.fileName}`, { 
-      Axios.get(`https://api.fileseat.com/api/v1/files/${props.fileName}`, { 
-        onDownloadProgress: progressEvent => {
-          setProgress(
-            Math.round((progressEvent.loaded * 100)/progressEvent.total )
-          )
-          console.log('download', progressEvent)
-        }
-       })
+      // let res = await axios.get(`http://localhost:3005/api/v1/files/${props.fileName}`)
+      let res = await axios.get(`https:api.fileseat.com/api/v1/files/${props.fileName}`)
+      Downloader(res.data, props.fileName)
+      // fetch(`http://localhost:3005/api/v1/files/${props.fileName}`)
+        // .then(res=>res.blob())
+        // .then(blob=>{
+        //   let url = window.URL.createObjectURL(blob)
+        //   let a  = document.createElement('a');
+        //   a.href =url;
+        //   a.click();
+        // })
+
+    // console.log('download clicked!!!')
+    // let res = await axios.get(`http://localhost:3005/api/v1/files/${props.fileName}`, 
+    // let res = await axios.get(`https://api.fileseat.com/api/v1/files/${props.fileName}`
+    // , { 
+    //     onDownloadProgress: progressEvent => {
+    //       setProgress(
+    //         Math.round((progressEvent.loaded * 100)/progressEvent.total )
+    //       )
+    //       console.log('download', progressEvent)
+    //     }
+    //    }
+      //  )
+      // if (res.ok) {
+        // let blob = await res.blob();
+        // console.log(res);
+        // const blobURL = await URL.createObjectURL(res);
+        // const link = document.createElement('a');
+        // link.href=res.data;
+        // link.style = "display :none";
+        // document.body.appendChild(link);
+        // link.click();
+      // }
     } catch (err) {
       if (err.response) {
         console.log(err.response.data);
       } else {
-        console.log('There is issue connecting to server for download!');
+        console.log('There is issue connecting to server for download!', err);
       }
     }
   }
