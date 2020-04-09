@@ -75,8 +75,10 @@ export const Uploaded = () => (
 
 export const Downloading = props => {
   let [progress, setProgress] = useState(0);
+  let [loading, setLoading] = useState(false);
   const handleDownload = async()=> {
     try {
+      setLoading(true);
       // let res = await axios.get(`http://localhost:3005/api/v1/files/${props.fileName}`)
       // let res = await axios.get(`https:api.fileseat.com/api/v1/files/${props.fileName}`)
       let res = await axios.get(props.url, 
@@ -137,25 +139,26 @@ export const Downloading = props => {
     <div className="items-center my-8 mx-auto sm:mx-0 sm:max-w-sm rounded-larger bg-white w-full sm:w-1/4 shadow-lg rounded p-8">
       <div className="text-3xl text-center font-bold mb-4">FILESEAT</div>
       <div className='flex justify-center'>
-        {/* <CircularProgressbar
-          strokeWidth={6}
-          className="my-4 h-48 w-48 mx-auto border-indigo-700 fas fa-download"
-          styles={styles}
-          value={progress}
-          text={`${progress}%`}
-        /> */}
 
-        <div onClick={handleDownload} className='h-40 m-4 w-40 border-indigo-700 border-8 rounded-full  flex justify-center'>
-          <span className='my-auto'>
-            <i className='fas text-indigo-700 fa-download text-3xl'></i>
-          </span>
-        </div>
+        {loading ?
+          <CircularProgressbar
+            strokeWidth={6}
+            className="my-4 h-48 w-48 mx-auto border-indigo-700 fas fa-download"
+            styles={styles}
+            value={progress}
+            text={`${progress}%`}
+          /> :
+          <div onClick={handleDownload} className='h-40 m-4 w-40 border-indigo-700 border-8 rounded-full  flex justify-center'>
+            <span className='my-auto'>
+              <i className='fas text-indigo-700 fa-download text-3xl'></i>
+            </span>
+          </div>
+        }
       </div>
       <div className="text-center text-xl uppercase font-bold">Download</div>
       <div className="my-2 w-full">{props.fileName}</div>
       <div className="items-center flex justify-start font-bold">From: </div>
       <div className="my-2">{props.sender}</div>
-      <div>{progress}</div>
       <div>
         <button onClick={handleDownload} className="rounded-full w-full bg-indigo-700 hover:bg-indigo-500 focus:outline-none mt-6 p-2 mx-auto text-white font-semibold">
           Download <i className='fas fa-download'></i>
