@@ -11,7 +11,8 @@ import Axios from 'axios';
 export const Download = () => {
     const { downloadID } = useParams();
     const [sender, setSender] = useState(null)
-    const [err, setErr] = useState(null)
+    const [err, setErr] = useState(null);
+    const [url, setURL] = useState ('');
     const LoginStyles = {
         background: {
             backgroundImage: "url(" + BackgroundImage + ")",
@@ -23,9 +24,11 @@ export const Download = () => {
         (
             async ()=> {
                 try {
-                    // let res= await Axios.get(`http://localhost:3005/api/v1/files/${downloadID}/details`)
-                    let res= await Axios.get(`https://api.fileseat.com/api/v1/files/${downloadID}/details`)
+                    let res= await Axios.get(`http://localhost:3005/api/v1/files/${downloadID}/details`)
+                    // let res= await Axios.get(`https://api.fileseat.com/api/v1/files/${downloadID}/details`)
                     setSender(res.data.senderEmail);
+                    setURL(res.data.url);
+                    console.log(res.data.url)
                 }catch (err) {
                     if(err.response) {
                         console.log(err.response);
@@ -54,6 +57,7 @@ export const Download = () => {
                 <Downloading 
                 fileName={downloadID} 
                 sender={sender}
+                url = {url}
                 />
             </div>
         </HelmetProvider>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import sentImage from "../assets/images/sent.svg";
@@ -74,11 +74,24 @@ export const Uploaded = () => (
 );
 
 export const Downloading = props => {
-  // let [progress, setProgress] = useState(0);
+  let [progress, setProgress] = useState(0);
   const handleDownload = async()=> {
     try {
       // let res = await axios.get(`http://localhost:3005/api/v1/files/${props.fileName}`)
-      let res = await axios.get(`https:api.fileseat.com/api/v1/files/${props.fileName}`)
+      // let res = await axios.get(`https:api.fileseat.com/api/v1/files/${props.fileName}`)
+      let res = await axios.get(props.url, 
+        {
+        onDownloadProgress: progressEvent => {
+          setProgress(
+            Math.round((progressEvent.loaded * 100)/progressEvent.total )
+          )
+          console.log('download', progressEvent)
+        }
+       }
+        
+        );
+      // console.log(props.url)
+      // Downloader(props.url, props.fileName)
       Downloader(res.data, props.fileName)
       // fetch(`http://localhost:3005/api/v1/files/${props.fileName}`)
         // .then(res=>res.blob())
@@ -139,9 +152,10 @@ export const Downloading = props => {
         </div>
       </div>
       <div className="text-center text-xl uppercase font-bold">Download</div>
-      <div className="my-2">{props.fileName}</div>
+      <div className="my-2 w-full">{props.fileName}</div>
       <div className="items-center flex justify-start font-bold">From: </div>
       <div className="my-2">{props.sender}</div>
+      <div>{progress}</div>
       <div>
         <button onClick={handleDownload} className="rounded-full w-full bg-indigo-700 hover:bg-indigo-500 focus:outline-none mt-6 p-2 mx-auto text-white font-semibold">
           Download <i className='fas fa-download'></i>
