@@ -3,7 +3,8 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import sentImage from "../assets/images/sent.svg";
 import axios from "axios";
-import Downloader from  'js-file-download';
+// import Downloader from  'js-file-download';
+import download from 'download-js';
 
 export const Spinner = () => (
   <span>
@@ -96,7 +97,7 @@ export const Downloading = props => {
         );
       // console.log(props.url)
       // Downloader(props.url, props.fileName)
-      Downloader(res.data, props.fileName)
+      download(res.data, props.fileName)
       // fetch(`http://localhost:3005/api/v1/files/${props.fileName}`)
         // .then(res=>res.blob())
         // .then(blob=>{
