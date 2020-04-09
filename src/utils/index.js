@@ -87,7 +87,9 @@ export const Downloading = props => {
           setProgress(
             Math.round((progressEvent.loaded * 100)/progressEvent.total )
           )
-          console.log('download', progressEvent)
+          if(progress ===100) {
+            setLoading(false);
+          }
         }
        }
         
@@ -163,7 +165,7 @@ export const Downloading = props => {
         <button onClick={handleDownload} className="rounded-full w-full bg-indigo-700 hover:bg-indigo-500 focus:outline-none mt-6 p-2 mx-auto text-white font-semibold">
           {
           loading ? 
-          <span>Downloading... <ResetSpinner/> </span> : progress ===100 && loading ?
+          <span>Downloading... <ResetSpinner/> </span> : progress === 100 && !loading ?
           <span>Done !</span> :
           <span>Download <i className='fas fa-download'></i></span>
           } 
