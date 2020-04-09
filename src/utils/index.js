@@ -4,7 +4,7 @@ import "react-circular-progressbar/dist/styles.css";
 import sentImage from "../assets/images/sent.svg";
 import axios from "axios";
 // import Downloader from  'js-file-download';
-import download from 'download-js';
+import download from 'downloadjs';
 
 export const Spinner = () => (
   <span>
@@ -84,6 +84,7 @@ export const Downloading = props => {
       // let res = await axios.get(`https:api.fileseat.com/api/v1/files/${props.fileName}`)
       let res = await axios.get(props.url, 
         {
+        responseType :'blob',
         onDownloadProgress: progressEvent => {
           setProgress(
             Math.round((progressEvent.loaded * 100)/progressEvent.total )
