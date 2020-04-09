@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import sentImage from "../assets/images/sent.svg";
@@ -74,7 +74,7 @@ export const Uploaded = () => (
 );
 
 export const Downloading = props => {
-  let [progress, setProgress] = useState(0);
+  // let [progress, setProgress] = useState(0);
   const handleDownload = async()=> {
     try {
       // let res = await axios.get(`http://localhost:3005/api/v1/files/${props.fileName}`)
@@ -124,13 +124,19 @@ export const Downloading = props => {
     <div className="items-center my-8 mx-auto sm:mx-0 sm:max-w-sm rounded-larger bg-white w-full sm:w-1/4 shadow-lg rounded p-8">
       <div className="text-3xl text-center font-bold mb-4">FILESEAT</div>
       <div className='flex justify-center'>
-        <CircularProgressbar
+        {/* <CircularProgressbar
           strokeWidth={6}
-          className="my-4 h-48 w-48 mx-auto border-indigo-700"
+          className="my-4 h-48 w-48 mx-auto border-indigo-700 fas fa-download"
           styles={styles}
           value={progress}
           text={`${progress}%`}
-        />
+        /> */}
+
+        <div onClick={handleDownload} className='h-40 m-4 w-40 border-indigo-700 border-8 rounded-full  flex justify-center'>
+          <span className='my-auto'>
+            <i className='fas text-indigo-700 fa-download text-3xl'></i>
+          </span>
+        </div>
       </div>
       <div className="text-center text-xl uppercase font-bold">Download</div>
       <div className="my-2">{props.fileName}</div>
