@@ -161,7 +161,12 @@ export const Downloading = props => {
       <div className="my-2">{props.sender}</div>
       <div>
         <button onClick={handleDownload} className="rounded-full w-full bg-indigo-700 hover:bg-indigo-500 focus:outline-none mt-6 p-2 mx-auto text-white font-semibold">
-          Download <i className='fas fa-download'></i>
+          {
+          loading ? 
+          <span>Downloading... <ResetSpinner/> </span> : progress ===100 && loading ?
+          <span>Done !</span> :
+          <span>Download <i className='fas fa-download'></i></span>
+          } 
         </button>
       </div>
     </div>
