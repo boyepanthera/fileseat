@@ -42,6 +42,7 @@ const Fileseat = () => {
         }
       }
     };
+
     const data = new FormData();
     data.append("senderEmail", senderEmail);
     data.append("file", files[0]);
