@@ -80,6 +80,7 @@ export const Downloading = props => {
   const handleDownload = async()=> {
     try {
       setLoading(true);
+      console.log(props.url)
       // let res = await axios.get(`http://localhost:3005/api/v1/files/${props.fileName}`)
       // let res = await axios.get(`https:api.fileseat.com/api/v1/files/${props.fileName}`)
       let res = await axios.get(props.url, 
@@ -87,7 +88,7 @@ export const Downloading = props => {
         responseType :'blob',
         onDownloadProgress: progressEvent => {
           setProgress(
-            Math.round((progressEvent.loaded * 100)/progressEvent.total )
+            Math.round((progressEvent.loaded * 100)/progressEvent.total)
           )
           if(progress ===100) {
             setLoading(false);
