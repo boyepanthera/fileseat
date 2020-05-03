@@ -83,20 +83,20 @@ export const Downloading = props => {
       console.log(props.url)
       // let res = await axios.get(`http://localhost:3005/api/v1/files/${props.fileName}`)
       // let res = await axios.get(`https:api.fileseat.com/api/v1/files/${props.fileName}`)
-      let res = await axios.get(props.url, 
-        {
-        responseType :'blob',
-        onDownloadProgress: progressEvent => {
+      let res = await axios.get(props.url, {
+        responseType: "blob",
+        headers: {
+          Accept: "application/json",
+        },
+        onDownloadProgress: (progressEvent) => {
           setProgress(
-            Math.round((progressEvent.loaded * 100)/progressEvent.total)
-          )
-          if(progress ===100) {
+            Math.round((progressEvent.loaded * 100) / progressEvent.total)
+          );
+          if (progress === 100) {
             setLoading(false);
           }
-        }
-       }
-        
-        );
+        },
+      });
       // console.log(props.url)
       // Downloader(props.url, props.fileName)
       download(res.data, props.fileName)
