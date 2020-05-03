@@ -38,7 +38,7 @@ const Fileseat = () => {
         if (percentCompleted === 100) {
           setProgress(100);
           setSuccess(true);
-          console.log(success, percentCompleted, progress)
+          // console.log(success, percentCompleted, progress)
         }
       }
     };
@@ -49,6 +49,8 @@ const Fileseat = () => {
     data.append("receipientEmail", receipientEmail);
     data.append("message", message);
     try {
+      //console.log(data.get('file'));
+      //console.log(data.get('receipientEmail'));
       let response = await axios.post(
         // "http://localhost:3005/api/v1/files",
         "https://api.fileseat.com/api/v1/files",

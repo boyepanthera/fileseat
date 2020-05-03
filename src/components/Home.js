@@ -9,7 +9,6 @@ import { Forgot, Reset } from './Forgot';
 import { NotFound } from "./NotFound";
 import { PrivateRoute } from "./Private.route";
 import { Download } from './Download';
-import {Google} from './Google';
 export const AuthContext = React.createContext();
 
 const initialState = {
@@ -48,11 +47,6 @@ const Home = () => {
       <AuthContext.Provider value={{ state, dispatch }}>
         <div className="h-full">
           <Switch>
-            <Route
-              exact
-              path="/google521ae35dce320e77.html"
-              component={Google}
-            />
             <Route exact path="/" component={Fileseat} />
             <Route exact path="/auth" component={Login} />
             <Route exact path="/newauth" component={Signup} />

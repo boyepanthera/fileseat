@@ -61,7 +61,7 @@ const Login = () => {
 
   return (
     <HelmetProvider>
-      <div className="h-full flex flex-wrap">
+      <div className="h-screen flex flex-wrap">
         <Helmet>
           <title> Login: Welcome back to your Fileseat Account.</title>
           <meta name="description" content="Login and view your file sharing history" />
