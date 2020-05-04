@@ -91,7 +91,7 @@ export const UserDashboard = () => {
                 <div className="h-10 w-10 rounded-full mx-4 border-gray-500 border p-4 bg-gray-500"></div>
                 <div className="flex py-2">
                   <span className="text-indigo-700 font-semibold">
-                    Hello! {state.user ? state.user.fullName : null}
+                    {state.user ? state.user.email : null}
                   </span>
                   <i className="far fa-bell pt-1 text-xl text-indigo-700 mx-8"></i>
                 </div>
@@ -145,10 +145,154 @@ export const UserDashboard = () => {
                 </Link>
               </div>
             </div>
-            <div className="w-full sm:w-4/5 bg-gray-400 px-8 py-20">
-              <div className='h-full flex'>
-                <div className="w-full sm:w-1/2 h-full bg-white mr-4"></div>
-                <div className="w-full sm:w-1/2 h-full bg-white ml-4"></div>
+            <div className="w-full sm:w-4/5 bg-gray-400 px-8 pt-10 pb-20">
+              <div className="h-full">
+                <div className="w-full bg-white h-40">
+                  <div className="w-full">
+                    <div className=" text-2xl font-extrabold text-indigo-800 hover:text-indigo-600 p-4 text-center">
+                      Hello! {state.user ? state.user.fullName : null}
+                    </div>
+                  </div>
+                  <div className="w-full flex px-10">
+                    <div className="h-10 w-10 bg-indigo-800 hover:bg-indigo-600 rounded-full">
+                      <i className="p-3 text-white text-xl far fa-lightbulb"></i>
+                    </div>
+                    <div className="px-10">
+                      <div className="text-xl font-bold">Need Help?</div>
+                      <p>
+                        Sometimes, we can hit a hard points while sending or
+                        sharing a file. If you think you need help using
+                        Fileseat, kindly click here to request support.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="h-screen w-full flex flex-no-wrap pt-10 ">
+                  <div className="w-full sm:w-1/2  bg-white my-4 sm:mr-4">
+                    <div className="px-10 py-5">
+                      <div className='text-xl text-black font-semibold mb-4'>Recent Files</div>
+                      <p className="text-black ">
+                        These are the recent files you sent in the past 7days.
+                        Files older than 7days will be automatically trashed by
+                        bots on the platform.
+                      </p>
+                      <div className="flex my-12">
+                        <div className="w-full sm:w-1/12">
+                          <i className="far text-3xl text-indigo-700 pt-2 fa-file-video"></i>
+                        </div>
+                        <div className="w-full sm:w-11/12">
+                          <div className="text-lg font-semibold">
+                            File_to_limo.mp4
+                          </div>
+                          <div>
+                            28-04-2020{" "}
+                            <a
+                              className="text-indigo-600"
+                              href="mailto:isaac.orija@gmail.com"
+                            >
+                              <u className="p-2">
+                                Sent to isaac.orija@gmail.com
+                              </u>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex my-12">
+                        <div className="w-full sm:w-1/12">
+                          <i className="far fa-file-pdf text-3xl text-red-700 pt-2"></i>
+                        </div>
+                        <div className="w-full sm:w-11/12">
+                          <div className="text-lg font-semibold">
+                            NDA-signed.pdf
+                          </div>
+                          <div>
+                            26-04-2020{" "}
+                            <a
+                              className="text-indigo-600"
+                              href="mailto:sellaboye@gmail.com"
+                            >
+                              <u className="p-2">Sent to sellaboye@gmail.com</u>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex my-12">
+                        <div className="w-full sm:w-1/12">
+                          <i className="far fa-file-archive text-3xl text-red-700 pt-2"></i>
+                        </div>
+                        <div className="w-full sm:w-11/12">
+                          <div className="text-lg font-semibold">
+                            multifiles.zip
+                          </div>
+                          <div>
+                            26-04-2020{" "}
+                            <a
+                              className="text-indigo-600"
+                              href="mailto:eyiwumiolaboye@gmail.com"
+                            >
+                              <u className="p-2">
+                                Sent to eyiwumiolaboye@gmail.com
+                              </u>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex my-12">
+                        <div className="w-full sm:w-1/12">
+                          <i className="far fa-file-word text-3xl text-red-700 pt-2"></i>
+                        </div>
+                        <div className="w-full sm:w-11/12">
+                          <div className="text-lg font-semibold">
+                            user-story.docx
+                          </div>
+                          <div>
+                            25-04-2020{" "}
+                            <a
+                              className="text-indigo-600"
+                              href="mailto:eyiwumiolaboye@gmail.com"
+                            >
+                              <u className="p-2">
+                                Sent to eyiwumiolaboye@gmail.com
+                              </u>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex my-12">
+                        <div className="w-full sm:w-1/12">
+                          <i className="far fa-file-audio text-3xl text-red-700 pt-2"></i>
+                        </div>
+                        <div className="w-full sm:w-11/12">
+                          <div className="text-lg font-semibold">
+                            hearbreak.mp3
+                          </div>
+                          <div>
+                            24-04-2020{" "}
+                            <a
+                              className="text-indigo-600"
+                              href="mailto:eyiwumiolaboye@gmail.com"
+                            >
+                              <u className="p-2">
+                                Sent to eyiwumiolaboye@gmail.com
+                              </u>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex justify-end">
+                        <Link
+                          to="/history"
+                          className="bg-indigo-700 hover:bg-indigo-500 text-white text-sm py-1 px-3 font-semibold rounded rounded-lg"
+                        >
+                          More <i className="fas fa-step-forward text-white text-xs"></i>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-full sm:w-1/2 bg-white px-10 py-5 my-4 sm:ml-4">
+                    <div className="font-semibold text-black text-xl mb-4">Quick Actions</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
