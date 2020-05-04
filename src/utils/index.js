@@ -86,7 +86,9 @@ export const Downloading = props => {
       let res = await axios.get(props.url, {
         responseType: "blob",
         headers: {
-          Accept: "application/json",
+          // "Content-Type": "application/json",
+          "Content-Type": "application/octet-stream",
+          "Access-Control-Allow-Origin": "*",
         },
         onDownloadProgress: (progressEvent) => {
           setProgress(
@@ -164,7 +166,7 @@ export const Downloading = props => {
       <div className="my-2 w-full">{props.fileName}</div>
       <div className="items-center flex justify-start font-bold">From: </div>
       <div className="my-2">{props.sender}</div>
-      <div>
+      <div className='mb-4'>
         <button onClick={handleDownload} className="rounded-full w-full bg-indigo-700 hover:bg-indigo-500 focus:outline-none mt-6 p-2 mx-auto text-white font-semibold">
           {
           loading && progress<100 ? 

@@ -2,6 +2,7 @@ import React, { useContext, useReducer, useEffect } from "react";
 import { AuthContext } from "./Home";
 import { useHistory, Link, Redirect } from "react-router-dom";
 import axios from "axios";
+import ChatSharpIcon from "@material-ui/icons/ChatSharp";
 
 const initialState = {
   user: null,
@@ -46,9 +47,11 @@ export const UserDashboard = () => {
     stateDispatch({ type: "FETCH_USER_DETAILS" });
     axios
       .get(`https://api.fileseat.com/api/v1/users/userdash`, {
+      // .get(`http://localhost:3005/api/v1/users/userdash`, {
         headers: { Authorization: token }
       })
       .then(response => {
+        console.log(response.data);
         stateDispatch({
           type: "FETCH_USER_SUCCESS",
           payload: response.data.user
@@ -59,39 +62,96 @@ export const UserDashboard = () => {
         stateDispatch({ type: "FETCH_USER_FAILURE" });
       });
   }, [token]);
-  console.log(state);
+  // console.log(state);
   return (
     <>
       {state.err ? (
         <Redirect to="/auth" />
       ) : (
-        <div className="m-0 bg-gray-200 px-20 py-8">
-          <div className='flex flex-wrap'> 
-            <div className='w-full sm:w-1/2 bg-red-800'>Hello</div> 
-            <div className='w-full sm:w-1/2 bg-red-800'>Hi</div>
+        <div className="h-screen bg-gray-100 inset-0">
+          <div className="inset-0 h-20 bg-white px-8 py-5 flex">
+            <div className="w-full sm:w-1/4">
+              <Link className="text-indigo-700 text-2xl font-extra-bold" to="/">
+                FS
+              </Link>
+            </div>
+            <div className="w-full flex sm:w-3/4">
+              <div className="mx-auto w-1/2  flex relative">
+                <div className="-mx-2 py-2">
+                  <i className="inline text-gray-600 fas fa-search absolute"></i>
+                </div>
+                <input
+                  type="search"
+                  className="border-gray-200 px-8 placeholder-gray-800 placeholder-opacity-50 shadow-2xl rounded-sm h-8 border border-gray-600 w-full"
+                  placeholder="Search ..."
+                  name="search"
+                />
+              </div>
+              <div>
+                <span>Hello! {state.user ? state.user.fullName : null}</span>
+                <i className="far fa-bell text-indigo-700 mx-8"></i>
+                <button
+                  className="bg-indigo-700 text-sm rounded-lg hover:bg-indigo-800 focus:outline-none  text-white p-2"
+                  onClick={() => {
+                    dispatch({ type: "LOGOUT" });
+                    history.push("/");
+                  }}
+                >
+                  <span>Logout </span> <i className="fas fa-sign-out-alt"></i>
+                </button>
+              </div>
+            </div>
           </div>
-          <div>Users can use me to</div>
-          <button
-            className="bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:outline-none  text-white p-2"
-            onClick={() => {
-              dispatch({ type: "LOGOUT" });
-              history.push("/");
-            }}
-          >
-            <span>Logout </span> <i className="fas fa-sign-out-alt"></i>
-          </button>
-          <Link className="text-white" to="/admin">
-            Admin
-          </Link>
-          <ul>
-            <li>Know the number of files they have shared all time!</li>
-            <li>{state.user ? state.user.email : null}</li>
-            <li>
-              Know the dates they uploaded and the date of deletion/expiration
-            </li>
-            <li>List of file deprecated</li>
-            <li>List of file Active</li>
-          </ul>
+          <div className="flex h-full flex-wrap">
+            <div className="w-full sm:w-1/5 bg-gray-200 px-8 pt-32">
+              <div className="my-8 flex hover:text-indigo-700">
+                <i className="w-1/4 fas fa-home"></i>
+                <Link className="w-3/4 font-black hover:text-indigo-700 text-gray-600">
+                  Home
+                </Link>
+              </div>
+              <div className="my-8 flex hover:text-indigo-700">
+                <i className="fas w-1/4 fa-file-medical-alt"></i>
+                <Link className="w-3/4 font-black hover:text-indigo-700 text-gray-600">
+                  History
+                </Link>
+              </div>
+              <div className="my-8 flex hover:text-indigo-700">
+                <i className="w-1/4 far fa-share-square"></i>
+                <Link className="w-3/4 font-black hover:text-indigo-700 text-gray-600">
+                  Share Files
+                </Link>
+              </div>
+              <hr />
+              <div className="my-8 flex hover:text-indigo-700">
+                <i className="w-1/4 fas fa-sliders-h"></i>
+                <Link className="w-3/4 font-semibold text-gray-600 hover:text-indigo-700">
+                  Settings
+                </Link>
+              </div>
+              <div className="my-8 flex hover:text-indigo-700">
+                <div className="w-1/4">
+                  <ChatSharpIcon />
+                </div>
+                <Link className="w-3/4 font-semibold text-gray-600 hover:text-indigo-700">
+                  Feedbacks
+                </Link>
+              </div>
+            </div>
+            <div className="w-full sm:w-4/5 bg-gray-400 p-10">
+              <div>Users can use me to</div>
+              <ul>
+                <li>Know the number of files they have shared all time!</li>
+                <li>{state.user ? state.user.email : null}</li>
+                <li>
+                  Know the dates they uploaded and the date of
+                  deletion/expiration
+                </li>
+                <li>List of file deprecated</li>
+                <li>List of file Active</li>
+              </ul>
+            </div>
+          </div>
         </div>
       )}
     </>
