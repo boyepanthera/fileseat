@@ -170,7 +170,9 @@ export const UserDashboard = () => {
                 <div className="h-screen w-full flex flex-no-wrap pt-10 ">
                   <div className="w-full sm:w-1/2  bg-white my-4 sm:mr-4">
                     <div className="px-10 py-5">
-                      <div className='text-xl text-black font-semibold mb-4'>Recent Files</div>
+                      <div className="text-xl text-black font-semibold mb-4">
+                        Recent Files
+                      </div>
                       <p className="text-black ">
                         These are the recent files you sent in the past 7days.
                         Files older than 7days will be automatically trashed by
@@ -218,7 +220,7 @@ export const UserDashboard = () => {
                       </div>
                       <div className="flex my-12">
                         <div className="w-full sm:w-1/12">
-                          <i className="far fa-file-archive text-3xl text-red-700 pt-2"></i>
+                          <i className="far fa-file-archive text-3xl text-indigo-700 pt-2"></i>
                         </div>
                         <div className="w-full sm:w-11/12">
                           <div className="text-lg font-semibold">
@@ -260,7 +262,7 @@ export const UserDashboard = () => {
                       </div>
                       <div className="flex my-12">
                         <div className="w-full sm:w-1/12">
-                          <i className="far fa-file-audio text-3xl text-red-700 pt-2"></i>
+                          <i className="far fa-file-audio text-3xl text-indigo-700 pt-2"></i>
                         </div>
                         <div className="w-full sm:w-11/12">
                           <div className="text-lg font-semibold">
@@ -284,13 +286,55 @@ export const UserDashboard = () => {
                           to="/history"
                           className="bg-indigo-700 hover:bg-indigo-500 text-white text-sm py-1 px-3 font-semibold rounded rounded-lg"
                         >
-                          More <i className="fas fa-step-forward text-white text-xs"></i>
+                          More{" "}
+                          <i className="fas fa-step-forward text-white text-xs"></i>
                         </Link>
                       </div>
                     </div>
                   </div>
                   <div className="w-full sm:w-1/2 bg-white px-10 py-5 my-4 sm:ml-4">
-                    <div className="font-semibold text-black text-xl mb-4">Quick Actions</div>
+                    <div className="font-semibold text-black text-xl mb-4">
+                      Quick Actions
+                    </div>
+                    <div className="flex justify-between px-10 py-20">
+                      <div>
+                        <div className="h-20 w-20 rounded-full hover:bg-indigo-500 bg-indigo-700">
+                          {" "}
+                          <i className="w-1/4 far fa-share-square text-white p-6 text-3xl"></i>
+                        </div>
+                        <div className="mt-8 text-center font-semibold">
+                          Share files
+                        </div>
+                      </div>
+                      <div>
+                        <div className="h-20 w-20 rounded-full hover:bg-indigo-500 bg-indigo-700">
+                          {" "}
+                          <i className="far fa-bell w-1/4 text-white p-6 text-3xl"></i>
+                        </div>
+                        <div className="mt-8 text-center font-semibold">
+                          What's new?
+                        </div>
+                      </div>
+                      <div>
+                        <div className="h-20 w-20 rounded-full hover:bg-indigo-500 bg-indigo-700">
+                          <i className="fas fa-cog w-1/4 text-white p-6 text-3xl"></i>
+                        </div>
+                        <div className="mt-8 text-center font-semibold">
+                          User Settings
+                        </div>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="px-5 py-20">
+                      <div className="text-xl font-black font-semibold">
+                        Stats
+                      </div>
+                      <div className='flex mt-8'>
+                        <div className="bg-red-700 hover:bg-red-800 w-1/3 h-20 rounded-lg"></div>
+                        <div className="bg-indigo-700 hover:bg-indigo-800 w-1/3 h-20 rounded-lg mx-4"></div>
+                        <div className="bg-blue-700 hover:bg-blue-800 w-1/3 h-20 rounded-lg"></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
