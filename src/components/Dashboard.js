@@ -87,18 +87,25 @@ export const UserDashboard = () => {
                   name="search"
                 />
               </div>
-              <div>
-                <span>Hello! {state.user ? state.user.fullName : null}</span>
-                <i className="far fa-bell text-indigo-700 mx-8"></i>
-                <button
-                  className="bg-indigo-700 text-sm rounded-lg hover:bg-indigo-800 focus:outline-none  text-white p-2"
-                  onClick={() => {
-                    dispatch({ type: "LOGOUT" });
-                    history.push("/");
-                  }}
-                >
-                  <span>Logout </span> <i className="fas fa-sign-out-alt"></i>
-                </button>
+              <div className="flex my-auto">
+                <div className="h-10 w-10 rounded-full mx-4 border-gray-500 border p-4 bg-gray-500"></div>
+                <div className="flex py-2">
+                  <span className="text-indigo-700 font-semibold">
+                    Hello! {state.user ? state.user.fullName : null}
+                  </span>
+                  <i className="far fa-bell pt-1 text-xl text-indigo-700 mx-8"></i>
+                </div>
+                <div className="flex">
+                  <button
+                    className="bg-indigo-700 text-sm font-semibold rounded-lg hover:bg-indigo-800 focus:outline-none  text-white px-2"
+                    onClick={() => {
+                      dispatch({ type: "LOGOUT" });
+                      history.push("/");
+                    }}
+                  >
+                    <span>Logout </span> <i className="fas fa-sign-out-alt"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -138,18 +145,11 @@ export const UserDashboard = () => {
                 </Link>
               </div>
             </div>
-            <div className="w-full sm:w-4/5 bg-gray-400 p-10">
-              <div>Users can use me to</div>
-              <ul>
-                <li>Know the number of files they have shared all time!</li>
-                <li>{state.user ? state.user.email : null}</li>
-                <li>
-                  Know the dates they uploaded and the date of
-                  deletion/expiration
-                </li>
-                <li>List of file deprecated</li>
-                <li>List of file Active</li>
-              </ul>
+            <div className="w-full sm:w-4/5 bg-gray-400 px-8 py-20">
+              <div className='h-full flex'>
+                <div className="w-full sm:w-1/2 h-full bg-white mr-4"></div>
+                <div className="w-full sm:w-1/2 h-full bg-white ml-4"></div>
+              </div>
             </div>
           </div>
         </div>
