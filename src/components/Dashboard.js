@@ -329,10 +329,22 @@ export const UserDashboard = () => {
                       <div className="text-xl font-black font-semibold">
                         Stats
                       </div>
-                      <div className='flex mt-8'>
-                        <div className="bg-red-700 hover:bg-red-800 w-1/3 h-20 rounded-lg"></div>
-                        <div className="bg-indigo-700 hover:bg-indigo-800 w-1/3 h-20 rounded-lg mx-4"></div>
-                        <div className="bg-blue-700 hover:bg-blue-800 w-1/3 h-20 rounded-lg"></div>
+                      <div className="flex mt-8">
+                        <div className="bg-red-700 hover:bg-red-800 shadow-inner w-1/3 h-20 rounded-md p-4">
+                          <div className='text-sm text-white font-semibold'>Total Files Sent</div>
+                          <div className='flex'>
+                            <div className='text-white text-xl font-semibold'>300</div>
+                            <div className='ml-auto'>
+                              <i className='far fa-file-alt text-white font-semibold text-2xl'></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-indigo-700 hover:bg-indigo-800 shadow-inner w-1/3 h-20 rounded-md mx-4 p-4">
+                          <div className='text-sm text-white font-semibold'>Total Files Received</div>
+                        </div>
+                        <div className="bg-blue-700 hover:bg-blue-800 w-1/3 shadow-inner h-20 rounded-md p-4">
+                          <div className='text-sm text-white font-semibold'>Total Expired Files</div>
+                        </div>
                       </div>
                     </div>
                   </div>
