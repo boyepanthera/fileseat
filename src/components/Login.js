@@ -103,7 +103,7 @@ const Login = () => {
                     </label>
                     <Field
                       name="email"
-                      className="border-b-2 bg-indigo-100 h-10 border-indigo-700 w-full"
+                      className="border-b-2 px-4 bg-indigo-100 h-10 border-indigo-700 w-full"
                       type="email"
                     />
                     {errors.email && touched.email ? (
@@ -116,7 +116,7 @@ const Login = () => {
                 </label>
                     <Field
                       name="password"
-                      className="border-b-2 bg-indigo-100 h-10 border-indigo-700 w-full"
+                      className="border-b-2 bg-indigo-100 px-4 h-10 border-indigo-700 w-full"
                       type="password"
                     />
                     {errors.password && touched.password ? (

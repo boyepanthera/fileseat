@@ -178,7 +178,7 @@ export const UserDashboard = () => {
                         Files older than 7days will be automatically trashed by
                         bots on the platform.
                       </p>
-                      <div className="flex my-12">
+                      <div className="flex my-10">
                         <div className="w-full sm:w-1/12">
                           <i className="far text-3xl text-indigo-700 pt-2 fa-file-video"></i>
                         </div>
@@ -199,7 +199,7 @@ export const UserDashboard = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="flex my-12">
+                      <div className="flex my-10">
                         <div className="w-full sm:w-1/12">
                           <i className="far fa-file-pdf text-3xl text-red-700 pt-2"></i>
                         </div>
@@ -218,7 +218,7 @@ export const UserDashboard = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="flex my-12">
+                      <div className="flex my-10">
                         <div className="w-full sm:w-1/12">
                           <i className="far fa-file-archive text-3xl text-indigo-700 pt-2"></i>
                         </div>
@@ -239,7 +239,7 @@ export const UserDashboard = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="flex my-12">
+                      <div className="flex my-10">
                         <div className="w-full sm:w-1/12">
                           <i className="far fa-file-word text-3xl text-red-700 pt-2"></i>
                         </div>
@@ -260,7 +260,7 @@ export const UserDashboard = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="flex my-12">
+                      <div className="flex my-10">
                         <div className="w-full sm:w-1/12">
                           <i className="far fa-file-audio text-3xl text-indigo-700 pt-2"></i>
                         </div>

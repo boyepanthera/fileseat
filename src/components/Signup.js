@@ -123,7 +123,7 @@ export const Signup = () => {
                     <label className="font-semibold">Full name</label>
                     <Field
                       name="fullName"
-                      className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full"
+                      className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full px-4"
                     />
                     {errors.fullName && touched.fullName ? (
                       <div className="text-red-600 text-xs">
@@ -135,7 +135,7 @@ export const Signup = () => {
                     <label className="font-semibold">Email</label>
                     <Field
                       name="email"
-                      className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full"
+                      className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full px-4"
                     />
                     {errors.email && touched.email ? (
                       <div className="text-red-600 text-xs"> {errors.email} </div>
@@ -147,7 +147,7 @@ export const Signup = () => {
                       name="password"
                       type="password"
                       autoComplete="true"
-                      className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full"
+                      className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full px-4"
                     />
                     {errors.password && touched.password ? (
                       <div className="text-red-600 text-xs">
@@ -161,7 +161,7 @@ export const Signup = () => {
                       name="confirmPassword"
                       type="password"
                       autoComplete="true"
-                      className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full"
+                      className="h-10 bg-indigo-100 border-indigo-700 border-b-2  w-full px-4"
                     />
                     {errors.confirmPassword && touched.confirmPassword ? (
                       <div className="text-red-600 text-xs">
