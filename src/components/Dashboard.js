@@ -93,7 +93,7 @@ export const UserDashboard = () => {
                   <img
                     src="https://res.cloudinary.com/legalbox/image/upload/v1588722685/boye_edited-min_hmufhz.jpg"
                     alt="User profile"
-                    className="w-full h-full rounded-full"
+                    className="w-full h-full rounded-full hover:opacity-50"
                   />
                 </div>
                 <div className="flex py-2">
@@ -152,9 +152,9 @@ export const UserDashboard = () => {
                 </Link>
               </div>
             </div>
-            <div className="w-full sm:w-4/5 bg-gray-400 px-8 pt-10 pb-20">
-              <div className="h-full">
-                <div className="w-full bg-white h-40">
+            <div className="w-full h-auto  sm:w-4/5 bg-gray-400 px-8 pt-10 pb-20">
+              <div className="">
+                <div className="w-full bg-white h-auto sm:h-40 p-4">
                   <div className="w-full">
                     <div className=" text-2xl font-extrabold text-indigo-800 hover:text-indigo-600 sm:p-4 px-4 py-2 text-center">
                       Hello! {state.user ? state.user.fullName : null}
@@ -176,8 +176,8 @@ export const UserDashboard = () => {
                     </div>
                   </div>
                 </div>
-                <div className="h-screen w-full flex  pt-10 ">
-                  <div className="w-full sm:w-1/2 h-full  bg-white my-4 mr-2 sm:mr-4">
+                <div className="h-full w-full flex-col sm:flex sm:flex-row   pt-10 ">
+                  <div className="w-full sm:w-1/2 sm:h-full h-auto  bg-white my-4 mr-2 sm:mr-4">
                     <div className="px-10 py-5">
                       <div className="text-xl text-black font-semibold mb-4">
                         Recent Files
@@ -301,7 +301,7 @@ export const UserDashboard = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="w-full h-full sm:w-1/2 bg-white px-10 py-5 my-4 sm:ml-4">
+                  <div className="w-full sm:h-full h-auto sm:w-1/2 bg-white px-10 py-5 my-4 sm:ml-4">
                     <div className="font-semibold text-black text-xl mb-4">
                       Quick Actions
                     </div>
@@ -338,8 +338,8 @@ export const UserDashboard = () => {
                       <div className="text-xl font-black font-semibold">
                         Stats
                       </div>
-                      <div className="flex mt-8">
-                        <div className="bg-blue-700 hover:bg-blue-800 shadow-inner w-1/3 h-20 rounded-md p-4">
+                      <div className="flex sm:flex-row flex-col mt-8">
+                        <div className="bg-blue-700 hover:bg-blue-800 shadow-inner w-full sm:w-1/3 h-20 rounded-md p-4">
                           <div className="text-sm text-white font-semibold">
                             Total Files Sent
                           </div>
@@ -352,7 +352,7 @@ export const UserDashboard = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="bg-indigo-700 hover:bg-indigo-800 shadow-inner w-1/3 h-20 rounded-md mx-4 p-4">
+                        <div className="bg-indigo-700 hover:bg-indigo-800 shadow-inner my-5 sm:m-0  w-full sm:w-1/3 h-20 rounded-md sm:mx-4 sm:p-4">
                           <div className="text-sm text-white font-semibold">
                             Total Files Received
                           </div>
@@ -365,7 +365,7 @@ export const UserDashboard = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="bg-red-700 hover:bg-red-800 w-1/3 shadow-inner h-20 rounded-md p-4">
+                        <div className="bg-red-700 hover:bg-red-800 w-full sm:w-1/3 shadow-inner h-20 rounded-md p-4">
                           <div className="text-sm text-white font-semibold">
                             Total Expired Files
                           </div>
