@@ -156,7 +156,7 @@ export const UserDashboard = () => {
               {/* <div className=""> */}
               <div className="w-full bg-white h-auto sm:h-40 p-4">
                 <div className="w-full">
-                  <div className=" text-2xl font-extrabold text-indigo-800 hover:text-indigo-600 sm:p-4 px-4 py-2 text-center">
+                  <div className=" sm:text-2xl text-lg font-extrabold text-indigo-800 hover:text-indigo-600 sm:p-4 px-4 py-2 text-center">
                     Hello! {state.user ? state.user.fullName : null}
                   </div>
                 </div>
@@ -165,8 +165,10 @@ export const UserDashboard = () => {
                     <i className="p-3 text-white text-xl far fa-lightbulb"></i>
                   </div>
                   <div className="px-5 sm:px-10">
-                    <div className="text-xl font-bold ">Need Help?</div>
-                    <div className="text-left text-sm sm:text-justify sm:text-md">
+                    <div className="sm:text-xl text:lg font-bold ">
+                      Need Help?
+                    </div>
+                    <div className=" text-sm text-justify sm:text-md">
                       Sometimes, we can hit a hard points while sending or
                       sharing a file. If you think you need help using Fileseat,
                       kindly click{" "}
@@ -176,7 +178,7 @@ export const UserDashboard = () => {
                   </div>
                 </div>
               </div>
-              <div className="h-full w-full flex-col sm:flex sm:flex-row   pt-10 ">
+              <div className="h-auto w-full flex-col sm:flex sm:flex-row pt-4 sm:pt-10">
                 <div className="w-full sm:w-1/2 sm:h-full h-auto  bg-white my-4 mr-2 sm:mr-4">
                   <div className="px-10 py-5">
                     <div className="text-xl text-black font-semibold mb-4">
@@ -303,28 +305,34 @@ export const UserDashboard = () => {
                   <div className="font-semibold text-black text-xl mb-4">
                     Quick Actions
                   </div>
-                  <div className="flex justify-between px-2 py-4 sm:px-10 sm:py-20">
-                    <div className="w-1/3">
-                      <div className="h-20 w-20 rounded-full hover:bg-indigo-500 bg-indigo-700">
-                        {" "}
-                        <i className="w-1/4 far fa-share-square text-white p-6 text-3xl"></i>
+                  <div className="flex justify-between px-2 py-4 sm:px-10 sm:py-10">
+                    <div className="sm:w-1/3 w-full ">
+                      <div className="flex justify-center">
+                        <div className="h-20 w-20 rounded-full hover:bg-indigo-500 bg-indigo-700">
+                          {" "}
+                          <i className="w-1/4 far fa-share-square text-white p-6 text-3xl"></i>
+                        </div>
                       </div>
                       <div className="mt-8 text-center font-semibold">
                         Share files
                       </div>
                     </div>
-                    <div className="w-1/3">
-                      <div className="h-20 w-20 rounded-full hover:bg-indigo-500 bg-indigo-700">
-                        {" "}
-                        <i className="far fa-bell w-1/4 text-white p-6 text-3xl"></i>
+                    <div className="sm:w-1/3 w-full">
+                      <div className="flex justify-center">
+                        <div className="h-20 w-20 rounded-full hover:bg-indigo-500 bg-indigo-700">
+                          {" "}
+                          <i className="far fa-bell w-1/4 text-white p-6 text-3xl"></i>
+                        </div>
                       </div>
                       <div className="mt-8 text-center font-semibold">
                         What's new?
                       </div>
                     </div>
-                    <div className="w-1/3">
-                      <div className="h-20 w-20 rounded-full hover:bg-indigo-500 bg-indigo-700">
-                        <i className="fas fa-cog w-1/4 text-white p-6 text-3xl"></i>
+                    <div className="sm:w-1/3 w-full">
+                      <div className="flex justify-center">
+                        <div className="h-20 w-20 rounded-full hover:bg-indigo-500 bg-indigo-700">
+                          <i className="fas fa-cog w-1/4 text-white p-6 text-3xl"></i>
+                        </div>
                       </div>
                       <div className="mt-8 text-center font-semibold">
                         User Settings
