@@ -5,6 +5,7 @@ import axios from "axios";
 import ChatSharpIcon from "@material-ui/icons/ChatSharp";
 import ExitToAppTwoToneIcon from "@material-ui/icons/ExitToAppTwoTone";
 
+
 const initialState = {
   user: null,
   isFetching: false,
@@ -117,7 +118,7 @@ export const UserDashboard = () => {
             </div>
           </div>
           <div className="flex h-full flex-wrap">
-            <div className="w-full sm:w-1/5 bg-gray-200 px-8 pt-32">
+            <div className="w-full sm:w-1/5 bg-gray-200 px-8 sm:pt-32 pt-5">
               <div className="my-8 flex hover:text-indigo-700">
                 <i className="w-1/4 fas fa-home"></i>
                 <Link className="w-3/4 font-black hover:text-indigo-700 text-gray-600">
