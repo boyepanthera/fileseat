@@ -153,7 +153,7 @@ export const UserDashboard = () => {
               </div>
             </div>
             <div className="w-full h-auto  sm:w-4/5 bg-gray-400 px-8 pt-10 pb-20">
-              {/* <div className=""> */}
+              <div className="">
               <div className="w-full bg-white h-auto sm:h-40 p-4">
                 <div className="w-full">
                   <div className=" sm:text-2xl text-lg font-extrabold text-indigo-800 hover:text-indigo-600 sm:p-4 px-4 py-2 text-center">
@@ -178,9 +178,9 @@ export const UserDashboard = () => {
                   </div>
                 </div>
               </div>
-              <div className="h-auto w-full flex-col sm:flex sm:flex-row pt-4 sm:pt-10">
-                <div className="w-full sm:w-1/2 sm:h-full h-auto  bg-white my-4 mr-2 sm:mr-4">
-                  <div className="px-10 py-5">
+              <div className="h-full w-full flex-col sm:flex sm:flex-row pt-4 sm:pt-10">
+                <div className="w-full sm:w-1/2 h-full  bg-white px-10 py- my-4 mr-2 sm:mr-4">
+                  <div className="sm:px-10 px-5  py-12">
                     <div className="text-xl text-black font-semibold mb-4">
                       Recent Files
                     </div>
@@ -301,11 +301,11 @@ export const UserDashboard = () => {
                     </div>
                   </div>
                 </div>
-                <div className="w-full sm:h-full h-auto sm:w-1/2 bg-white px-10 py-5 my-4 sm:ml-4">
-                  <div className="font-semibold text-black text-xl mb-4">
+                <div className="w-full h-full  sm:w-1/2 bg-white px-10 py-10 my-4 sm:ml-4">
+                  <div className="font-semibold text-black text-xl mb-5">
                     Quick Actions
                   </div>
-                  <div className="flex justify-between px-2 py-4 sm:px-10 sm:py-10">
+                  <div className="flex justify-between px-2 py-4 sm:px-10 sm:py-20">
                     <div className="sm:w-1/3 w-full ">
                       <div className="flex justify-center">
                         <div className="h-20 w-20 rounded-full hover:bg-indigo-500 bg-indigo-700">
@@ -388,7 +388,7 @@ export const UserDashboard = () => {
                   </div>
                 </div>
               </div>
-              {/* </div> */}
+              </div>
             </div>
           </div>
         </div>
