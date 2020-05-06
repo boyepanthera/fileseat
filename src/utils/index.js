@@ -80,16 +80,12 @@ export const Downloading = props => {
   const handleDownload = async()=> {
     try {
       setLoading(true);
-      console.log(props.url)
+      // console.log(props.url)
       // let res = await axios.get(`http://localhost:3005/api/v1/files/${props.fileName}`)
       // let res = await axios.get(`https:api.fileseat.com/api/v1/files/${props.fileName}`)
       let res = await axios.get(props.url, {
         responseType: "blob",
-        headers: {
-          // "Content-Type": "application/json",
-          "Content-Type": "application/octet-stream",
-          "Access-Control-Allow-Origin": "*",
-        },
+        crossdomain:true,
         onDownloadProgress: (progressEvent) => {
           setProgress(
             Math.round((progressEvent.loaded * 100) / progressEvent.total)
@@ -135,7 +131,7 @@ export const Downloading = props => {
       // }
     } catch (err) {
       if (err.response) {
-        console.log(err.response.data);
+        // console.log(err.response.data);
       } else {
         console.log('There is issue connecting to server for download!', err);
       }

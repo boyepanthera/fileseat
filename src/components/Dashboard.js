@@ -3,6 +3,7 @@ import { AuthContext } from "./Home";
 import { useHistory, Link, Redirect } from "react-router-dom";
 import axios from "axios";
 import ChatSharpIcon from "@material-ui/icons/ChatSharp";
+import ExitToAppTwoToneIcon from "@material-ui/icons/ExitToAppTwoTone";
 
 const initialState = {
   user: null,
@@ -71,14 +72,14 @@ export const UserDashboard = () => {
         <div className="h-screen bg-gray-100 inset-0">
           <div className="inset-0 h-20 bg-white px-8 py-5 flex">
             <div className="w-full sm:w-1/4">
-              <Link className="text-indigo-700 text-2xl font-extra-bold" to="/">
+              <Link className="text-indigo-700 text-2xl font-black" to="/">
                 FS
               </Link>
             </div>
             <div className="w-full flex sm:w-3/4">
               <div className="mx-auto w-1/2  flex relative">
                 <div className="-mx-2 py-2">
-                  <i className="inline text-gray-600 fas fa-search absolute"></i>
+                  <i className="inline text-gray-600 fas fa-search absolute text-black"></i>
                 </div>
                 <input
                   type="search"
@@ -88,7 +89,13 @@ export const UserDashboard = () => {
                 />
               </div>
               <div className="flex my-auto">
-                <div className="h-10 w-10 rounded-full mx-4 border-gray-500 border p-4 bg-gray-500"></div>
+                <div className="h-10 w-10 rounded-full mx-4 border-gray-500 border bg-gray-500">
+                  <img
+                    src="https://res.cloudinary.com/legalbox/image/upload/v1588722685/boye_edited-min_hmufhz.jpg"
+                    alt="User profile"
+                    className="w-full h-full rounded-full"
+                  />
+                </div>
                 <div className="flex py-2">
                   <span className="text-indigo-700 font-semibold">
                     {state.user ? state.user.email : null}
@@ -103,7 +110,7 @@ export const UserDashboard = () => {
                       history.push("/");
                     }}
                   >
-                    <span>Logout </span> <i className="fas fa-sign-out-alt"></i>
+                    <span>Logout </span> <ExitToAppTwoToneIcon />
                   </button>
                 </div>
               </div>
@@ -149,26 +156,28 @@ export const UserDashboard = () => {
               <div className="h-full">
                 <div className="w-full bg-white h-40">
                   <div className="w-full">
-                    <div className=" text-2xl font-extrabold text-indigo-800 hover:text-indigo-600 p-4 text-center">
+                    <div className=" text-2xl font-extrabold text-indigo-800 hover:text-indigo-600 sm:p-4 px-4 py-2 text-center">
                       Hello! {state.user ? state.user.fullName : null}
                     </div>
                   </div>
-                  <div className="w-full flex px-10">
+                  <div className="w-full flex px-5 sm:px-10">
                     <div className="h-10 w-10 bg-indigo-800 hover:bg-indigo-600 rounded-full">
                       <i className="p-3 text-white text-xl far fa-lightbulb"></i>
                     </div>
-                    <div className="px-10">
-                      <div className="text-xl font-bold">Need Help?</div>
-                      <p>
+                    <div className="px-5 sm:px-10">
+                      <div className="text-xl font-bold ">Need Help?</div>
+                      <div className="text-left text-sm sm:text-justify sm:text-md">
                         Sometimes, we can hit a hard points while sending or
                         sharing a file. If you think you need help using
-                        Fileseat, kindly click here to request support.
-                      </p>
+                        Fileseat, kindly click{" "}
+                        <span className="underline text-indigo-700">here</span>{" "}
+                        to request support.
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="h-screen w-full flex flex-no-wrap pt-10 ">
-                  <div className="w-full sm:w-1/2  bg-white my-4 sm:mr-4">
+                <div className="h-screen w-full flex  pt-10 ">
+                  <div className="w-full sm:w-1/2 h-full  bg-white my-4 mr-2 sm:mr-4">
                     <div className="px-10 py-5">
                       <div className="text-xl text-black font-semibold mb-4">
                         Recent Files
@@ -292,7 +301,7 @@ export const UserDashboard = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="w-full sm:w-1/2 bg-white px-10 py-5 my-4 sm:ml-4">
+                  <div className="w-full h-full sm:w-1/2 bg-white px-10 py-5 my-4 sm:ml-4">
                     <div className="font-semibold text-black text-xl mb-4">
                       Quick Actions
                     </div>
@@ -330,20 +339,44 @@ export const UserDashboard = () => {
                         Stats
                       </div>
                       <div className="flex mt-8">
-                        <div className="bg-red-700 hover:bg-red-800 shadow-inner w-1/3 h-20 rounded-md p-4">
-                          <div className='text-sm text-white font-semibold'>Total Files Sent</div>
-                          <div className='flex'>
-                            <div className='text-white text-xl font-semibold'>300</div>
-                            <div className='ml-auto'>
-                              <i className='far fa-file-alt text-white font-semibold text-2xl'></i>
+                        <div className="bg-blue-700 hover:bg-blue-800 shadow-inner w-1/3 h-20 rounded-md p-4">
+                          <div className="text-sm text-white font-semibold">
+                            Total Files Sent
+                          </div>
+                          <div className="flex">
+                            <div className="text-white text-xl font-bold">
+                              300
+                            </div>
+                            <div className="ml-auto mt-2">
+                              <i className="fas fa-file-import text-white font-semibold text-2xl"></i>
                             </div>
                           </div>
                         </div>
                         <div className="bg-indigo-700 hover:bg-indigo-800 shadow-inner w-1/3 h-20 rounded-md mx-4 p-4">
-                          <div className='text-sm text-white font-semibold'>Total Files Received</div>
+                          <div className="text-sm text-white font-semibold">
+                            Total Files Received
+                          </div>
+                          <div className="flex">
+                            <div className="text-white text-xl font-bold">
+                              200
+                            </div>
+                            <div className="ml-auto mt-2">
+                              <i className="far fa-folder-open text-white font-semibold text-2xl"></i>
+                            </div>
+                          </div>
                         </div>
-                        <div className="bg-blue-700 hover:bg-blue-800 w-1/3 shadow-inner h-20 rounded-md p-4">
-                          <div className='text-sm text-white font-semibold'>Total Expired Files</div>
+                        <div className="bg-red-700 hover:bg-red-800 w-1/3 shadow-inner h-20 rounded-md p-4">
+                          <div className="text-sm text-white font-semibold">
+                            Total Expired Files
+                          </div>
+                          <div className="flex">
+                            <div className="text-white text-xl font-bold">
+                              200
+                            </div>
+                            <div className="ml-auto mt-2">
+                              <i className="fas fa-trash-alt text-white font-semibold text-2xl"></i>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
