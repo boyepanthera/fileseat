@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, useEffect } from "react";
+import React, { useContext, useReducer, useEffect, useState } from "react";
 import { AuthContext } from "./Home";
 import { useHistory, Link, Redirect } from "react-router-dom";
 import axios from "axios";
@@ -41,10 +41,15 @@ const reducer = (state, action) => {
 
 export const UserDashboard = () => {
   const { dispatch } = useContext(AuthContext);
-  // console.log(dispatch);
+  const [openNav, setOpenNav] = useState(false);
   const token = JSON.parse(localStorage.getItem("token"));
   let history = useHistory();
   const [state, stateDispatch] = useReducer(reducer, initialState);
+
+  const handleNavToggle = () => {
+    setOpenNav(!openNav)
+  }
+
   useEffect(() => {
     stateDispatch({ type: "FETCH_USER_DETAILS" });
     axios
@@ -71,23 +76,23 @@ export const UserDashboard = () => {
         <Redirect to="/auth" />
       ) : (
         <div className="h-screen bg-gray-100 inset-0">
-          <div className="inset-0 h-20 bg-white px-8 py-5 items-center flex justify-between sm:justify-start">
+          <div className="inset-0 sm:h-20 h-auto bg-white px-8 py-5 items-center flex justify-between sm:justify-start">
             <div className="sm:w-1/5">
               <Link className="text-indigo-700 text-2xl font-black" to="/">
                 FS
               </Link>
             </div>
-            <div className='sm:hidden block'>
+            <div onClick={handleNavToggle} className="sm:hidden block">
               <MenuOutlinedIcon />
             </div>
-            <div className="sm:flex sm:w-4/5  hidden">
+            <div className={openNav ? `block` : `sm:flex sm:w-4/5 hidden`}>
               <div className="mx-auto w-1/2  flex relative">
-                <div className="-mx-2 py-2">
+                <div className="-mx-4 py-3">
                   <i className="inline text-gray-600 fas fa-search absolute text-black"></i>
                 </div>
                 <input
                   type="search"
-                  className="border-gray-200 px-8 placeholder-gray-800 placeholder-opacity-50 shadow-2xl rounded-sm h-8 border border-gray-600 w-full"
+                  className="border-purple-200 px-8 placeholder-gray-800 placeholder-opacity-50 shadow-2xl rounded-sm h-8 sm:h-10 border border-gray-600 w-full"
                   placeholder="Search ..."
                   name="search"
                 />

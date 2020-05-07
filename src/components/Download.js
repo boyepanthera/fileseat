@@ -30,7 +30,7 @@ export const Download = () => {
                     setSender(res.data.senderEmail);
                     setURL(res.data.url);
                     setDownloadURL(res.data.downloadURL)
-                    console.log(res.data)
+                    // console.log(res.data)
                 }catch (err) {
                     if(err.response) {
                         console.log(err.response);

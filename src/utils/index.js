@@ -85,7 +85,9 @@ export const Downloading = props => {
       // let res = await axios.get(`https:api.fileseat.com/api/v1/files/${props.fileName}`)
       let res = await axios.get(props.url, {
         responseType: "blob",
-        crossdomain:true,
+        headers: {
+          Accept: "application/octet-stream",
+        },
         onDownloadProgress: (progressEvent) => {
           setProgress(
             Math.round((progressEvent.loaded * 100) / progressEvent.total)
