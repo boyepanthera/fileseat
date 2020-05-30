@@ -77,47 +77,53 @@ const Fileseat = () => {
     <HelmetProvider>
       <Helmet>
         <title>Fileseat, easy and fast way to share large files.</title>
-        <meta name="description" content="Sometimes we want to share those files that are way above 50mb then our mail service tell us that is not possible to attach, attachment and mails? Fileseat can handle it all for you." />
+        <meta
+          name="description"
+          content="Sometimes we want to share those files that are way above 50mb then our mail service tell us that is not possible to attach, attachment and mails? Fileseat can handle it all for you."
+        />
       </Helmet>
-      <div className="h-screen p-8 sm:p-20" style={LoginStyles.background}>
+      <div className="h-full min-h-screen p-8 sm:p-20" style={LoginStyles.background}>
         <Navbar />
-        {
-          err ? (
-          <div className="text-red-800 sm:w-1/4 w-full bg-red-100 my-2  py-2 rounded-lg text-center">{err.message}</div>
-          ) 
-          : null}
-        <div className="sm:mx-2">
-          <div className="">
-            {" "}
-            { progress > -1 && !success ? (
-              <Uploading
-                progress={progress}
-                fileName={fileData[0].name}
-                receipient={receipient}
-              />
-            ) : success ? (
-              <Uploaded />
-            ) : (
-                  <Formik
-                    onSubmit={handleSubmit}
-                    initialValues={{
-                      receipientEmail: "",
-                      message: "",
-                      senderEmail: "",
-                      files: []
-                    }}
-                  >
-                    {({
-                      values,
-                      errors,
-                      touched,
-                      handleChange,
-                      handleBlur,
-                      handleSubmit,
-                      isSubmitting,
-                      setFieldValue
-                    }) => (
-                        <Form className="rounded-larger bg-white w-full mx-auto sm:mx-0 sm:w-1/3 sm:max-w-sm  shadow-lg rounded p-8">
+        <div className="w-full sm:flex sm:justify-between">
+          <div className="w-full sm:flex-col">
+            <div>
+              {err ? (
+                <div className="text-red-800 sm:w-1/4 w-full bg-red-100 my-2  py-2 rounded-lg text-center">
+                  {err.message}
+                </div>
+              ) : null}
+              <div className="sm:mx-2">
+                <div className="">
+                  {" "}
+                  {progress > -1 && !success ? (
+                    <Uploading
+                      progress={progress}
+                      fileName={fileData[0].name}
+                      receipient={receipient}
+                    />
+                  ) : success ? (
+                    <Uploaded />
+                  ) : (
+                    <Formik
+                      onSubmit={handleSubmit}
+                      initialValues={{
+                        receipientEmail: "",
+                        message: "",
+                        senderEmail: "",
+                        files: [],
+                      }}
+                    >
+                      {({
+                        values,
+                        errors,
+                        touched,
+                        handleChange,
+                        handleBlur,
+                        handleSubmit,
+                        isSubmitting,
+                        setFieldValue,
+                      }) => (
+                        <Form className="rounded-larger bg-white w-full mx-auto sm:mx-0 sm:w-1/2 sm:max-w-sm  shadow-lg rounded p-8">
                           <div>
                             <h3 className="text-center text-xl font-bold tracking-normal">
                               TRANSFER FILES
@@ -174,10 +180,13 @@ const Fileseat = () => {
                               <input
                                 name="files "
                                 {...getInputProps({
-                                  onChange: event => {
-                                    setFieldValue("files", event.currentTarget.files);
+                                  onChange: (event) => {
+                                    setFieldValue(
+                                      "files",
+                                      event.currentTarget.files
+                                    );
                                     setFileData(event.currentTarget.files);
-                                  }
+                                  },
                                 })}
                               />
                               {fileData ? (
@@ -185,23 +194,38 @@ const Fileseat = () => {
                                   <ul>{files}</ul>
                                 </span>
                               ) : (
-                                  <CloudUploadIcon color="inherit" fontSize="large" />
-                                )}
+                                <CloudUploadIcon
+                                  color="inherit"
+                                  fontSize="large"
+                                />
+                              )}
                             </div>
                           </div>
                           <button
                             type="submit"
                             className="hover:bg-indigo-500 focus:outline-none rounded-full shadow-lg w-full bg-indigo-700 rounded-lg text-white font-bold p-2"
                           >
-                            {
-                              load ? <span>Starting engine... <ResetSpinner/></span> :
-                            <span>Transfer <i className='fas fa-paper-plane'></i></span>
-                            }
+                            {load ? (
+                              <span>
+                                Starting engine... <ResetSpinner />
+                              </span>
+                            ) : (
+                              <span>
+                                Transfer <i className="fas fa-paper-plane"></i>
+                              </span>
+                            )}
                           </button>
                         </Form>
                       )}
-                  </Formik>
-                )}
+                    </Formik>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-full my-10 sm:m-auto">
+            <div className="text-white text-center text-4xl font-extrabold">Hello Awesome!</div>
+            <div className="text-white text-center text-2xl">With Fileseat you can share up to 2GB file to your friends.</div>
           </div>
         </div>
       </div>
