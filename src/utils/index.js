@@ -3,7 +3,6 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import sentImage from "../assets/images/sent.svg";
 import axios from "axios";
-// import Downloader from  'js-file-download';
 import download from 'downloadjs';
 
 export const Spinner = () => (
@@ -80,9 +79,7 @@ export const Downloading = props => {
   const handleDownload = async()=> {
     try {
       setLoading(true);
-      // console.log(props.url)
-      // let res = await axios.get(`http://localhost:3005/api/v1/files/${props.fileName}`)
-      // let res = await axios.get(`https:api.fileseat.com/api/v1/files/${props.fileName}`)
+
       let res = await axios.get(props.url, {
         responseType: "blob",
         headers: {
@@ -97,40 +94,7 @@ export const Downloading = props => {
           }
         },
       });
-      // console.log(props.url)
-      // Downloader(props.url, props.fileName)
       download(res.data, props.fileName)
-      // fetch(`http://localhost:3005/api/v1/files/${props.fileName}`)
-        // .then(res=>res.blob())
-        // .then(blob=>{
-        //   let url = window.URL.createObjectURL(blob)
-        //   let a  = document.createElement('a');
-        //   a.href =url;
-        //   a.click();
-        // })
-
-    // console.log('download clicked!!!')
-    // let res = await axios.get(`http://localhost:3005/api/v1/files/${props.fileName}`, 
-    // let res = await axios.get(`https://api.fileseat.com/api/v1/files/${props.fileName}`
-    // , { 
-    //     onDownloadProgress: progressEvent => {
-    //       setProgress(
-    //         Math.round((progressEvent.loaded * 100)/progressEvent.total )
-    //       )
-    //       console.log('download', progressEvent)
-    //     }
-    //    }
-      //  )
-      // if (res.ok) {
-        // let blob = await res.blob();
-        // console.log(res);
-        // const blobURL = await URL.createObjectURL(res);
-        // const link = document.createElement('a');
-        // link.href=res.data;
-        // link.style = "display :none";
-        // document.body.appendChild(link);
-        // link.click();
-      // }
     } catch (err) {
       if (err.response) {
         // console.log(err.response.data);
