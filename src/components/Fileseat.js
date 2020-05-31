@@ -82,7 +82,7 @@ const Fileseat = () => {
           content="Sometimes we want to share those files that are way above 50mb then our mail service tell us that is not possible to attach, attachment and mails? Fileseat can handle it all for you."
         />
       </Helmet>
-      <div className="h-full min-h-screen p-8 sm:p-20" style={LoginStyles.background}>
+      <div className="h-full min-h-screen p-8 sm:p-10" style={LoginStyles.background}>
         <Navbar />
         <div className="w-full sm:flex sm:justify-between">
           <div className="w-full sm:flex-col">
@@ -123,7 +123,7 @@ const Fileseat = () => {
                         isSubmitting,
                         setFieldValue,
                       }) => (
-                        <Form className="rounded-larger bg-white w-full mx-auto sm:mx-0 sm:w-1/2 sm:max-w-sm  shadow-lg rounded p-8">
+                        <Form className="rounded-larger bg-white w-full mx-auto sm:mx-0 sm:w-4/5 sm:max-w-sm  shadow-lg rounded p-8">
                           <div>
                             <h3 className="text-center text-xl font-bold tracking-normal">
                               TRANSFER FILES
