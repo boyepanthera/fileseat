@@ -82,10 +82,13 @@ const Fileseat = () => {
           content="Sometimes we want to share those files that are way above 50mb then our mail service tell us that is not possible to attach, attachment and mails? Fileseat can handle it all for you."
         />
       </Helmet>
-      <div className="h-full min-h-screen p-8 sm:p-10" style={LoginStyles.background}>
+      <div
+        className="h-full min-h-screen p-8 sm:p-10"
+        style={LoginStyles.background}
+      >
         <Navbar />
-        <div className="w-full sm:flex sm:justify-between">
-          <div className="w-full sm:flex-col">
+        <div className="w-full md:flex sm:justify-between">
+          <div className="w-full">
             <div>
               {err ? (
                 <div className="text-red-800 sm:w-1/4 w-full bg-red-100 my-2  py-2 rounded-lg text-center">
@@ -224,8 +227,14 @@ const Fileseat = () => {
             </div>
           </div>
           <div className="w-full my-10 sm:m-auto">
-            <div className="text-white text-center text-4xl font-extrabold">Hello Awesome!</div>
-            <div className="text-white text-center text-2xl">With Fileseat you can share up to 2GB file to your friends.</div>
+            <div>
+              <div className="text-white text-center text-4xl font-extrabold">
+                Hello Awesome!
+              </div>
+              <div className="text-white text-center text-2xl">
+                With Fileseat you can share up to 2GB file to your friends.
+              </div>
+            </div>
           </div>
         </div>
       </div>
