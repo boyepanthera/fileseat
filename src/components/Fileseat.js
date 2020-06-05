@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Formik, Form, Field } from "formik";
-import BackgroundImage from "../assets/images/bg.png";
+import BackgroundImage from "../assets/images/bg.jpg";
 import { Navbar } from "./Navbar";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import { useDropzone } from "react-dropzone";
