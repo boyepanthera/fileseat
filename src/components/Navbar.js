@@ -13,7 +13,7 @@ export const Navbar = () => {
           FS
         </NavLink>
       </div>
-      <div className="mt-3">
+      <div className="">
         <NavLink className="border-gray-600 mr-1" to="/about">
           <button className="text-sm sm:text-base bg-white rounded-l-lg font-bold px-2 py-1  ">
             About
@@ -46,7 +46,7 @@ export const ResetNavbar = () => {
           FS
         </NavLink>
       </div>
-      <div className="mt-3">
+      <div className="">
         <NavLink className="border-gray-600 mr-1" to="/about">
           <button className="test-sm sm:text-base bg-white rounded-l-lg font-bold px-2 py-1  ">
             About
@@ -79,7 +79,7 @@ export const NavbarColor = () => {
           FS
         </NavLink>
       </div>
-      <div className="w-1/2 mt-4">
+      <div className="w-1/2">
         <div className="float-right mr-10">
           <NavLink className="mr-1" to="/about">
             <button className="text-sm sm:text-base bg-white rounded-l-lg font-bold px-2 py-1  ">
@@ -162,7 +162,7 @@ export const RightNavbar = () => (
 );
 
 export const RightLoginNavbar = () => (
-         <div className="float-right mr-10 mt-12">
+         <div className="float-right mr-10 sm:mt-12 mt-0">
            <NavLink className="mr-1" to="/about">
              <button className="text-sm sm:text-base bg-white rounded-l-lg font-bold px-2 py-1  ">
                About
