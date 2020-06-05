@@ -87,8 +87,8 @@ const Fileseat = () => {
         style={LoginStyles.background}
       >
         <Navbar />
-        <div className="w-full md:flex sm:justify-between">
-          <div className="w-full">
+        <div className="w-full flex flex-wrap-reverse">
+          <div className="w-full sm:w-1/2">
             <div>
               {err ? (
                 <div className="text-red-800 sm:w-1/4 w-full bg-red-100 my-2  py-2 rounded-lg text-center">
@@ -226,12 +226,12 @@ const Fileseat = () => {
               </div>
             </div>
           </div>
-          <div className="w-full my-10 sm:m-auto">
-            <div>
+          <div className="w-full sm:w-1/2">
+            <div className="sm:my-40 my-20">
               <div className="text-white text-center text-4xl font-extrabold">
                 Hello Awesome!
               </div>
-              <div className="text-white text-center text-2xl">
+              <div className="text-white text-center text-xl">
                 With Fileseat you can share up to 2GB file to your friends.
               </div>
             </div>
