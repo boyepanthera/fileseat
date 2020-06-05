@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useParams } from 'react-router-dom';
 import {Helmet, HelmetProvider} from 'react-helmet-async';
-import BackgroundImage from "../assets/images/bg.png";
+import BackgroundImage from "../assets/images/bg.jpg";
 // import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import {Navbar} from './Navbar';
