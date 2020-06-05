@@ -1,17 +1,17 @@
 import React from 'react';
-import {NavbarColor} from './Navbar';
+import {NavbarAbout} from './Navbar';
 import {Link} from 'react-router-dom';
 import RepeatDocument from "../assets/images/about-repeat-grid.png";
 import FileSyncIcon from "../assets/images/about-purple-file-sync.svg"
 
 export const About = ()=> {
     return (
-      <div className="min-h-screen h-full bg-gray-200 sm:p-20 p-10">
-        <NavbarColor />
+      <div className="min-h-screen h-full bg-gray-200 sm:p-20 p-5">
+        <NavbarAbout />
         <div className="flex flex-wrap">
-          <div className="w-full sm:w-1/2 px-6 py-40">
+          <div className="w-full sm:w-1/2 sm:px-6 px-2 py-10 sm:py-40">
             <div>
-              <div className="uppercase text-4xl font-extrabold mb-5 text-purple-800">
+              <div className="uppercase text-2xl sm:text-4xl font-extrabold mb-5 text-purple-800">
                 We are new. we are awesome
               </div>
               <div className="text-justify font-semibold mb-10">
@@ -26,7 +26,7 @@ export const About = ()=> {
               </div>
               <div className="my-6">
                 <Link
-                  className="font-light bg-purple-700 hover:bg-purple-500 text-white p-2 w-16 rounded-lg"
+                  className="min-w-16 font-light bg-purple-700 hover:bg-purple-500 text-white p-2 w-16 rounded-lg"
                   to="/team"
                 >
                   Meet the Team
@@ -34,7 +34,7 @@ export const About = ()=> {
               </div>
               <div className="my-6">
                 <Link
-                  className="font-light bg-purple-700 hover:bg-purple-500 text-white w-16 h-5 p-2 rounded-lg"
+                  className="min-w-16 font-light bg-purple-700 hover:bg-purple-500 text-white w-16 h-5 p-2 rounded-lg"
                   text-white
                   to="/donate"
                 >
@@ -43,11 +43,11 @@ export const About = ()=> {
               </div>
             </div>
           </div>
-          <div className="w-full sm:w-1/2">
+          <div className="w-full sm:w-1/2 sm:p-10 px-3 pb-10 pt-0">
             <div className="m-auto">
               <img
                 alt="repeated document"
-                className="z-0 mt-16 mx-auto"
+                className="z-0 mt-16 mx-auto p-10"
                 src={RepeatDocument}
               />
               <img alt="file sync" className="z-10 -mt-48" src={FileSyncIcon} />
