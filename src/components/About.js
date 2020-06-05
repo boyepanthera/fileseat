@@ -9,12 +9,12 @@ export const About = ()=> {
       <div className="min-h-screen h-full bg-gray-200 sm:p-20 p-5">
         <NavbarAbout />
         <div className="flex flex-wrap">
-          <div className="w-full sm:w-1/2 sm:px-6 px-2 py-10 sm:py-40">
+          <div className="w-full sm:w-1/2 sm:px-6 px-2 py-10 sm:py-32">
             <div>
               <div className="uppercase text-2xl sm:text-4xl font-extrabold mb-5 text-purple-800">
                 We are new. we are awesome
               </div>
-              <div className="text-justify font-semibold mb-10">
+              <div className="text-justify font-semibold mb-10 leading-8">
                 Fileseat is a cloud based infrastructure designed to allow you
                 transfer different types of files for free to other users on the
                 internet. Fileseat was built with the simplicity and
@@ -43,7 +43,7 @@ export const About = ()=> {
               </div>
             </div>
           </div>
-          <div className="w-full sm:w-1/2 sm:p-10 px-3 pb-10 pt-0">
+          <div className="w-full sm:w-1/2 sm:px-10 py-0 px-3 sm:pb-10 sm:pt-0">
             <div className="m-auto">
               <img
                 alt="repeated document"
