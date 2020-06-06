@@ -20,7 +20,7 @@ export const Team =()=> {
               </div>
             </div>
           </div>
-          <div className="w-full absolute py-20 bottom-0 inset-x-0 bg-gray-100 py-auto">
+          <div className="w-full  py-20 bottom-0 inset-x-0 bg-gray-100 py-auto rounded rounded-large">
             <div className="flex flex-wrap justify-between ">
               <div className="sm:w-1/3 w-full">
                 <img
@@ -55,7 +55,7 @@ export const Team =()=> {
                   </a>
                 </div>
               </div>
-              <div className="sm:w-1/3 w-full">
+              <div className="sm:w-1/3 my-16 sm:my-0 w-full">
                 <img
                   className="w-48 h-48 rounded rounded-full mx-auto border bg-gray-300  border-5 p-1 border-purple-400"
                   src={BoyePanthera}
