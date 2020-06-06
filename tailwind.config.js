@@ -14,6 +14,9 @@ module.exports = {
             'large': '12px',
             'larger' : '15px'
         },
+        backgroundSize : {
+            '50%': '50%'
+        },
         fontWeight: {
             'hairline': 100,
             'extra-light': 100,
