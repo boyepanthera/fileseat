@@ -10,6 +10,7 @@ import { NotFound } from "./NotFound";
 import { PrivateRoute } from "./Private.route";
 import { Download } from './Download';
 import {About} from './About';
+import {Team} from './Team';
 export const AuthContext = React.createContext();
 
 const initialState = {
@@ -52,6 +53,7 @@ const Home = () => {
             <Route exact path="/auth" component={Login} />
             <Route exact path="/newauth" component={Signup} />
             <Route exact path="/about" component={About} />
+            <Route exact path="/team" component={Team} />
             <PrivateRoute exact path="/user" component={UserDashboard} />
             <PrivateRoute exact path="/admin" component={AdminDashboard} />
             <Route exact path="/forgot" component={Forgot} />
