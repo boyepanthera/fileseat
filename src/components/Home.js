@@ -11,6 +11,7 @@ import { PrivateRoute } from "./Private.route";
 import { Download } from './Download';
 import {About} from './About';
 import {Team} from './Team';
+import {Help} from './Help';
 export const AuthContext = React.createContext();
 
 const initialState = {
@@ -54,6 +55,7 @@ const Home = () => {
             <Route exact path="/newauth" component={Signup} />
             <Route exact path="/about" component={About} />
             <Route exact path="/team" component={Team} />
+            <Route exact path="/help" component={Help} />
             <PrivateRoute exact path="/user" component={UserDashboard} />
             <PrivateRoute exact path="/admin" component={AdminDashboard} />
             <Route exact path="/forgot" component={Forgot} />
