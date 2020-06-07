@@ -36,7 +36,7 @@ export const About = ()=> {
                 <Link
                   className="min-w-16 font-light bg-purple-700 hover:bg-purple-500 text-white w-16 h-5 p-2 rounded-lg"
                   text-white
-                  to="/donate"
+                  to="/help"
                 >
                   Support Fileseat
                 </Link>

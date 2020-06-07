@@ -172,6 +172,41 @@ export const NavbarTeam = () => {
   );
 };
 
+export const NavbarHelp = () => {
+  return (
+    <div className="flex  justify-between inset-0">
+      <div className="inset-0">
+        <NavLink
+          className="text-white font-extrabold tracking-wider text-2xl sm:text-4xl inset-0"
+          to="/"
+        >
+          FS
+        </NavLink>
+      </div>
+      <div className="">
+        <div className="">
+          <NavLink className="mr-1" to="/about">
+            <button className="sm:text-base text-sm bg-white rounded-l-lg font-bold px-2 py-1  ">
+              About
+            </button>
+          </NavLink>
+          <NavLink className="mr-1" to="/newauth">
+            <button className="sm:text-base text-sm bg-white font-bold px-2 py-1">SignUp</button>
+          </NavLink>
+          <NavLink className="mr-1" to="/auth">
+            <button className="sm:text-base text-sm bg-white font-bold px-2 py-1">SignIn</button>
+          </NavLink>
+          <NavLink className="" to="/help">
+            <button className="sm:text-base text-sm bg-white font-bold px-2 py-1 rounded-r-lg ">
+              Help
+            </button>
+          </NavLink>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const RightNavbar = () => (
   <div className="float-right">
     <div className="mr-10">

@@ -77,8 +77,8 @@ export const Signup = () => {
         <title>Sign Up for your Fileseat Account.</title>
         <meta name="description" content="Send files with ease." />
       </Helmet>
-      <div className="h-screen flex flex-wrap">
-        <div className="sm:inline hidden bg-cover m-0 w-full sm:w-1/2" style={SignupStyles.background}>
+      <div className="h-full min-h-screen flex flex-wrap">
+        <div className="sm:inline hidden  m-0  w-full sm:w-1/2" style={SignupStyles.background}>
           <div className="m-10">
             <LeftNavbarWhite />
           </div>
