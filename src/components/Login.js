@@ -90,7 +90,7 @@ const Login = () => {
               onSubmit={handleLogin}
             >
               {({ errors, touched }) => (
-                <Form className="sm:w-2/3 w-full rounded-larger bg-white my-10 py-8 px-8 sm:px-12 sm:py-8 sm:my-20 sm:mx-auto shadow-lg">
+                <Form className="sm:w-4/5 w-full rounded-larger bg-white my-10 py-8 px-8 sm:px-12 sm:py-8 sm:my-20 sm:mx-auto shadow-lg">
                   <h1 className="text-center text-2xl font-bolder mb-4">
                     Welcome Back
                   </h1>
