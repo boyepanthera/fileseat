@@ -27,7 +27,7 @@ export const Help = () => {
           <div className="text-xl sm:text-2xl font-bolder text-white uppercase text-center my-12">
             Make a Donation
           </div>
-          <div className="text-justify w-1/3 mx-auto text-white">
+          <div className="text-justify sm:w-3/5 md:w-1/3 lg:1/4 w-4/5 mx-auto text-white">
             Fileseat team dedicate their time and efforts to make sure there is
             continuous improvement on the platform. The platform is free to use
             but you can support the team with any amount.
@@ -46,7 +46,7 @@ export const Help = () => {
               onsubmit={handleSubmit}
             >
               {() => (
-                <Form className="my-5 w-1/4 mx-auto">
+                <Form className="my-5 sm:w-3/5 md:w-1/3 lg:1/4 w-4/5 mx-auto">
                   <Field
                     name="Name"
                     className="my-2 placeholder-gray-500 font-semibold  placeholder-opacity-100 h-10 bg-gray-400 p-2 w-full rounded-md"
@@ -65,6 +65,12 @@ export const Help = () => {
                     <option value={4000}>4000</option>
                     <option value={5000}>5000</option>
                   </Field>
+                  <button
+                    className="w-full p-2 focus:outline-none rounded rounded-md bg-purple-800 hover:bg-purple-600 font-semibold text-white uppercase"
+                    type="submit"
+                  >
+                    Donate
+                  </button>
                 </Form>
               )}
             </Formik>
