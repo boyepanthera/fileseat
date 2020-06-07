@@ -24,22 +24,17 @@ export const About = ()=> {
                 need to delete the file, Fileseat robots run automated jobs
                 daily to delete files over 7days on the platform.
               </div>
-              <div className="my-6 w-1/2">
-                <Link
-                  className="min-w-16 font-light bg-purple-700 hover:bg-purple-500 text-white p-2 w-16 rounded-lg"
-                  to="/team"
-                >
-                  Meet the Team
-                </Link>
-              </div>
-              <div className="my-6 w-1/2">
-                <Link
-                  className="min-w-16 font-light bg-purple-700 hover:bg-purple-500 text-white w-16 h-5 p-2 rounded-lg"
-                  text-white
-                  to="/help"
-                >
-                  Support Fileseat
-                </Link>
+              <div className="w-1/3">
+                <div className="my-6 w-full bg-purple-700 text-center hover:bg-purple-600 text-white p-2 w-full rounded-lg">
+                  <Link to="/team">
+                    Meet the Team
+                  </Link>
+                </div>
+                <div className="my-6 w-full bg-purple-700 text-center hover:bg-purple-600 text-white p-2 w-full rounded-lg">
+                  <Link to="/help">
+                    Support Fileseat
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

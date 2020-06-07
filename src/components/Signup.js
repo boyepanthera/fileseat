@@ -78,7 +78,7 @@ export const Signup = () => {
         <meta name="description" content="Send files with ease." />
       </Helmet>
       <div className="h-full min-h-screen flex flex-wrap">
-        <div className="sm:inline hidden  m-0  w-full sm:w-1/2" style={SignupStyles.background}>
+        <div className="sm:inline hidden h-screen m-0  w-full sm:w-1/2" style={SignupStyles.background}>
           <div className="m-10">
             <LeftNavbarWhite />
           </div>
