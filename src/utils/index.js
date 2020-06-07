@@ -27,7 +27,7 @@ const styles = buildStyles({
 
 export const Uploading = props => {
   return (
-    <div className="items-center my-8 mx-auto sm:mx-0 sm:max-w-sm rounded-larger bg-white w-full sm:w-2/3 shadow-lg rounded p-8">
+    <div className="items-center my-8 mx-auto sm:mx-0 sm:max-w-sm rounded-larger bg-white w-full sm:w-3/5 shadow-lg rounded p-8">
       <div className="text-3xl text-center font-bold mb-4">FILESEAT</div>
       <div className='flex justify-center'>
         <CircularProgressbar
@@ -50,7 +50,7 @@ export const Uploading = props => {
 };
 
 export const Uploaded = () => (
-  <div className="items-center my-8 mx-auto sm:mx-0 sm:max-w-sm rounded-larger bg-white w-full sm:w-1/4 shadow-lg rounded p-8">
+  <div className="items-center my-8 mx-auto sm:mx-0 sm:max-w-sm rounded-larger bg-white w-full sm:w-3/5 shadow-lg rounded p-8">
     <div className="text-3xl text-center font-bold mb-4">FILESEAT</div>
     <div className="items-center justify-center flex mb-4">
       <img

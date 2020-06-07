@@ -6,7 +6,7 @@ import FileSyncIcon from "../assets/images/about-purple-file-sync.svg"
 
 export const About = ()=> {
     return (
-      <div className="min-h-screen h-full bg-gray-200 sm:p-20 p-5">
+      <div className="min-h-screen h-full bg-gray-200 sm:px-20 sm:py-10  p-5">
         <NavbarAbout />
         <div className="flex flex-wrap">
           <div className="w-full sm:w-1/2 sm:px-6 px-2 py-10 sm:py-32">
@@ -24,7 +24,7 @@ export const About = ()=> {
                 need to delete the file, Fileseat robots run automated jobs
                 daily to delete files over 7days on the platform.
               </div>
-              <div className="my-6">
+              <div className="my-6 w-1/2">
                 <Link
                   className="min-w-16 font-light bg-purple-700 hover:bg-purple-500 text-white p-2 w-16 rounded-lg"
                   to="/team"
@@ -32,7 +32,7 @@ export const About = ()=> {
                   Meet the Team
                 </Link>
               </div>
-              <div className="my-6">
+              <div className="my-6 w-1/2">
                 <Link
                   className="min-w-16 font-light bg-purple-700 hover:bg-purple-500 text-white w-16 h-5 p-2 rounded-lg"
                   text-white
