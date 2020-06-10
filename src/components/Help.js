@@ -1,12 +1,12 @@
 import React from 'react';
 import {NavbarHelp} from './Navbar';
 import Donation from '../assets/images/donation.svg'
-import {Formik, Form, Field} from 'formik';
-import {CountriesSelect} from "../utils/countries";
+// import {Formik, Form, Field} from 'formik';
+// import {CountriesSelect} from "../utils/countries";
 import {v4 as uuid} from 'uuid';
 import dotenv from 'dotenv';
-import axios from 'axios';
-import { Redirect, useHistory } from 'react-router-dom';
+// import axios from 'axios';
+// import { Redirect, useHistory } from 'react-router-dom';
 import {useRavePayment} from 'react-ravepayment';
 dotenv.config();
 
@@ -21,18 +21,18 @@ const styles = {
 
 export const Help = () => {
     // let history = useHistory();
-    const handleSubmit =  async values =>  {
-        let options = {
-          PBFPubKey: process.env.REACT_APP_PBGPubKey,
-          txref: uuid(),
-          customer_email: values.email,
-          customer_phone: "+2349228320494",
-          currency:"NGN",
-          amount :2000,
-          production :false
-        };
-        console.log(options)
-    }
+    // const handleSubmit =  async values =>  {
+    //     let options = {
+    //       PBFPubKey: process.env.REACT_APP_PBGPubKey,
+    //       txref: uuid(),
+    //       customer_email: values.email,
+    //       customer_phone: "+2349228320494",
+    //       currency:"NGN",
+    //       amount :2000,
+    //       production :false
+    //     };
+    //     console.log(options)
+    // }
     let configs = {
       PBFPubKey: process.env.REACT_APP_PBGPubKey,
       txref: uuid(),
@@ -64,50 +64,7 @@ export const Help = () => {
           className="sm:px-20 sm:py-10 p-5 h-64 bg-gray-200"
         >
           <div className="w-full">
-            <Formik
-              initialValues={{
-                country: "",
-                name : "",
-                email :""
-              }}
-              onSubmit={handleSubmit}
-            >
-              {() => (
-                <Form className="my-5 sm:w-3/5 md:w-1/3 lg:1/4 w-4/5 mx-auto">
-                  <Field
-                    name="name"
-                    className="my-2 placeholder-gray-500 font-semibold  placeholder-opacity-100 h-10 bg-gray-400 p-2 w-full rounded-md"
-                    placeholder="Your name on donation"
-                  />
-                  <Field
-                    name="email"
-                    type="email"
-                    className="my-2 placeholder-gray-500 font-semibold  placeholder-opacity-100 h-10 bg-gray-400 p-2 w-full rounded-md"
-                    placeholder="johndonate@fileseat.com"
-                  />
-                  <CountriesSelect />
-                  {/* <Field
-                    className="my-2 placeholder-gray-500 font-semibold  placeholder-opacity-100 h-10 bg-gray-400 p-2 w-full rounded-md"
-                    as="select"
-                    name="amount"
-                  >
-                    <option value={0}>Select amount</option>
-                    <option value={1000}>1000</option>
-                    <option value={2000}>2000</option>
-                    <option value={3000}>3000</option>
-                    <option value={4000}>4000</option>
-                    <option value={5000}>5000</option>
-                  </Field> */}
-                  <button
-                    className="w-full p-2 focus:outline-none rounded rounded-md bg-purple-800 hover:bg-purple-600 font-semibold text-white uppercase"
-                    type="submit"
-                  >
-                    Donate
-                  </button>
-                </Form>
-              )}
-            </Formik>
-            <div className='bg-red-600 font-semibold' onClick={initializePayment()}>
+            <div className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4  p-2 focus:outline-none rounded rounded-md bg-purple-800 hover:bg-purple-600 font-semibold text-white uppercase font-semibold' onClick={initializePayment()}>
               Donate
             </div>
           </div>
