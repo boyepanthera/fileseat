@@ -7,6 +7,7 @@ import {v4 as uuid} from 'uuid';
 import dotenv from 'dotenv';
 import axios from 'axios';
 import { Redirect, useHistory } from 'react-router-dom';
+import {useRavePayment} from 'react-ravepayment';
 dotenv.config();
 
 const styles = {
@@ -19,25 +20,29 @@ const styles = {
 };
 
 export const Help = () => {
-    let history = useHistory();
+    // let history = useHistory();
     const handleSubmit =  async values =>  {
         let options = {
           PBFPubKey: process.env.REACT_APP_PBGPubKey,
           txref: uuid(),
           customer_email: values.email,
-          customer_phone: "+2349028320494",
+          customer_phone: "+2349228320494",
           currency:"NGN",
           amount :2000,
-          redirect_url: 'https://fileseat.com'
+          production :false
         };
-        let flutterURL = `https://api.ravepay.co/flwv3-pug/getpaidx/api/v2/hosted/pay`
         console.log(options)
-        let response = await axios.post(flutterURL, options);
-        let link = response.data.data.link;
-        console.log(link)
-        setTimeout(()=> <Redirect to={`${link}`} /> , 2000)
-        // console.log(response.data);
     }
+    let configs = {
+      PBFPubKey: process.env.REACT_APP_PBGPubKey,
+      txref: uuid(),
+      customer_email: 'try@gma.com',
+      customer_phone: "+2349228320494",
+      currency: "NGN",
+      amount: 2000,
+      production: true,
+    };
+    let { initializePayment } = useRavePayment(configs);
     return (
       <div className="h-full min-h-screen">
         <div
@@ -102,6 +107,9 @@ export const Help = () => {
                 </Form>
               )}
             </Formik>
+            <div className='bg-red-600 font-semibold' onClick={initializePayment()}>
+              Donate
+            </div>
           </div>
           <div>
             <img className="h-64 w-64 mx-auto" src={Donation} alt="Donation" />

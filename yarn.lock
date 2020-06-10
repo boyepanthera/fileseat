@@ -9658,6 +9658,11 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-ravepayment@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/react-ravepayment/-/react-ravepayment-3.0.1.tgz#fe5c7afaeebb423fd461ef9fa7b0de4bc6dc3a94"
+  integrity sha512-2CTru1sgYCyQGa8phYZQkrUh2lYwDO8lJTO4C1XJBGOpgdnznCY6asZLhfzY2bSqfPEvBK69JzDNACppFl0PYA==
+
 react-router-dom@^5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.1.2.tgz#06701b834352f44d37fbb6311f870f84c76b9c18"
