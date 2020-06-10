@@ -222,7 +222,7 @@ export const CountriesSelect = ()=> {
     return <option className="font-semibold text-gray-600" value={country} key = {index}>{country}</option>
     })
     return (
-      <div className=" relative">
+      <div className=" relative mb-2 sm:mb-0">
         <Field
           as="select"
           name="country"

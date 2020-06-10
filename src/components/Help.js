@@ -3,6 +3,11 @@ import {NavbarHelp} from './Navbar';
 import Donation from '../assets/images/donation.svg'
 import {Formik, Form, Field} from 'formik';
 import {CountriesSelect} from "../utils/countries";
+import {v4 as uuid} from 'uuid';
+import dotenv from 'dotenv';
+import axios from 'axios';
+import { Redirect, useHistory } from 'react-router-dom';
+dotenv.config();
 
 const styles = {
   firstElement: {
@@ -14,8 +19,24 @@ const styles = {
 };
 
 export const Help = () => {
-    const handleSubmit = values =>  {
-        console.log(values);
+    let history = useHistory();
+    const handleSubmit =  async values =>  {
+        let options = {
+          PBFPubKey: process.env.REACT_APP_PBGPubKey,
+          txref: uuid(),
+          customer_email: values.email,
+          customer_phone: "+2349028320494",
+          currency:"NGN",
+          amount :2000,
+          redirect_url: 'https://fileseat.com'
+        };
+        let flutterURL = `https://api.ravepay.co/flwv3-pug/getpaidx/api/v2/hosted/pay`
+        console.log(options)
+        let response = await axios.post(flutterURL, options);
+        let link = response.data.data.link;
+        console.log(link)
+        setTimeout(()=> <Redirect to={`${link}`} /> , 2000)
+        // console.log(response.data);
     }
     return (
       <div className="h-full min-h-screen">
@@ -41,19 +62,26 @@ export const Help = () => {
             <Formik
               initialValues={{
                 country: "",
-                amount: 0,
+                name : "",
+                email :""
               }}
-              onsubmit={handleSubmit}
+              onSubmit={handleSubmit}
             >
               {() => (
                 <Form className="my-5 sm:w-3/5 md:w-1/3 lg:1/4 w-4/5 mx-auto">
                   <Field
-                    name="Name"
+                    name="name"
                     className="my-2 placeholder-gray-500 font-semibold  placeholder-opacity-100 h-10 bg-gray-400 p-2 w-full rounded-md"
                     placeholder="Your name on donation"
                   />
-                  <CountriesSelect />
                   <Field
+                    name="email"
+                    type="email"
+                    className="my-2 placeholder-gray-500 font-semibold  placeholder-opacity-100 h-10 bg-gray-400 p-2 w-full rounded-md"
+                    placeholder="johndonate@fileseat.com"
+                  />
+                  <CountriesSelect />
+                  {/* <Field
                     className="my-2 placeholder-gray-500 font-semibold  placeholder-opacity-100 h-10 bg-gray-400 p-2 w-full rounded-md"
                     as="select"
                     name="amount"
@@ -64,7 +92,7 @@ export const Help = () => {
                     <option value={3000}>3000</option>
                     <option value={4000}>4000</option>
                     <option value={5000}>5000</option>
-                  </Field>
+                  </Field> */}
                   <button
                     className="w-full p-2 focus:outline-none rounded rounded-md bg-purple-800 hover:bg-purple-600 font-semibold text-white uppercase"
                     type="submit"
