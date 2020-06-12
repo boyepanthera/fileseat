@@ -20,25 +20,13 @@ const styles = {
 };
 
 export const Help = () => {
-    // let history = useHistory();
-    // const handleSubmit =  async values =>  {
-    //     let options = {
-    //       PBFPubKey: process.env.REACT_APP_PBGPubKey,
-    //       txref: uuid(),
-    //       customer_email: values.email,
-    //       customer_phone: "+2349228320494",
-    //       currency:"NGN",
-    //       amount :2000,
-    //       production :false
-    //     };
-    //     console.log(options)
-    // }
+
     let configs = {
       PBFPubKey: process.env.REACT_APP_PBGPubKey,
       txref: uuid(),
       customer_email: 'try@gma.com',
       customer_phone: "+2349228320494",
-      currency: "NGN",
+      // currency: "NGN",
       amount: 2000,
       production: true,
     };
@@ -64,7 +52,7 @@ export const Help = () => {
           className="sm:px-20 sm:py-10 p-5 h-64 bg-gray-200"
         >
           <div className="w-full">
-            <div className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4  p-2 focus:outline-none rounded rounded-md bg-purple-800 hover:bg-purple-600 font-semibold text-white uppercase font-semibold' onClick={initializePayment()}>
+            <div className='w-full mx-auto text-center sm:w-1/2 md:w-1/3 lg:w-1/4  p-2 focus:outline-none rounded rounded-md bg-purple-800 hover:bg-purple-600 font-semibold text-white uppercase font-semibold' onClick={()=>initializePayment()}>
               Donate
             </div>
           </div>
