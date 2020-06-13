@@ -89,7 +89,7 @@ export const Help = () => {
                               }`}
                             ></i>
                           </div>
-                          <div className="sm:text-lg font-semibold tracking-wide ml-2">
+                          <div className="sm:text-lg text-sm font-semibold tracking-wide ml-2">
                             Donate Once
                           </div>
                         </div>
@@ -118,7 +118,7 @@ export const Help = () => {
                               }`}
                             ></i>
                           </div>
-                          <div className="sm:text-lg  font-semibold tracking-wide ml-2">
+                          <div className="sm:text-lg text-sm  font-semibold tracking-wide ml-2">
                             Donate Monthly
                           </div>
                         </div>
