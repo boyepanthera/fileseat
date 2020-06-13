@@ -219,14 +219,14 @@ const countries = [
 
 export const CountriesSelect = ()=> {
     const MappedCountries = countries.map((country, index)=>{
-    return <option className="font-semibold text-gray-600" value={country} key = {index}>{country}</option>
+    return <option className="font-medium text-gray-600" value={country} key = {index}>{country}</option>
     })
     return (
       <div className=" relative mb-2 sm:mb-0">
         <Field
           as="select"
           name="country"
-          className="block h-10 appearance-none w-full bg-gray-400 font-bold border border-gray-200 text-gray-700 p-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          className="block h-10 appearance-none w-full bg-gray-100 shadow-md font-bold border border-gray-200 text-gray-700 p-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
         >
           {MappedCountries}
         </Field>
