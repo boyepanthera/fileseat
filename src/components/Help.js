@@ -25,6 +25,7 @@ export const Help = () => {
     payment_plan :17748,
     name : '',
     txref: uuid (),
+    redirect_url : 'https://fileseat.com/thanks-for-donating',
     amount:0
   });
   const final = {...opt, payment_plan:currentOption}
