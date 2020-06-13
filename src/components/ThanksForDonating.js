@@ -1,12 +1,12 @@
 import React from 'react';
-import {NavbarColor} from './Navbar'
+import {NavbarAbout} from './Navbar'
 
 export const ThanksForDonating = () => {
     return (
       <div className="min-h-screen h-full sm:py-10 sm:px-20 p-5 bg-gray-200">
-        <NavbarColor />
+        <NavbarAbout />
         <div>
-          <div className="mx-auto h-64 w-64">
+          <div className="mx-auto sm:my-16 mt-16 h-64 w-64">
             <svg
               id="ab914baa-e043-4629-9a8e-c3988d23d2a0"
               data-name="Layer 1"
@@ -14,6 +14,7 @@ export const ThanksForDonating = () => {
               width="500"
               height="400"
               viewBox="0 0 943.07028 710"
+              className="sm:h-64 sm:w-64 h-48 w-48 mx-auto"
             >
               <title>chasing_love</title>
               <path
@@ -273,7 +274,7 @@ export const ThanksForDonating = () => {
               />
             </svg>
           </div>
-          <div className="text-center text-purple-800 text-large sm:text-3xl md:text-4xl lg:text-5xl font-semibold ">Thank you for Donating.</div>
+          <div className="text-center text-purple-800 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold ">Thank you for Donating.</div>
         </div>
       </div>
     );
