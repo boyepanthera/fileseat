@@ -11,8 +11,8 @@ export const ThanksForDonating = () => {
               id="ab914baa-e043-4629-9a8e-c3988d23d2a0"
               data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
-              width="600"
-              height="500"
+              width="500"
+              height="400"
               viewBox="0 0 943.07028 710"
             >
               <title>chasing_love</title>
