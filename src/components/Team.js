@@ -20,11 +20,11 @@ export const Team =()=> {
               </div>
             </div>
           </div>
-          <div className="w-full shadow-lg  py-20 bottom-0 inset-x-0 bg-gray-100 py-auto rounded rounded-large">
+          <div className="w-full shadow-lg  py-20 bottom-0 inset-x-0 bg-gray-100 py-auto rounded-large">
             <div className="flex flex-wrap justify-between ">
               <div className="sm:w-1/3 w-full">
                 <img
-                  className="w-48 h-48 shadow-2xl rounded rounded-full mx-auto border bg-gray-300  border-5 p-1 border-gray-400"
+                  className="w-48 h-48 shadow-2xl  rounded-full mx-auto border bg-gray-300  border-5 p-1 border-gray-400"
                   src={IsaacOrija}
                   alt="Isaac Orija (UI/UX Designer)"
                 />
@@ -57,7 +57,7 @@ export const Team =()=> {
               </div>
               <div className="sm:w-1/3 my-16 pt-16 sm:pt-4 sm:my-0 w-full border border-b-2 border-gray-400 sm:border-0">
                 <img
-                  className="w-48 h-48 shadow-2xl rounded rounded-full mx-auto border bg-gray-300  border-5 p-1 border-gray-400"
+                  className="w-48 h-48 shadow-2xl  rounded-full mx-auto border bg-gray-300  border-5 p-1 border-gray-400"
                   src={BoyePanthera}
                   alt="Olanrewaju A. Olaboye (Fullstack Engineer)"
                 />
@@ -90,7 +90,7 @@ export const Team =()=> {
               </div>
               <div className="sm:w-1/3 w-full">
                 <img
-                  className="w-48 h-48 shadow-2xl rounded rounded-full mx-auto border bg-gray-300  border-5 p-1 border-gray-400"
+                  className="w-48 h-48 shadow-2xl rounded-full mx-auto border bg-gray-300  border-5 p-1 border-gray-400"
                   src={MuyiwaObed}
                   alt="Muyiwa Obed (Graphics Designer)"
                 />
