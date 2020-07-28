@@ -53,7 +53,7 @@ export const UserDashboard = () => {
   useEffect(() => {
     stateDispatch({ type: "FETCH_USER_DETAILS" });
     axios
-      .get(`https://api.fileseat.com/api/v1/users/userdash`, {
+      .get(`https://server.fileseat.com/api/v1/users/userdash`, {
       // .get(`http://localhost:3005/api/v1/users/userdash`, {
         headers: { Authorization: token }
       })

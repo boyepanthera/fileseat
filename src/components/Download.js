@@ -25,7 +25,7 @@ export const Download = () => {
             async ()=> {
                 try {
                     // let res= await Axios.get(`http://localhost:3005/api/v1/files/${downloadID}/details`)
-                    let res= await Axios.get(`https://api.fileseat.com/api/v1/files/${downloadID}/details`)
+                    let res= await Axios.get(`https://server.fileseat.com/api/v1/files/${downloadID}/details`)
                     setSender(res.data.senderEmail);
                     setURL(res.data.url);
                     setDownloadURL(res.data.downloadURL)
