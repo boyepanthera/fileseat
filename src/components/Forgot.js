@@ -13,7 +13,7 @@ export const Forgot = () => {
     const handleSubmit = async (values) => {
         try {
             setLoad(true);
-            let response = await axios.post('https://api.fileseat.com/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
+            let response = await axios.post('https://server.fileseat.com/api/v1/users/resetpassword', values, { headers: { Accept: "application/json" } })
             // console.log(response);
             setSuccess(response.data.message);
             setLoad(false);
@@ -88,7 +88,7 @@ export const Reset = () => {
     const handleSubmit = async (values) => {
         try {
             setLoad(true);
-            let response = await axios.post(`https://api.fileseat.com/api/v1/users/resetpassword/${id}`, values, { headers: { Accept: "application/json" } })
+            let response = await axios.post(`https://server.fileseat.com/api/v1/users/resetpassword/${id}`, values, { headers: { Accept: "application/json" } })
             // console.log(response);
             setSuccess(response.data.message);
             setLoad(false);
@@ -110,7 +110,7 @@ export const Reset = () => {
         () => { 
             (async () => {
             try {
-                let response = await axios.get(`https://api.fileseat.com/api/v1/users/resetpassword/${id}`);
+                let response = await axios.get(`https://server.fileseat.com/api/v1/users/resetpassword/${id}`);
                 // console.log(response);
                 setEmail(response.data.email);
                 setSuccess(response.data.message + '. Fill in your new password');

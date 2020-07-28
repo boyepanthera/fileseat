@@ -53,7 +53,7 @@ const Fileseat = () => {
       //console.log(data.get('receipientEmail'));
       let response = await axios.post(
         // "http://localhost:3005/api/v1/files",
-        "https://api.fileseat.com/api/v1/files",
+        "https://server.fileseat.com/api/v1/files",
         data,
         config
       );
